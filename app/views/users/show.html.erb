@@ -1,0 +1,215 @@
+ <div class="ThongtinDonHang">
+
+    	<div class="container">
+
+    		<div class="row">
+
+				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
+
+					<ul class="breadcrumb">
+
+						<li >
+
+							<span class="ico_arrow"></span>
+
+							<a>Lịch sử mua hàng</a>
+
+						</li>
+
+						<li class="active">
+
+							<span class="ico_arrow"></span>
+
+							<a>Thông tin tài khoản</a>
+
+						</li>
+
+					</ul>
+
+					<div class="infogiohang danhsachdonhang">
+
+            <span>Xin chào / <b><%= current_user.name %>
+					</div>
+
+					
+
+					<p class="title_danhsach">THÔNG TIN TÀI KHOẢN</p>
+
+					<p>Hãy điền thông tin của bạn đầy đủ vào bên dưới. Sau khi hoàn thành nhấn nút “ Xác nhận” ở phía bên dưới.</p>
+
+          <%= form_for :user,url: user_path(current_user), method: 'patch' do |f| %>
+					<div class="div_thongtintk">
+
+            
+						<div class="form-group row">
+
+							<label for="" class="col-md-2 col-sm-3 col-md-offset-1 col-form-label">Họ và Tên<sup class="color">*</sup></label>
+
+							<div class="col-md-6 col-sm-8">
+
+								<%= f.text_field :name, class:"form-control", value: current_user.name %>
+
+							</div>
+
+						</div>
+
+						<div class="form-group row">
+
+							<label for="" class="col-md-2 col-sm-3 col-md-offset-1 col-form-label">Email<sup class="color">*</sup></label>
+
+							<div class="col-md-6 col-sm-8">
+
+								<%= f.text_field :email, class:"form-control", value: current_user.email, disabled: true %>
+
+							</div>
+
+						</div>
+
+						<div class="form-group row">
+
+							<label for="" class="col-md-2 col-sm-3 col-md-offset-1 col-form-label">Địa chỉ<sup class="color">*</sup></label>
+
+							<div class="col-md-6 col-sm-8 col-xs-12">
+
+								<select class="select_city">
+
+									<option>Chọn tỉnh/thành phố</option>
+
+									<option>Hồ Chí Minh</option>
+
+									<option>Hà Nội</option>
+
+								</select>
+
+							</div>
+
+						</div>
+
+						<div class="form-group row">
+
+							<div class="col-md-6 col-sm-8 col-xs-12 col-sm-offset-3">
+
+								<select class="select_quan">
+
+									<option>Chọn quận/huyện</option>
+
+									<option>Quận 1</option>
+
+									<option>Quận 2</option>
+
+									<option>Quận 3</option>
+
+								</select>
+
+							</div>
+
+						</div>
+
+						<div class="form-group row">
+
+							<div class="col-md-6 col-sm-8 col-xs-12 col-sm-offset-3">
+
+								<select class="select_phuong">
+
+									<option>Chọn phường/xã</option>
+
+									<option>Phường 12</option>
+
+									<option>Phường 13</option>
+
+								</select>
+
+							</div>
+
+						</div>
+
+						<div class="form-group row">
+
+							<div class="col-md-6 col-sm-8 col-xs-12 col-sm-offset-3">
+
+								<input type="" class="form-control" id="" placeholder="Số nhà">
+
+							</div>
+
+						</div>
+
+						<div class="form-group row">
+
+							<label for="" class="col-md-2 col-sm-3 col-md-offset-1 col-form-label">Số điện thoại<sup class="color">*</sup></label>
+
+							<div class="col-md-6 col-sm-8">
+
+                <%= f.number_field :phone_number, class:"form-control", value: current_user.phone_number %>
+
+							</div>
+
+						</div>
+
+						<div class="form-group row">
+
+							<label for="" class="col-md-2 col-sm-3 col-md-offset-1 col-form-label">Mật khẩu</label>
+
+							<div class="col-md-6 col-sm-8">
+
+								<%= f.password_field :password, class:"form-control", placeholder:"Mật khẩu hiện tại", disabled: true %>
+
+							</div>
+
+						</div>
+
+						<div class="form-group row">
+
+							<div class="col-md-6 col-sm-8  col-md-offset-3 col-sm-offset-3">
+
+								<%= f.password_field :password, class:"form-control", placeholder:"Mật khẩu mới", disabled: true %>
+
+							</div>
+
+						</div>
+
+						<div class="form-group row">
+
+							<div class="col-md-6 col-sm-8  col-md-offset-3 col-sm-offset-3">
+
+								<%= f.password_field :password_confirmation, class:"form-control", placeholder:"Nhập lại mật khẩu mới", disabled: true %>
+
+							</div>
+
+						</div>
+
+						<div class="form-group row matkhau">
+
+							<div class="col-sm-8 col-xs-12 col-sm-offset-3 styled-input-single item" data-toggle="collapse" data-target="#collapseOne" aria-controls="collapseOne">
+
+								<%= f.check_box :isChangePassword, id:"option-1" %>
+
+								<label for="option-1"><span>Thay đổi mật khẩu</span></label>
+
+							</div>
+
+
+
+						</div>
+
+						<div class="form-group row xacnhan_btn">
+
+							<div class="col-sm-6  col-sm-offset-3">
+
+								<div class="row_btn"><%= f.submit "Xác nhận",class:"btn btn-primary btn_big right" %></div>
+
+							</div>
+
+						</div>
+
+          </div>
+        <% end %>
+
+				</div>
+
+			</div>
+
+		</div>
+
+    </div>
+
+    <!--Gio hang End-->

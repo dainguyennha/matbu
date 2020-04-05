@@ -1,0 +1,492 @@
+<div class="HeaderPage">
+
+        <!--Header-->
+        <div class="Header_hotline">
+        	<div class="container">
+				<div class="row">
+					<div class="col-lg-12 col-md-12 col-sm-12">
+						<div class="left">
+							<ul class="contact">
+								<li>
+									<span class="icon_email"></span>
+									<span class="text_email">Email: matbu@gmail.com</span> 
+								</li>
+								<li>
+									<span class="icon_hotline"></span>
+									<span class="text_hotline">028 6656 3365</span>
+								</li>
+							</ul>
+						</div>
+						<div class="right">
+							<ul class="account">
+								<li class="">
+                  <% if logged_in? %>
+                    <%= link_to user_path(current_user) do %>
+                      <span class="icon_account"></span>
+                    <% end %>
+                    <%= link_to "Đăng xuất", auth_session_path(current_user), method: 'delete', class: "text_account"  %> 
+                  <% else %>
+									<a class="text_account" data-toggle="modal" data-target="#dangky">Đăng ký</a><!--update 31/7-->
+									<span class="text_account">|</span>
+									<a class="text_account" data-toggle="modal" data-target="#dangnhap">Đăng nhập</a><!--update 31/7-->
+                  
+                <% end %>
+								</li>
+								<li class="accountlogin ico_avatar hidden">
+									<span class="text">Yuna</span>
+									<span>
+										<img src="images/demo/yuna.png" alt="" /> 
+									</span>
+									<span class="icon_down"></span>
+									<div class="div_login_signup">
+									  <span class="name">Yuna</span>
+									  <hr/>
+									  <!--Đã login-->
+									  <ul>
+										  <li class=""><a href="#">Thông tin tài khoản</a></li>
+										  <li class=""><a href="#">Giỏ hàng</a></li>
+										  <li class=""><a href="#">Lịch sử mua hàng</a></li>
+										  <li class=""><a href="#">Thoát</a></li>
+									  </ul>
+									  <!--Đã login end-->
+								  </div>
+								</li>
+							</ul>
+						</div>
+					</div>
+       			</div>
+       		</div>
+        </div>
+        <div class="HeaderContent ">
+        	<div class="container">
+            	<div class="row">
+                	<div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
+                    <a class="logo"><%= image_tag "logo.svg", alt: "logo" %></a> 
+                    </div>
+                    <div class="col-lg-10 col-md-10 col-sm-10">
+                    	<!--<div class="collapse navbar-collapse" id="navbar"> 
+						  <ul class="nav navbar-nav">
+							<li class="active"><a href="#">TRANG CHỦ</a></li>
+
+							<li class="cate">
+								<a href="#">SẢN PHẨM</a>
+								<i class=" Shows-xs hidden-sm-down material-icons show_menu"></i>
+								<div class="cate_child">
+								<ul class="cate_ul">
+									<li>
+										<a><span>Rau sạch dfgg dfg dfg dfgdfgdf gdfg</span><i class="material-icons"></i></a>
+										<div class="cate_child_child ">
+											<ul class="cate_ul_ul">
+												<li><a><span>Rau sạch</span></a></li>
+												<li><a><span>Bún bò gdfgdf gdf gdfgdfg dfg dfgdfg df</span></a></li>
+												<li><a><span>Nước lau sàn</span></a></li>
+												<li><a><span>Nước rửa chén</span></a></li>
+												<li><a><span>Nước rửa tay</span></a></li>
+												<li><a><span>Nước lau kính</span></a></li>
+												<li><a><span>Dưỡng nail</span></a></li>
+											</ul>
+										</div>
+									</li>
+									<li>
+										<a><span>Bún bò</span><i class="material-icons"></i></a>
+										<div class="cate_child_child">
+											<ul class="cate_ul_ul">
+												<li><a><span>Rau sạch 1</span></a></li>
+												<li><a><span>Bún bò 1</span></a></li>
+												<li><a><span>Nước lau sàn 1</span></a></li>
+
+											</ul>
+										</div>
+									</li>
+									<li>
+										<a><span>Nước lau sàn</span><i class="material-icons"></i></a>
+										<div class="cate_child_child">
+											<ul class="cate_ul_ul">
+												<li><a><span>Rau sạch 2</span></a></li>
+												<li><a><span>Bún bò 2</span></a></li>
+												<li><a><span>Nước lau sàn 2</span></a></li>
+												<li><a><span>Nước rửa chén 2</span></a></li>
+
+											</ul>
+										</div>
+									</li>
+									<li><a><span>Nước rửa chén</span><i class="material-icons"></i></a></li>
+									<li><a><span>Nước rửa tay</span><i class="material-icons"></i></a></li>
+									<li><a><span>Nước lau kính</span><i class="material-icons"></i></a></li>
+									<li><a><span>Dưỡng nail</span><i class="material-icons"></i></a></li>
+								</ul>
+							</div>
+
+							</li>
+
+							<li><a href="#">TIN TỨC</a></li>
+							<li><a class="btn btn_primary" data-toggle="modal" data-target=".bs-promo-modal-lg">GIỚI THIỆU</a></li>
+
+							<li><a href="#">LIÊN HỆ</a></li>
+
+						  </ul>
+
+						</div>-->
+                
+                
+                    	<div class="group_link_header ">
+                    		<!--<div class="div_search_pos">
+					  			<div class="div_search">
+									<span class="ico_search show_search"></span>
+									<span class="search_text">Tìm kiếm</span>
+									<span class="div_input_search">
+										<input class="input" placeholder="Tìm kiếm">
+										<span class="btn btn-primary ico_search act btn_search"></span>
+										<span class="close_search">
+
+										</span>
+										<ul>
+											<li>
+												<a>
+													<img class="left" src="../images/demo/item4.jpg" width="56" />
+													<span class="title left">Kêm đặc trị <b>Chăm sóc da</b> cao cấp Milky dress</span>
+													<span class="div_price left">Giá: <b class="price">1.700.000đ</b></span>
+												</a>
+											</li>
+											<li>
+												<a>
+													<img class="left" src="../images/demo/item4.jpg" width="56" />
+													<span class="title left">Kêm đặc trị <b>Chăm sóc da</b> cao cấp Milky dress</span>
+													<span class="div_price left">Giá: <b class="price">1.700.000đ</b></span>
+												</a>
+											</li>
+											<li>
+												<a>
+													<img class="left" src="../images/demo/item4.jpg" width="56" />
+													<span class="title left">Kêm đặc trị <b>Chăm sóc da</b> cao cấp Milky dress</span>
+													<span class="div_price left">Giá: <b class="price">1.700.000đ</b></span>
+												</a>
+											</li>
+										</ul>
+									</span>
+								  </div>
+							  </div>-->
+							<!--<div class="div_login ">
+							  <span class="ico_avatar">
+							  	<span class="ico" style="background-image: url(images/avatar.png);"></span>
+								<span class="name">Phuoc Tran Phuoc Tran Phuoc Tran</span>
+							  </span>
+							  <div class="div_login_signup">
+				  	  	  	  	  
+					  	  	  	  <div class="padd">
+						  	  	  	<a class="btn btn-black">Đăng nhập</a>
+						  	  	  	<p><span>Bạn chưa có tài khoản</span> <a href="#" class="text_color">Đăng ký</a></p>
+						  	  	  	<hr>
+						  	  	  	<a class="btn_face"><span class="login_fa"></span>Log in with Facebook</a>
+						  	  	  	<a class="btn_google"><span class="login_go"></span>Log in with Google</a>
+						  	  	  </div>
+						  	  	 
+								  <ul>
+									  <li class=""><a href="#">Tài khoản cá nhân</a></li>
+									  <li class=""><a href="#">Giỏ hàng của bạn</a></li>
+									  <li class=""><a href="#">Trạng thái đơn hàng</a></li>
+									  <li class=""><a href="#">Lịch sử đơn hàng</a></li>
+									  <hr>
+									  <li class=""><a href="#">Đăng xuât</a></li>
+								  </ul>
+								  
+							  </div>
+							</div>-->
+							<div class="div_search hidden-xs-down">
+								<input type="search" placeholder="Tim kiem" />	
+								<span class="icon_search"></span>
+							</div>
+							<div class="div_cart div_tracuu">
+								<p class="cart">
+									<span class="ico_tracuu"></span>
+									<span class="text">Theo dõi giỏ hàng</span>
+								</p>
+							</div>
+							<div class="div_cart">
+								<p class="cart btn_popup_cart">
+									<span class="ico_cart"><span class="number">3</span></span>
+									<span class="text">Giỏ hàng</span>
+								</p>
+								<div class="div_cart_gr">
+									<h5 class="title">Giỏ hàng có 3 sản phẩm</h5>
+									<hr/>
+									<div class="div_listcart mCustomScrollbar" id="_listcart" data-mcs-theme="dark"> 
+										<div class="listcart_item">
+											<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+												<img alt="" src="images/demo/item1.png"/>
+											</div>
+											<div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+												<p class="name">Kem Đặc Trị Chống Lão Hóa 
+																Cao Cấp Milky Dress Kem Đặc Trị Chống Lão Hóa 
+																Cao Cấp Milky Dress</p>
+												<p>Giá: <b>70.000đ</b></p>
+												<label>
+													<span>Số Lượng:</span>
+													<select>
+														<option>1</option>
+														<option>2</option>
+													</select>
+												</label>
+												
+											</div>
+											<div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
+												<div class="remove_item">
+													<i class="material-icons">&#xE5CD;</i>
+												</div>
+											</div>
+										</div>
+										<div class="listcart_item">
+											<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+												<img alt="" src="images/demo/item2.png"/>
+											</div>
+											<div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+												<p class="name">Kem Đặc Trị Chống Lão Hóa 
+	Cao Cấp Milky Dress</p>
+												<p>Giá: <b>70.000đ</b></p>
+												<label>
+													<span>Số Lượng:</span>
+													<select>
+														<option>1</option>
+														<option>2</option>
+													</select>
+												</label>
+											</div>
+											<div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
+												<div class="remove_item">
+													<i class="material-icons">&#xE5CD;</i>
+												</div>
+											</div>
+										</div>
+										<div class="listcart_item">
+											<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+												<img alt="" src="images/demo/item1.png">
+											</div>
+											<div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+												<p class="name">Kem Đặc Trị Chống Lão Hóa 
+	Cao Cấp Milky Dress </p>
+												<p>Giá: <b>70.000đ</b></p>
+												<label>
+													<span>Số Lượng:</span>
+													<select>
+														<option>1</option>
+														<option>2</option>
+													</select>
+												</label>
+											</div>
+											<div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
+												<div class="remove_item">
+													<i class="material-icons">&#xE5CD;</i>
+												</div>
+											</div>
+										</div>
+									</div>
+									<hr/>
+									<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+										<p class="text-total text-left">Tổng cộng</p>
+									</div>
+									<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+										<p class="text-total text-right"><b>70.000đ</b></p>
+									</div>
+									<div class="div_group_btn">
+										<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+											<a class="btn btn-info">Xem giỏ hàng</a>
+										</div>
+										<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+											<a class="btn btn-primary right">thanh toán</a>  
+										</div>
+									</div>
+									
+									<div class="div_group_btn">
+										<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
+											<a class="btn btn-primary">Tiếp tục mua hàng</a>  
+										</div>
+
+									</div>
+								</div>
+							</div>
+						</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+	 	<!--Navigation-->
+        <div class="HeaderNav">
+        	<div class="container">
+            	<div class="navbar-header">
+                  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span> 
+                    <span class="icon-bar"></span>
+                  </button>
+                </div>
+                <!--Navigation-->
+                <div class="div_search_pos Shows-xs">
+					<div class="div_search">
+						<span class="ico_search show_search"></span>
+						<span class="search_text">Tìm kiếm</span>
+						<span class="div_input_search">
+							<input class="input" placeholder="Tìm kiếm">
+							<span class="btn btn-primary ico_search act btn_search"></span>
+							<span class="close_search">
+
+							</span>
+							
+						</span>
+					  </div>
+				  </div>
+            </div>
+        </div>
+        <!--Navigation End-->
+		<div class="HeaderContent headermenu">
+        	<div class="container">
+            	<div class="row">
+                	<div class="col-lg-2 col-md-0 col-sm-0 col-xs-0">
+                    	
+                    </div>
+                    <div class="col-lg-10 col-md-12 col-sm-12">
+                    	<div class="collapse navbar-collapse" id="navbar"> 
+						  <ul class="nav navbar-nav">
+							<li class="cate active">
+								<a href="#">
+									<span class="ico_ao"></span>
+									<span class="text_cate">Áo</span>
+								</a>
+								<div class="cate_child">
+									<div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
+										<h2>Áo</h2>
+										<hr/>
+										<ul>
+											<li><a>Áo thun</a></li>
+											<li><a>Áo sơmi</a></li>
+											<li><a>Áo len</a></li>
+											<li><a>Áo khoác</a></li>
+										</ul>
+									</div>
+									<div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
+										<h2>Phụ kiện</h2>
+										<hr/>
+										<ul>
+											<li><a>Dây nịt</a></li>
+											<li><a>Nón</a></li>
+											<li><a>Set Bộ - Set Kết Hợp</a></li>
+										</ul>
+									</div>
+									<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+										<span class="new_title">SẢN PHẨM MỚI HÔM NAY</span>
+										<div class="bg_sp_new">
+											<a><img alt="" src="images/demo/img_menu.png" /> </a>
+											<a class="bg_text">
+												<p class="text text-center">Bird of paradise medium top bag TXT131 - Shades of love</p>
+												<p class="price text-center">750,000đ</p>
+											</a>
+										</div>
+									</div>
+								</div>
+							</li>
+							<li class="cate">
+								<a href="#">
+									<span class="ico_vay"></span>
+									<span class="text_cate">Váy </span>
+								</a>
+								<div class="cate_child">
+									<div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
+										<h2>Váy</h2>
+										<hr/>
+										<ul>
+											<li><a>Áo thun</a></li>
+											<li><a>Áo sơmi</a></li>
+											<li><a>Áo len</a></li>
+											<li><a>Áo khoác</a></li>
+										</ul>
+									</div>
+									<div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
+										<h2>Phụ kiện</h2>
+										<hr/>
+										<ul>
+											<li><a>Dây nịt</a></li>
+											<li><a>Nón</a></li>
+											<li><a>Set Bộ - Set Kết Hợp</a></li>
+										</ul>
+									</div>
+									<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+										<span class="new_title">SẢN PHẨM MỚI HÔM NAY</span>
+										<div class="bg_sp_new">
+											<a><img alt="" src="images/demo/img_menu.png" /> </a>
+											<a class="bg_text">
+												<p class="text text-center">Bird of paradise medium top bag TXT131 - Shades of love</p>
+												<p class="price text-center">750,000đ</p>
+											</a>
+										</div>
+									</div>
+								</div>
+							</li>
+							<li class="cate">
+								<a href="#">
+									<span class="ico_dam"></span>
+									<span class="text_cate">Đầm</span>
+								</a>
+							</li>
+							<li class="cate">
+								<a href="#">
+									<span class="ico_tuixach"></span>
+									<span class="text_cate">Bóp</span>
+								</a>
+							</li>
+							<li class="cate">
+								<a href="#">
+									<span class="ico_giay"></span>
+									<span class="text_cate">Giày</span>
+								</a>
+								<div class="cate_child">
+									<div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
+										<h2>Giày</h2>
+										<hr/>
+										<ul>
+											<li><a>Áo thun</a></li>
+											<li><a>Áo sơmi</a></li>
+											<li><a>Áo len</a></li>
+											<li><a>Áo khoác</a></li>
+										</ul>
+									</div>
+									<div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
+										<h2>Phụ kiện</h2>
+										<hr/>
+										<ul>
+											<li><a>Dây nịt</a></li>
+											<li><a>Nón</a></li>
+											<li><a>Set Bộ - Set Kết Hợp</a></li>
+										</ul>
+									</div>
+									<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+										<span class="new_title">SẢN PHẨM MỚI HÔM NAY</span>
+										<div class="bg_sp_new">
+											<a><img alt="" src="images/demo/img_menu.png" /> </a>
+											<a class="bg_text">
+												<p class="text text-center">Bird of paradise medium top bag TXT131 - Shades of love</p>
+												<p class="price text-center">750,000đ</p>
+											</a>
+										</div>
+									</div>
+								</div>
+							</li>
+							<li class="cate">
+								<a href="#">
+									<span class="ico_km"></span>
+									<span class="text_cate">Khuyến mãi</span>
+								</a>
+							</li>
+							<li class="cate">
+								<a href="#">
+									<span class="ico_tintuc"></span>
+									<span class="text_cate">Tin tức thời trang</span>
+								</a>
+							</li>
+						  </ul>
+						</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Header End-->
+</div>

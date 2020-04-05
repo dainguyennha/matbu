@@ -1,0 +1,134 @@
+.ThongtinDonHang{margin-top: 64px;
+	.infogiohang{font-size: 16px;color: #383535;background-color: #eef0f4;padding: 16px 20px;margin-bottom: 48px;
+		.color{color: #eb3d32;margin-top: 0;}
+	}
+	.danhsachdonhang{margin-bottom: 36px;}
+	.div_bg{width: 178px;height: 140px;position: relative;display: block;overflow: hidden;
+		img{position: absolute;margin: 0 auto;top: -50%;margin-top: 30px;left: 0;}
+	}
+	.name{margin-top: 16px;font-size: 18px;}
+	.gr_input{float: left}
+	.price{font-size: 18px;line-height: 35px;text-align: right;}
+	.delete{float: left;width: 54px;height: 35px;border: 1px solid #cdcdcd;font-size: 16px;display: inline-block;text-align: center;line-height: 35px;cursor: pointer;}
+	.row_count{margin-top: 4px;}
+	.row_item{display: block;margin-bottom: 20px;}
+	.title_giohang{margin-bottom: 32px;
+		b{font-size: 18px;display: inline-block;margin-right: 8px;line-height:34px;vertical-align: bottom;}
+		b.color{color: #eb3d32;font-size: 24px;margin-top: 0;}
+		
+	}
+	.row_btn{margin-bottom: 20px;
+		.btn{width: 100%;}
+		.btn.right{width: auto;}
+	}
+	.link_buy{font-size: 16px;text-align: center;color: #eb3d32;text-align: center;margin: 0 auto;display: block;text-decoration: underline;}
+	.title{font-weight: bold;font-size: 24px;margin-bottom: 16px;}
+	.card{padding-left: 32px;padding-right: 16px;}
+	.method_payment{margin-top: 48px;}
+	.all-price{
+		.color{font-size: 24px;color: #eb3d32;margin-top: 0;}
+	}
+	.title-big{line-height: 34px;font-size: 18px;}
+	.text{font-size: 18px;margin-bottom: 16px;}
+	.box_contact{border:1px solid #eb3d32;padding: 32px 56px;font-size: 18px;color: #eb3d32;font-weight: 500;text-align: center;margin-top: 24px;}
+	.title_danhsach{font-size: 24px;font-weight: bold;text-transform: uppercase;margin-top: 24px;margin-bottom: 0px;}
+	.info_danhsach{
+		.color{margin-top: 0;color: #f24e43}
+	}
+	.table_danhsach{width: 100%;border-top:1px solid #cdcdcd;
+		th{background-color: #eef0f4;text-align: center;padding: 16px;font-size: 16px;border-left: 1px solid #cdcdcd;border-bottom: 1px solid #cdcdcd}
+		th:first-child{border-left: 1px solid #cdcdcd;}
+		th:last-child{border-right: 1px solid #cdcdcd;}
+		td{text-align: center;padding: 16px;font-size: 16px;border-left: 1px solid #cdcdcd;border-bottom: 1px solid #cdcdcd;}
+		td:last-child{border-right: 1px solid #cdcdcd;}
+	}
+	.col-form-label{line-height: 50px;font-size: 18px;font-weight: bold;
+		.color{color: #eb3d32;}
+	}
+	.div_thongtintk{margin-top: 32px;}
+	.matkhau{
+		.styled-input-single label:before{left: 15px;border-radius: 0;}
+		.styled-input-single label:after{left: 17px;border-radius: 0;}
+		.styled-input-single label{padding: 0;border: none;}
+	}
+}
+.breadcrumb{background-color: transparent;
+	li{margin-right: 42px;
+		.ico_arrow{background-repeat: no-repeat;background-image: url(../images/Forma1.png);background-image: -webkit-image-set(url(../images/Forma1.png) 1x, url(../images/Forma1@2x.png) 2x, url(../images/Forma1@3x.png) 3x);width: 19px;height: 19px;display: inline-block;background-size: cover;cursor: pointer;}
+	}
+	li.active{
+		.ico_arrow{background-repeat: no-repeat;background-image: url(../images/Forma1-1.png);background-image: -webkit-image-set(url(../images/Forma1-1.png) 1x, url(../images/Forma1-1@2x.png) 2x, url(../images/Forma1-1@3x.png) 3x);width: 19px;height: 19px;display: inline-block;background-size: cover;cursor: pointer;}
+		span,a{color: #eb3d32;}
+	}
+}
+.breadcrumb > li + li:before {display: none;}
+
+@media (max-width: 1024px){
+	.ThongtinDonHang {margin-top: 24px;
+		.infogiohang{margin-bottom: 24px;}
+		.delete{float: right;}
+		.title_giohang{margin-top: 48px;}
+		.method_payment{margin-top: 24px;
+			.item{padding-bottom: 0;}
+		}
+		.matkhau{
+			.item{padding-bottom: 9px;}
+		}
+	}
+}
+@media (max-width: 992px){
+	
+}
+@media (max-width: 768px){
+	.ThongtinDonHang {
+		.name{margin-top: 0;}
+	}
+}
+@media (max-width: 767px){
+	
+}
+@media (max-width: 475px){
+	.breadcrumb li{margin-right: 24px;}
+	.ThongtinDonHang {
+		.row_item{border-bottom: 1px solid #efefef;padding-bottom: 16px;}
+		.row_item:last-child{border-bottom: none;}
+		.div_bg{width: 100%;height: inherit;overflow: inherit;
+			img{top:0;position: relative;margin-top: 0;}
+		}
+		.title_giohang{text-align: center;margin-top: 24px;
+    border-top: 1px solid #cdcdcd;
+    padding-top: 24px;}
+		.gr_input{width: 100%;min-width: 75px;display: block;}
+		.infogiohang{padding: 8px 16px;}
+		.div_sdt{margin-bottom: 16px;}
+		.method_payment{
+			.item{padding-left: 40px;padding-top: 0;margin-bottom: 16px;}
+		}
+		.row_item_noedit{border-bottom: none;}
+		.btn_use{width: 100%;margin-top: 0;min-width: inherit;}
+		.box_contact{padding: 16px;font-size: 16px;}
+		.table_danhsach{display: block;overflow-y: auto;
+			th,td{font-size: 14px;padding: 8px 8px}
+		}
+	}
+	.select2-container{margin-bottom: 16px;}
+	.styled-input-single label{font-size: 16px;padding: 8px 16px;}
+	.xacnhan_btn{
+		.btn_big{width: 100% !important;}
+	}
+	
+}
+
+@media (max-width: 414px){
+
+
+}
+@media (max-width: 375px){
+	.ThongtinDonHang {
+		.price{font-size: 14px;}
+	}
+	
+}
+@media (max-width: 320px){
+	
+}

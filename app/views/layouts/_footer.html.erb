@@ -1,0 +1,121 @@
+    <!--Footer-->
+	<div id="footer" class="footer">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-4 col-md-12 col-sm-12">
+					<a class="logo_footer"><img alt="" src="images/logo.svg" width="160"></a> 
+					<hr/>
+					<p>Thông tin liên hệ</p>
+					<p><span class="f_ico_hotline"></span>Hotline: 0917 878 739</p>
+					<p><span class="f_ico_email"></span>Email: matbu@gmail.com</p>
+					<p><span class="f_ico_location"></span>Địa chỉ: 73 Cộng Hòa, Phường 4, Quận Tân Bình, TP.HCM </p>
+				</div>
+				<div class="col-lg-1 col-md-0 col-sm-0 group_link">
+					
+
+				</div>
+				<div class="col-lg-3 col-md-6 col-sm-5 col-xs-12 group_link"> 
+					<p class="title_small">HỖ TRỢ</p>
+					<p><a class="link"> Hướng dẫn mua hàng </a></p>
+					<p><a class="link"> Tin tức khuyến mãi </a></p>
+					<p><a class="link"> Góp ý khiếu nại </a></p>
+					<p><a class="link"> Các thông tin khác </a></p>
+				</div>
+				<div class="col-lg-4 col-md-6 col-sm-7 col-xs-12 group_link">   
+					<p class="title_small">ĐĂNG KÝ NHẬN THÔNG TIN</p>
+					<p><a>Bạn muốn nhận thông tin từ matbu shop. hoặc liên hệ  với chăm sóc khách hàng.</a></p>
+					<div class="dk">
+						<input type="text" placeholder="Nhập email của bạn">
+						<button class="btn btn-primary btn_send ">Gửi</button>
+					</div>
+					<ul class="ul_social left">
+						<li><a class="icon_social ico1"></a></li>
+						<li><a class="icon_social ico2"></a></li>
+						<li><a class="icon_social ico3"></a></li>
+						<li><a class="icon_social ico4"></a></li>
+					</ul>
+				</div>
+				
+			</div>
+		</div>	
+	</div>
+    <!--Footer End-->  
+    <!--Footer icon-->
+    <div class="footer_icon">
+    	<div class="container">
+    		<div class="row">
+				<div class="col-lg-12 col-md-12 col-sm-12">
+					<span class="copy">Copyright @ FD DESIGN 2018. </span>
+					<ul class="ul_payment right">
+						<li><a class="icon_pay pay1"></a></li>
+						<li><a class="icon_pay pay2"></a></li>
+					
+					</ul>
+				</div>
+			</div>
+		</div>
+    </div>
+    <!--Footer icon End-->     
+    <a class="btn-top" href="javascript:void(0);" title="Top" style="display: inline;"></a> 
+</body>
+
+<div class="modal  bs-promo-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+  <div class="modal-dialog modal-promo" role="document"> 
+   	
+    <div class="modal-content">
+    	<button type="button" class="close" data-dismiss="modal" aria-label="Close"><i class="material-icons">&#xE5CD;</i></button>
+    	<img alt="" src="images/demo/popup-khuyen-mai.png" height="392">
+    </div>
+  </div>
+</div>
+
+<div class="modal bs-promo-modal-lg" id="dangnhap" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog modal-account" role="document">
+    <div class="modal-content modal-input">
+    	<button type="button" class="close" data-dismiss="modal" aria-label="Close"><i class="material-icons">&#xE5CD;</i></button>
+    	<span class="title">ĐĂNG NHẬP</span>
+      <%= form_for :session, remote: true, url: auth_sessions_path() do |f| %>
+        <div class="form_line">
+		    <%= f.text_field :email, class: "input", placeholder: "Nhập email hoặc số điện thoại"%>
+		
+        <%= f.password_field :password, class: "input", placeholder: "Mật khẩu" %>
+        <%= f.submit "Đăng nhập", class: "btn btn-primary btn_big btn-dangnhap" %>
+
+        <div class="error error-login"></div>
+        </div>
+		  <% end %>
+   		<p class="text-center">Bạn chưa có tài khoản?</p>
+   		<p class="text-center"><a class="link" data-toggle="modal" data-target="#dangky" data-dismiss="modal">Đăng ký ngay</a></p><!--update 31/7-->
+    </div>
+  </div>
+</div>
+
+<div class="modal bs-promo-modal-lg" id="dangky" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog modal-account" role="document">
+    <div class="modal-content modal-input">
+    	<button type="button" class="close" data-dismiss="modal" aria-label="Close"><i class="material-icons">&#xE5CD;</i></button>
+    	<span class="title">ĐĂNG KÝ</span>
+        <%= form_for :user, remote: true, url: auth_signups_path() do |f| %>
+    <div class="form_line">
+    <%= f.text_field :name, placeholder: "Họ và tên" %>
+    <div class="name-error error">
+    </div>
+    <%= f.text_field :email, placeholder: "Email" %>
+    <div class="email-error error"></div>
+    <%= f.text_field :phone_number, placeholder: "Số điện thoại" %>
+    <div class="phone-number-error error"></div>
+    <%= f.password_field :password, placeholder: "Mật khẩu" %>
+    <div class="password-error error"></div>
+    <%= f.password_field :password_confirmation, placeholder: "Nhập lại mật khẩu" %>
+    <div class="confirm-password-error error"></div>
+    <%= f.submit "Tạo tài khoản", class: "btn btn-primary btn_big btn-dangnhap" %>
+    <div>
+  <% end %>
+   
+   		<br/><br/>
+   		<p class="text-center">Bạn đã có tài khoản?</p>
+   		<p class="text-center"><a class="link close_dk" data-toggle="modal" data-target="#dangnhap" data-dismiss="modal">Đăng nhập</a></p><!--update 31/7-->
+	
+    </div>
+  </div>
+</div>
