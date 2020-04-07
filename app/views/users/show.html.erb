@@ -37,7 +37,7 @@
 
 					<p>Hãy điền thông tin của bạn đầy đủ vào bên dưới. Sau khi hoàn thành nhấn nút “ Xác nhận” ở phía bên dưới.</p>
 
-          <%= form_for :user,url: user_path(current_user), method: 'patch' do |f| %>
+          <%= form_for :user,url: user_path(current_user), method: 'patch', remote: true do |f| %>
 					<div class="div_thongtintk">
 
             
@@ -48,6 +48,7 @@
 							<div class="col-md-6 col-sm-8">
 
 								<%= f.text_field :name, class:"form-control", value: current_user.name %>
+                <div class="name-error error"></div>
 
 							</div>
 
@@ -140,6 +141,7 @@
 							<div class="col-md-6 col-sm-8">
 
                 <%= f.number_field :phone_number, class:"form-control", value: current_user.phone_number %>
+                <div class="phone-number-error error"></div>
 
 							</div>
 
@@ -151,7 +153,8 @@
 
 							<div class="col-md-6 col-sm-8">
 
-								<%= f.password_field :password, class:"form-control", placeholder:"Mật khẩu hiện tại", disabled: true %>
+								<%= f.password_field :current_password, class:"form-control change-password", placeholder:"Mật khẩu hiện tại", disabled: true %>
+                <div class="current-password-error error"></div>
 
 							</div>
 
@@ -161,7 +164,8 @@
 
 							<div class="col-md-6 col-sm-8  col-md-offset-3 col-sm-offset-3">
 
-								<%= f.password_field :password, class:"form-control", placeholder:"Mật khẩu mới", disabled: true %>
+                <%= f.password_field :password, class:"form-control change-password", placeholder:"Mật khẩu mới", disabled: true %>
+                <div class="password-error error"></div>
 
 							</div>
 
@@ -171,7 +175,8 @@
 
 							<div class="col-md-6 col-sm-8  col-md-offset-3 col-sm-offset-3">
 
-								<%= f.password_field :password_confirmation, class:"form-control", placeholder:"Nhập lại mật khẩu mới", disabled: true %>
+                <%= f.password_field :password_confirmation, class:"form-control change-password", placeholder:"Nhập lại mật khẩu mới", disabled: true %>
+                <div class="password-confirmation-error error"></div>
 
 							</div>
 
@@ -181,7 +186,7 @@
 
 							<div class="col-sm-8 col-xs-12 col-sm-offset-3 styled-input-single item" data-toggle="collapse" data-target="#collapseOne" aria-controls="collapseOne">
 
-								<%= f.check_box :isChangePassword, id:"option-1" %>
+								<%= f.check_box :is_change_password, id:"option-1", onchange:"changePass(this);" %>
 
 								<label for="option-1"><span>Thay đổi mật khẩu</span></label>
 
@@ -195,6 +200,7 @@
 
 							<div class="col-sm-6  col-sm-offset-3">
 
+                <div class="respone-1"></div>
 								<div class="row_btn"><%= f.submit "Xác nhận",class:"btn btn-primary btn_big right" %></div>
 
 							</div>

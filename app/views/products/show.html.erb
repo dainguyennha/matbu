@@ -1,0 +1,666 @@
+   <!--San pham moi-->
+
+   <div class="detail_content">
+
+    	<div class="container">
+
+    		<div class="row">
+
+    			<div class="col-lg-6 col-md-6 col-sm-12">
+
+    				<!-- Swiper -->
+
+                    <div class="SliderDetailProduct">
+
+                        <div class="swiper-container gallery-top">
+
+                            <div class="swiper-wrapper">
+
+                                <% @product.images.each do |image| %>
+
+                                  <div class="swiper-slide" style="background-image:url('<%= image  %>')"></div>
+                              <% end %>
+
+                            </div>
+
+                            <!-- Add Arrows -->
+
+                            <div class="swiper-button-next swiper-button-white"></div>
+
+                            <div class="swiper-button-prev swiper-button-white"></div>
+
+                        </div>
+
+                        <div class="swiper-container gallery-thumbs">
+
+                            <div class="swiper-wrapper">
+
+                                <% @product.images.each do |image| %>
+
+                                  <div class="swiper-slide" style="background-image:url('<%= image %>')"></div>
+                                <% end %>
+
+
+                            
+
+    
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+    			</div>
+
+    			<div class="col-lg-6 col-md-6 col-sm-12">
+
+    				
+
+    				<div class="detail_item">
+
+              <h2 class="name_item"><%= @product.name %></h2>
+
+    					<p>
+
+              <span class="new_price"><%= @product.price %></span>
+              <!--		<del class="old_price">2.000.000 đ</del> --->
+
+						</p>
+
+    					<h4 class="thongtin">THÔNG TIN</h4>
+
+    					<ul class="ul_info">
+
+    						<li>
+
+    							<p><span class="text">Mã sản phẩm: VC924082</span></p>
+
+    						</li>
+
+    						<li>
+
+    							<p><span class="text">Chất liệu: cotton </span></p>
+
+    						</li>
+
+    						
+
+    						<li>
+
+    							<p><span class="text">Màu sắc: Xám, trắng, đen</span></p>
+
+    						</li>
+
+    						<li>
+
+    							<p><span class="text">Size: S - M - L - XL </span></p>
+
+    						</li>
+
+    					</ul>
+
+    				</div>
+
+    				<hr>
+
+    				<div class="accordion filter_list" id="accordionExample">
+
+					  <div class="card">
+
+						<div class="card-header" id="btn_kichthuoc">
+
+						  <h5 class="mb-0">
+
+							<button class="btn btn-link" type="button" data-toggle="collapse" data-target="#kichthuoc" aria-expanded="true" aria-controls="kichthuoc">
+
+							  BẢNG KÍCH THƯỚC
+
+							</button>
+
+						  </h5>
+
+						</div>
+
+
+
+						<div id="kichthuoc" class="list_menu collapse " aria-labelledby="btn_kichthuoc" data-parent="">
+
+						  <div class="card-body">
+
+							<img src="images/demo/size-03.jpg" alt="" />
+
+						  </div>
+
+						</div>
+
+					  </div>
+
+					  <div class="card">
+
+						<div class="card-header" id="btn_doitrahang">
+
+						  <h5 class="mb-0">
+
+							<button class="btn btn-link" type="button" data-toggle="collapse" data-target="#doitrahang" aria-expanded="true" aria-controls="doitrahang">
+
+							  SHIP & ĐỔI TRẢ HÀNG
+
+							</button>
+
+						  </h5>
+
+						</div>
+
+						<div id="doitrahang" class="collapse " aria-labelledby="btn_doitrahang" data-parent="">
+
+						  <div class="card-body">
+
+							<div class="doitrahang_body">
+
+								<p><b>Miễn phí giao hàng toàn quốc</b> (Sản phẩm trên 300,000đ)</p>
+
+								<p><b>Thanh toán tiện lợi</b> (nhiều hình thức thanh toán)</p>
+
+								<p><b>Đổi trả dễ dàng</b> Đổi trả 90 ngày cho giày và 30 ngày cho túi</p>
+
+							</div>
+
+						  </div>
+
+						</div>
+
+					  </div>
+
+					</div>
+
+					<div class="row row_line">
+
+						<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+
+							<b class="title_mau">CHỌN MÀU</b>
+
+						</div>
+
+						<div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+
+							<ul class="color">
+
+								<li><a class="ico" style="background-color: #fff"></a></li>
+
+								<li><a class="ico" style="background-color: #1c1c1c"></a></li>
+
+								<li><a class="ico active" style="background-color: #2375c1"></a></li>
+
+								<li><a class="ico" style="background-color: #23bfc1"></a></li>
+
+
+
+							</ul>
+
+						</div>
+
+					</div>
+
+					<div class="row row_line">
+
+						<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+
+							<b class="title_size">CHỌN SIZE</b>
+
+						</div>
+
+						<div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+
+							<ul class="size">
+
+								<li><a class="ico">XS</a></li>
+
+								<li><a class="ico">S</a></li>
+
+								<li><a class="ico active">M</a></li>
+
+								<li><a class="ico">L</a></li>
+
+								<li><a class="ico">XL</a></li>
+
+								<li><a class="ico">XXL</a></li>
+
+							</ul>
+
+						</div>
+
+					</div>
+
+					<div class="row row_line">
+
+						<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+
+							<b class="title_count">SỐ LƯỢNG</b>
+
+						</div>
+
+						<div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+
+							<ul class="ul_count">
+
+								<li>
+
+									<select class="count">
+
+										<option>1</option>
+
+										<option>2</option>
+
+										<option>3</option>
+
+									</select>
+
+								</li>
+
+								<li><span class="yeuthich active"></span></li>
+
+								<li>
+
+									<div class="buy"><a class="btn-primary">Mua NGAY</a></div>
+
+								</li>
+
+							</ul>
+
+							
+
+							
+
+						</div>
+
+					</div>
+
+    				
+
+    				
+
+    				
+
+				</div>
+
+    		</div>
+
+    	</div>
+
+    </div>
+
+	<div class="PR_content">
+
+    	<div class="container">
+
+    		<div class="row">
+
+    			<div class="col-lg-9 col-md-9 col-sm-12">
+
+					<ul class="tab_pr">
+
+						<li class="btn_tab1 active"><span class="tab1">THÔNG TIN </span></li>
+
+						<li class="btn_tab2"><span class="tab2">ĐỔI HÀNG & VẬN CHUYỂN</span></li>
+
+					</ul>
+
+					<div class="tab1_info active">
+
+            <p><%= @product.description %>Lorem Ipsum is simply dummy text of the printing and typesetting indLorem Ipsum is simply dummy text of the printing and typesetting indLorem Ipsum is simply dummy text of the printing and typesetting indLorem Ipsum is simply dummy text of the printing and typesetting indLorem Ipsum is simply dummy text of the printing and typesetting indLorem Ipsum is simply dummy text of the printing and typesetting indLorem Ipsum is simply dummy text of the printing and typesetting indLorem Ipsum is simply dummy text of the printing and typesetting indLorem Ipsum is simply dummy text of the printing and typesetting indLorem Ipsum is simply dummy text of the printing and typesetting indLorem Ipsum is simply dummy text of the printing and typesetting indLorem Ipsum is simply dummy text of the printing and tyesetting ind</p>
+
+            <img src="<%= @product.images[0] %>" /> 
+
+					</div>
+
+					<div class="tab2_info">
+
+						Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the 
+
+					</div>
+          <hr>
+          
+          <div class="comments-wrapper">
+            <h2>Đánh giá</h2>
+            <div class="form-comment-wrapper">
+              <div class="danh-gia-wrapper">
+                <h4>Chọn đánh giá của bạn </h4>
+                <button onclick="enterStar(1, this);"><%= fa_icon("star") %></button>
+                <button onclick="enterStar(2, this);"><%= fa_icon("star") %></button>
+                <button onclick="enterStar(3, this);"><%= fa_icon("star") %></button>
+                <button onclick="enterStar(4, this);"><%= fa_icon("star") %></button>
+                <button onclick="enterStar(5, this);"><%= fa_icon("star") %></button>
+
+              </div>
+              <input type="number" id="i-star" hidden >
+              <textarea name="" id="" class="form-control" placeholder="Viết bình luận của bạn..."></textarea>
+              <button type="submit"i class="btn btn-success">Gửi</button>
+            </div>
+            <h3>Bình luận của khách hàng đã mua</h3>
+            <div class="comment">
+              <h4>Nguyen Dai</h4>
+              <p>Lorem Ipsum is simply dummy text of the printing and typesetting Lorem Ipsum is simply dummy text of the printing and typesetting Lorem Ipsum is simply dummy text of the printing and typesetting Lorem Ipsum is simply dummy text of the printing and typesetting</p>
+              <p class="gray-color">12/12/2020</p>
+              <hr>
+            </div>
+            <div class="comment">
+              <h4>Nguyen Dai</h4>
+              <p>Lorem Ipsum is simply dummy text of the printing and typesetting Lorem Ipsum is simply dummy text of the printing and typesetting Lorem Ipsum is simply dummy text of the printing and typesetting Lorem Ipsum is simply dummy text of the printing and typesetting</p>
+              <p class="gray-color">12/12/2020</p>
+              <hr>
+              
+            </div>
+            <div class="comment">
+              <h4>Nguyen Dai</h4>
+              <p>Lorem Ipsum is simply dummy text of the printing and typesetting Lorem Ipsum is simply dummy text of the printing and typesetting Lorem Ipsum is simply dummy text of the printing and typesetting Lorem Ipsum is simply dummy text of the printing and typesetting</p>
+              <p class="gray-color">12/12/2020</p>
+              <hr>
+              
+            </div>
+
+
+          </div>
+          </div> 
+
+				<div class="col-lg-3 col-md-3 col-sm-12">
+
+					<div class="list_one_item">
+
+						<h4 class="text-center">SẢN PHẨM LIÊN QUAN</h4>
+
+						<hr/>
+
+						<div class="row">
+
+							<div class="col-lg-12 col-md-12 col-sm-3 col-xs-6">
+
+								<div class="group_item">
+
+									<div class="item">
+
+										<span class="ribbon new"></span>
+
+										<img src="images/demo/item1.png" alt="">
+
+										<div class="pos">
+
+											<div class="bg_pos">
+
+												<span class="btn btn-primary">THÊM VÀO GIỎ</span>
+
+											</div>
+
+										</div>
+
+										<div class="div_info">
+
+											<p class="text-center show_info"><span class="name">CHÂN VÁY CV04835</span></p>
+
+											<p class="text-center show_infoTHÊM VÀO GIỎ"><span class="price">1,950,000đ</span></p>
+
+											<p class="text-center btn_info">
+
+												<a class="btn btn-default">Xem</a>
+
+												<a class="btn btn-default">Mua ngay</a>
+
+											</p>
+
+										</div>
+
+									</div>
+
+								</div>
+
+							</div>
+
+							<div class="col-lg-12 col-md-12 col-sm-3 col-xs-6">
+
+								<div class="group_item">
+
+									<div class="item">
+
+										<span class="ribbon new"></span>
+
+										<img src="images/demo/item3.png" alt="">
+
+										<div class="pos">
+
+											<div class="bg_pos">
+
+												<span class="btn btn-primary">THÊM VÀO GIỎ</span>
+
+											</div>
+
+										</div>
+
+										<div class="div_info">
+
+											<p class="text-center show_info"><span class="name">CHÂN VÁY CV04835</span></p>
+
+											<p class="text-center show_infoTHÊM VÀO GIỎ"><span class="price">1,950,000đ</span></p>
+
+											<p class="text-center btn_info">
+
+												<a class="btn btn-default">Xem</a>
+
+												<a class="btn btn-default">Mua ngay</a>
+
+											</p>
+
+										</div>
+
+									</div>
+
+								</div>
+
+							</div>
+
+						</div>
+
+					</div>
+
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
+
+    <!--San pham moi End-->
+
+     <!--San pham da xem-->
+
+    <div class="ViewSP">
+
+    	<div class="container">
+
+    		<div class="row">
+
+				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
+
+					
+
+					<h3 class="title_big">SẢN PHẨM BẠN ĐÃ XEM</h3>
+
+					<div class="row">
+
+						<div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 ">
+
+							<div class="group_item">
+
+								<div class="item">
+
+									<span class="ribbon new"></span>
+
+									<img src="images/demo/item1.png" alt=""/>
+
+									<div class="pos">
+
+										<div class="bg_pos">
+
+											<span class="btn btn-primary">THÊM VÀO GIỎ</span>
+
+										</div>
+
+									</div>
+
+									<div class="div_info">
+
+										<p class="text-center show_info"><span class="name">CHÂN VÁY CV04835</span></p>
+
+										<p class="text-center show_infoTHÊM VÀO GIỎ"><span class="price">1,950,000đ</span></p>
+
+										<p class="text-center btn_info">
+
+											<a class="btn btn-default">Xem</a>
+
+											<a class="btn btn-default">Mua ngay</a>
+
+										</p>
+
+									</div>
+
+								</div>
+
+							</div>
+
+						</div>
+
+						<div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 ">
+
+							<div class="group_item">
+
+								<div class="item">
+
+
+
+									<img src="images/demo/item2.png" alt=""/>
+
+									<div class="pos">
+
+										<div class="bg_pos">
+
+											<span class="btn btn-primary">THÊM VÀO GIỎ</span>
+
+										</div>
+
+									</div>
+
+									<div class="div_info">
+
+										<p class="text-center show_info"><span class="name">CHÂN VÁY CV04835</span></p>
+
+										<p class="text-center show_infoTHÊM VÀO GIỎ"><span class="price">1,950,000đ</span></p>
+
+										<p class="text-center btn_info">
+
+											<a class="btn btn-default">Xem</a>
+
+											<a class="btn btn-default">Mua ngay</a>
+
+										</p>
+
+									</div>
+
+								</div>
+
+							</div>
+
+						</div>
+
+						<div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 ">
+
+							<div class="group_item">
+
+								<div class="item">
+
+
+
+									<img src="images/demo/item3.png" alt=""/>
+
+									<div class="pos">
+
+										<div class="bg_pos">
+
+											<span class="btn btn-primary">THÊM VÀO GIỎ</span>
+
+										</div>
+
+									</div>
+
+									<div class="div_info">
+
+										<p class="text-center show_info"><span class="name">CHÂN VÁY CV04835</span></p>
+
+										<p class="text-center show_infoTHÊM VÀO GIỎ"><span class="price">1,950,000đ</span></p>
+
+										<p class="text-center btn_info">
+
+											<a class="btn btn-default">Xem</a>
+
+											<a class="btn btn-default">Mua ngay</a>
+
+										</p>
+
+									</div>
+
+								</div>
+
+							</div>
+
+						</div>
+
+						<div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 ">
+
+							<div class="group_item">
+
+								<div class="item">
+
+									<span class="ribbon new"></span>
+
+									<img src="images/demo/item4.png" alt=""/>
+
+									<div class="pos">
+
+										<div class="bg_pos">
+
+											<span class="btn btn-primary">THÊM VÀO GIỎ</span>
+
+										</div>
+
+									</div>
+
+									<div class="div_info">
+
+										<p class="text-center show_info"><span class="name">CHÂN VÁY CV04835</span></p>
+
+										<p class="text-center show_infoTHÊM VÀO GIỎ"><span class="price">1,950,000đ</span></p>
+
+										<p class="text-center btn_info">
+
+											<a class="btn btn-default">Xem</a>
+
+											<a class="btn btn-default">Mua ngay</a>
+
+										</p>
+
+									</div>
+
+								</div>
+
+							</div>
+
+						</div>
+
+					</div>
+
+				</div>
+
+			</div>
+
+		</div>
+
+    </div>

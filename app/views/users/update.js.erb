@@ -1,0 +1,13 @@
+if (<%= @user.invalid? or !@isAuthMess.nil? %>) {
+  $('.password-confirmation-error').html('<%= @user.errors[:password_confirmation][0] %>');
+  $('.password-error').html('<%= @user.errors[:password][0] %>');
+  $('.phone-number-error').html('<%= @user.errors[:phone_number][0] %>');
+  $('.name-error').html('<%= @user.errors[:name][0] %>');
+  $('.current-password-error').html('<%= @isAuthMess %>');
+
+  $('.respone-1').html("");
+
+}else{
+  $('.error').html("");
+  $('.respone-1').html("Thay đổi thông tin thành công!");
+}

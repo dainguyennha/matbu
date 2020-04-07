@@ -1,0 +1,26 @@
+class UsersController < ApplicationController
+  def show
+  end
+
+  def update
+    user = User.find_by id: params[:id]
+    if params[:user] [:isChangePassword] == "0"
+      user.assign_attributes user_info_params
+    elsif params[:user][:isChangePassword] == 1 
+      if current_user.authenticate(params[:user][:current_password])
+        current_user.assign_attributes user_pass_info_params
+        byebug
+      else
+      end
+    end
+  end
+
+  private
+  def user_info_params
+    params[:user].permit(:name, :phone_number)
+  end
+
+  def user_pass_info_params
+    params[:user].permit(:name, :phone_number, :password, :password_confirmation)
+  end
+end

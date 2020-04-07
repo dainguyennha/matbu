@@ -12,6 +12,7 @@
  *
  *= require_tree .
  *= require_self
+ *= require font_awesome5_webfont
  */
 
 @font-face {
@@ -19,5 +20,4 @@
     src: url("ProximaNova-Regular.otf") format("truetype");
 }
 
-body {
-}
+body {}

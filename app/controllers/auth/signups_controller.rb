@@ -10,7 +10,6 @@ class Auth::SignupsController < ApplicationController
           format.js
         end
       elsif @user.save
-
         redirect_to root_url
       end
       

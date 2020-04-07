@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  attr_accessor :remember_token
+  attr_accessor :remember_token, :is_change_password
   validates :name, :presence => { message: "Tên không được để trống"}
   VALID_PHONE_REGEX = /\b(0)+[2-9]+([0-9]{8})\b/
   validates :phone_number, presence: { message: "Số điện thoại không được để trống"}
@@ -10,13 +10,16 @@ class User < ApplicationRecord
   validates :email, allow_blank: true, length: { maximum: 250 },
     format: { with: VALID_EMAIL_REGEX, message: "Email không hợp lệ!" },
     uniqueness: { case_sensitive: false }
-  validates :password, presence: { message: "Mật khẩu không được để trống!"}
+  validates :password, presence: { message: "Mật khẩu không được để trống!"},
+    if: :password_changed?
   validates :password, 
     length: { minimum: 8, message: "Mật khẩu phải có ít nhất 8 ký tự" }, 
-    confirmation: { message: "Mật khẩu xác nhận không khớp!"}
+    confirmation: { message: "Mật khẩu xác nhận không khớp!"},
+    if: :password_changed?
   validates_confirmation_of :password
   validates :password_confirmation,
-    presence: { message: "Mật khẩu xác nhận không được để trống!" }
+    presence: { message: "Mật khẩu xác nhận không được để trống!" }, 
+    if: :password_changed?
 
   before_save :downcase_email
 
@@ -46,6 +49,10 @@ class User < ApplicationRecord
 
   def forget
     update_attribute :remember_digest, nil
+  end
+
+  def password_changed?
+    !password.nil? or self.password_digest.nil? or is_change_password == "1"
   end
 
 

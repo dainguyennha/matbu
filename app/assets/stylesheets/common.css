@@ -1,3 +1,13 @@
+.respone-1 {
+  text-align: right;
+  color: green;
+  font-style: italic;
+}
+.error {
+    color: red;
+    font-style: italic;
+}
+
 .Shows-xs {
     display: none !important;
 }

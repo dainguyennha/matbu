@@ -1,0 +1,26 @@
+<div class="container new-product-wrapper">
+  <h2>Thêm sản phẩm mới</h2>
+  <div class="form-product">
+    <%= form_for @product do |f|  %>
+      <div class="prop">
+        <%= f.label "Tên sản phẩm" %>
+        <%= f.text_field :name, class: "form-control" %>
+      </div>
+      <div class="prop">
+        <%= f.label "Mô tả" %>
+        <%= f.text_area :description, class: "form-control" %>
+      </div>
+      <div class="prop">
+        <%= f.label "Giá" %>
+        <%= f.number_field :price, class: "form-control" %>
+      </div>
+      <div class="prop">
+        <%= f.label "Ảnh sản phẩm" %>
+        <%= f.file_field :images, multiple: true %>
+
+      </div>
+      <%= f.submit "Thêm sản phẩm mới", class:"btn btn-success" %>
+
+    <% end %>
+  </div>
+</div>

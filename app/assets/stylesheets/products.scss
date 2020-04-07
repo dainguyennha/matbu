@@ -1,3 +1,45 @@
 // Place all the styles related to the products controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.gray-color{
+  color: gray;
+  font-style: italic;
+}
+.star-icon {
+  max-width: 45px;
+}
+.comments-wrapper {
+  margin-top: 55px;
+  h2{
+    font-family: "sans-serif";
+    margin-bottom: 20px;
+  }
+  .form-comment-wrapper{
+    margin-bottom: 15px;
+    border: 2px solid gray;
+    border-radius: 4px;
+    padding: 7px;
+    font-family: sans-serif;
+
+    textarea{
+      margin-bottom: 10px;
+    }
+    .danh-gia-wrapper{
+      button{
+        font-size: 30px;
+        color: gray;
+
+      }
+    }
+  }
+
+  h3{
+    text-align: center;
+  }
+  .comment{
+    p{
+      font-size: 16px;
+      font-family: "sans-serif";
+    }
+  }
+}
