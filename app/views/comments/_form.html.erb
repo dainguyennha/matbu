@@ -1,0 +1,13 @@
+<div class='form-comment-wrapper'>
+  <div class='danh-gia-wrapper'>
+    <h4>Chọn đánh giá của bạn </h4>
+
+    <%= render partial: 'comments/new_rate', locals: { star: star } %>
+  </div>
+  <%= form_for @comment,  remote: true do |f|   %>
+    <%= f.hidden_field :rate, id:'i-star' %>
+    <%= f.hidden_field :product_id, value: product.id %>
+    <%= f.text_area :content, class:'form-control', placeholder:'Viết bình luận của bạn...' %>
+    <%= f.submit 'Gửi', class:'btn btn-success' %>
+  <%end%>
+</div>

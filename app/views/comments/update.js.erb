@@ -1,0 +1,2 @@
+$('.form-comment-wrapper').replaceWith("<%= j render 'your_comment', comment: @comment %>");
+$('#cmt_<%= @comment.id %>').replaceWith("<%= j render 'updated_comment', comment:@comment%>");

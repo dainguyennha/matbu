@@ -1,0 +1,14 @@
+<div class="form-comment-wrapper">
+  <h3>Bạn đã đánh giá sản phẩm này</h3>
+  <div class="comment-wrapper">
+    <div class="comment">
+      <h4><%= comment.user.name %></h4> <span><%= render partial: 'comments/rating', locals:{star: comment.rate} %></span>
+      <p><%= comment.content %></p>
+      <p class="gray-color"><%= comment.created_at %></p>
+      <hr>
+    </div> 
+    <div class="edit-comment-wrapper">
+      <%= link_to "Chỉnh sửa", edit_comment_path(comment), class:"btn btn-primary", remote: true %>
+    </div>
+  </div>
+</div>

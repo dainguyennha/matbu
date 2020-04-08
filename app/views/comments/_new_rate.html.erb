@@ -1,0 +1,3 @@
+<% 5.times do |time| %>
+  <button onclick="enterStar(<%= time+1 %>, this);" class="<%= get_star(star, time) %>"><%= fa_icon("star") %></button>
+<%end%>

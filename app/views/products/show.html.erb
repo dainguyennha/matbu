@@ -263,11 +263,13 @@
 								<li>
 
 									<div class="buy"><a class="btn-primary">Mua NGAY</a></div>
+                  
 
 								</li>
 
 							</ul>
 
+              <div class="add-card"><a class="btn-primary btn-over">Thêm vào giỏ</a></div>
 							
 
 							
@@ -323,43 +325,19 @@
           
           <div class="comments-wrapper">
             <h2>Đánh giá</h2>
-            <div class="form-comment-wrapper">
-              <div class="danh-gia-wrapper">
-                <h4>Chọn đánh giá của bạn </h4>
-                <button onclick="enterStar(1, this);"><%= fa_icon("star") %></button>
-                <button onclick="enterStar(2, this);"><%= fa_icon("star") %></button>
-                <button onclick="enterStar(3, this);"><%= fa_icon("star") %></button>
-                <button onclick="enterStar(4, this);"><%= fa_icon("star") %></button>
-                <button onclick="enterStar(5, this);"><%= fa_icon("star") %></button>
-
-              </div>
-              <input type="number" id="i-star" hidden >
-              <textarea name="" id="" class="form-control" placeholder="Viết bình luận của bạn..."></textarea>
-              <button type="submit"i class="btn btn-success">Gửi</button>
-            </div>
+            <% if logged_in? %>
+              <% if @commented.nil? %>
+                <%= render partial: 'comments/form', locals: {product: @product, star: 0} %>
+              <% else %>
+                <%= render partial: 'comments/your_comment', locals: {comment: @commented} %>
+              <%end%>
+          <% end %>
+            
             <h3>Bình luận của khách hàng đã mua</h3>
-            <div class="comment">
-              <h4>Nguyen Dai</h4>
-              <p>Lorem Ipsum is simply dummy text of the printing and typesetting Lorem Ipsum is simply dummy text of the printing and typesetting Lorem Ipsum is simply dummy text of the printing and typesetting Lorem Ipsum is simply dummy text of the printing and typesetting</p>
-              <p class="gray-color">12/12/2020</p>
-              <hr>
+            
+            <div class="comments-list">
+              <%= render partial: 'comments/comment', locals: {comments: @product.comments} %>
             </div>
-            <div class="comment">
-              <h4>Nguyen Dai</h4>
-              <p>Lorem Ipsum is simply dummy text of the printing and typesetting Lorem Ipsum is simply dummy text of the printing and typesetting Lorem Ipsum is simply dummy text of the printing and typesetting Lorem Ipsum is simply dummy text of the printing and typesetting</p>
-              <p class="gray-color">12/12/2020</p>
-              <hr>
-              
-            </div>
-            <div class="comment">
-              <h4>Nguyen Dai</h4>
-              <p>Lorem Ipsum is simply dummy text of the printing and typesetting Lorem Ipsum is simply dummy text of the printing and typesetting Lorem Ipsum is simply dummy text of the printing and typesetting Lorem Ipsum is simply dummy text of the printing and typesetting</p>
-              <p class="gray-color">12/12/2020</p>
-              <hr>
-              
-            </div>
-
-
           </div>
           </div> 
 

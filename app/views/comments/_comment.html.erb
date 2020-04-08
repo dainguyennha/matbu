@@ -1,0 +1,13 @@
+<% if comments.count != 0 %>
+  
+  <% comments.each do |comment| %>
+    <div class="comment" id="cmt_<%= comment.id %>">
+      <h4><%= comment.user.name %></h4> <span><%= render partial: 'comments/rating', locals:{star: comment.rate} %></span>
+      <p><%= comment.content %></p>
+      <p class="gray-color"><%= comment.created_at %></p>
+      <hr>
+    </div>
+  <%end%>
+<% else %>
+  <h4 class="not-ever-comment" style="margin-top: 20px;">Sản phẩm chưa có đánh giá và bình luận</h4>
+<%end%>

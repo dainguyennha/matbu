@@ -23,6 +23,9 @@ class User < ApplicationRecord
 
   before_save :downcase_email
 
+  has_many :comments
+  has_many :card_products
+
   has_secure_password validations: false
 
   def User.digest(string)

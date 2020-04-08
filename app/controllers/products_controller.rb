@@ -7,6 +7,10 @@ class ProductsController < ApplicationController
 
   def show
     @product = Product.find_by id: params[:id]
+    @comment = Comment.new
+    if logged_in?
+      @commented = current_user.comments.find_by(product: @product)
+    end
     
   end
   def new

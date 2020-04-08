@@ -1,0 +1,7 @@
+$('.form-comment-wrapper').replaceWith("<%= j render 'your_comment', comment: @comment %>");
+a = $('.not-ever-comment');
+if (a.length != 0){
+  a.replaceWith("<%= j render 'updated_comment', comment:@comment%>");
+} else{
+  $('.comments-list').prepend("<%= j render 'updated_comment', comment:@comment%>");
+}

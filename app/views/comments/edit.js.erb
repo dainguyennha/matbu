@@ -1,0 +1,5 @@
+$('.form-comment-wrapper').replaceWith("<%= j render 'form',\
+                                       product: @comment.product,\
+                                       star: @comment.rate, \
+                                       comment: @comment
+  %>");

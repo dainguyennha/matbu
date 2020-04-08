@@ -7,4 +7,6 @@ Rails.application.routes.draw do
   end
   resources :users, only: [:update, :show]
   resources :products
+  resources :comments
+  resources :card_products
 end
