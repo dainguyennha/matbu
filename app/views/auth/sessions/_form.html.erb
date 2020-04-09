@@ -1,0 +1,35 @@
+<!--<div class="card-wrapper signup">
+  <h3>Đăng nhập</h3>
+  <%= form_for :session, remote: true, url: auth_sessions_path() do |f| %>
+    <div class="form_line">
+
+    <%= f.label "Email" %>
+    <%= f.text_field :email %>
+    <div class="email-error error"></div>
+    <%= f.label "Mật khẩu" %>
+    <%= f.password_field :password %>
+    <div class="password-error error"></div>
+    <%= f.submit "Đăng nhập"%>
+    <div>
+  <% end %>
+    </div> -->
+<div class="modal bs-promo-modal-lg appear-modal show" id="dangnhap" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog modal-account" role="document">
+    <div class="modal-content modal-input">
+    	<button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="closeModal();"><i class="material-icons">&#xE5CD;</i></button>
+    	<span class="title">ĐĂNG NHẬP</span>
+      <%= form_for :session, remote: true, url: auth_sessions_path() do |f| %>
+        <div class="form_line">
+		    <%= f.text_field :email, class: "input", placeholder: "Nhập email hoặc số điện thoại"%>
+		
+        <%= f.password_field :password, class: "input", placeholder: "Mật khẩu" %>
+        <%= f.submit "Đăng nhập", class: "btn btn-primary btn_big btn-dangnhap" %>
+
+        <div class="error error-login"></div>
+        </div>
+		  <% end %>
+   		<p class="text-center">Bạn chưa có tài khoản?</p>
+   		<p class="text-center"><a class="link" data-toggle="modal" data-target="#dangky" data-dismiss="modal">Đăng ký ngay</a></p><!--update 31/7-->
+    </div>
+  </div>
+</div>

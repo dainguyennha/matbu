@@ -1,6 +1,9 @@
 class Auth::SignupsController < ApplicationController
   def new
     @user = User.new
+    respond_to do |format|
+      format.js
+    end
   end
   def create
     @user = User.new user_params
@@ -10,7 +13,6 @@ class Auth::SignupsController < ApplicationController
           format.js
         end
       elsif @user.save
-        redirect_to root_url
       end
       
   end

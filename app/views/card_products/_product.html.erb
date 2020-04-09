@@ -1,0 +1,20 @@
+<div class="listcart_item" id="cp_<%= card_product.id %>">
+	<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+		<img alt="" src="images/demo/item1.png"/>
+    <%= image_tag card_product.product.images[0] %>
+	</div>
+	<div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+    <p class="name"><%= card_product.product.name %></p>
+    <p>Giá: <b><%= card_product.product.price %>đ</b></p>
+		<label class="lb-count">
+			<span>Số Lượng:</span>
+      <input type="number" class="input-count-product" onchange="calTotal(this);" data-card-product=<%= card_product.id %> data-price=<%= card_product.product.price %> value=<%= card_product.count %>>
+		</label>
+		
+	</div>
+	<div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
+		<div class="remove_item">
+      <i class="material-icons" onclick="delCardProduct(<%= card_product.id %>);">&#xE5CD;</i>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,27 @@
+<div class="div_cart_gr show">
+  <h5 class="title">Giỏ hàng có <%= card_products.count %> sản phẩm</h5>
+    <hr/>
+    <div class="div_listcart mCustomScrollbar" id="_listcart" data-mcs-theme="dark" style="overflow-x:auto;">
+      <% total_price = 0 %>
+      <% card_products.each do |card_product| %>
+        <%= render partial: 'card_products/product', locals: { card_product: card_product } %>
+        <% total_price +=  card_product.product.price.to_f  * card_product.count %>
+      <% end %>
+            <hr/>
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                <p class="text-total text-left">Tổng cộng</p>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+              <p class="text-total text-right"><b id="total-price1"><%= total_price %>đ</b></p>
+            </div>
+            <div class="div_group_btn">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <a class="btn btn-info">Xem giỏ hàng</a>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <a class="btn btn-primary right">thanh toán</a>
+                </div>
+            </div>
+
+    </div>
+</div>

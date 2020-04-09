@@ -245,16 +245,8 @@
 							<ul class="ul_count">
 
 								<li>
+                  <input type="number" name="" class="count" id="" value="1" onchange="changeCount(this);">
 
-									<select class="count">
-
-										<option>1</option>
-
-										<option>2</option>
-
-										<option>3</option>
-
-									</select>
 
 								</li>
 
@@ -268,11 +260,11 @@
 								</li>
 
 							</ul>
-
-              <div class="add-card"><a class="btn-primary btn-over">Thêm vào giỏ</a></div>
-							
-
-							
+              <% if !@isAddedCard.nil? %>
+                <%= render partial: 'card_products/added_card_btn' %>
+              <% else %>
+                <%= render partial: 'card_products/add_card_form' %>
+              <% end %>
 
 						</div>
 

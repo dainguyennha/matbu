@@ -1,5 +1,8 @@
 class Auth::SessionsController < ApplicationController
   def new
+    respond_to do |format|
+      format.js
+    end
     
   end
   def create
@@ -8,7 +11,7 @@ class Auth::SessionsController < ApplicationController
       log_in user
       #params[:session][:remember_me] == '1' ? remember(user) : forget(user)
       params[:session][:remember_me] = remember(user)
-      redirect_back_or root_url
+      redirect_to request.referrer
     else
       respond_to do |format|
         format.js
