@@ -8,3 +8,13 @@
     padding: 3px;
   }
 }
+.title-card{
+  display: inline-block;
+}
+.btn-close-card{
+    float: right;
+    /* border: 2px solid gray; */
+    border-radius: 5px;
+    font-size: 20px;
+    cursor: pointer;
+}

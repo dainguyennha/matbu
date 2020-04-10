@@ -1,5 +1,7 @@
-<div class="div_cart_gr show">
-  <h5 class="title">Giỏ hàng có <%= card_products.count %> sản phẩm</h5>
+<div class="div_cart_gr show" id="id_cart_gr">
+  <h5 class="title title-card">Giỏ hàng có <b id="count-product-id"><%= card_products.count %></b> sản phẩm</h5>
+  <button class="btn-close-card" onclick="closeCart();"><i class="material-icons" >&#xE5CD;</i></button>
+
     <hr/>
     <div class="div_listcart mCustomScrollbar" id="_listcart" data-mcs-theme="dark" style="overflow-x:auto;">
       <% total_price = 0 %>
@@ -16,7 +18,7 @@
             </div>
             <div class="div_group_btn">
                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-                    <a class="btn btn-info">Xem giỏ hàng</a>
+                    <%= link_to "Xem giỏ hàng", ct_product_path(), class:"btn btn-info" %>
                 </div>
                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                     <a class="btn btn-primary right">thanh toán</a>

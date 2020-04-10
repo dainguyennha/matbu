@@ -5,6 +5,9 @@ class Auth::SessionsController < ApplicationController
     end
     
   end
+  def new_page
+    
+  end
   def create
     user = User.find_by email: params[:session][:email].downcase
     if user && user.authenticate(params[:session][:password])

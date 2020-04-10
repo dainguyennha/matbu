@@ -7,9 +7,10 @@ class ProductsController < ApplicationController
 
   def show
     @product = Product.find_by id: params[:id]
-    @isAddedCard = current_user.card_products.find_by(product: @product)
+    @isAddedCard = nil
     @comment = Comment.new
     if logged_in?
+      @isAddedCard = current_user.card_products.find_by(product: @product)
       @commented = current_user.comments.find_by(product: @product)
     end
     

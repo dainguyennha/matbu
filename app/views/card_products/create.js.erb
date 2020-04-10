@@ -1,2 +1,2 @@
-$("#add-card-f").replaceWith("<%= render partial: 'card_products/added_card_btn' %>");
+$("#add-card-f").replaceWith("<%= j render 'added_card_btn', card_product_id: @card_product.id %>");
 

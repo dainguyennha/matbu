@@ -1,0 +1,68 @@
+   <!--Gio hang-->
+
+<div class="ThongtinDonHang">
+
+	<div class="container">
+
+		<div class="row">
+
+		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
+
+			<ul class="breadcrumb">
+
+				<li class="active">
+
+					<span class="ico_arrow"></span>
+
+					<span>Giỏ hàng</span>
+
+				</li>
+
+				<li>
+
+					<span class="ico_arrow"></span>
+
+					<span>Thông tin giao hàng</span>
+
+				</li>
+
+			</ul>
+
+			<div class="infogiohang">
+
+				<span>Giỏ hàng của bạn có <b class="color">5 sản phẩm</b></span>
+
+			</div>
+
+			<div class="row">
+
+				<div class="col-lg-9 col-md-12 col-sm-12 col-xs-12 ">
+          <% @card_products.each do |card_product| %>
+            <%= render partial: 'card_products/product_ish', locals: {card_product: card_product} %>
+          <%end%>
+
+
+
+				</div>
+
+				<div class="col-lg-3 col-md-12 col-sm-12 col-xs-12 ">
+
+					<p class="title_giohang"><b>TỔNG TIỀN:</b><b class="color">250,000 đ</b></p>
+
+					<div class="row_btn"><a class="btn btn-primary btn_big">THANH TOÁN</a></div>
+
+					<p><a class="link_buy">Mua thêm sản phẩm khác</a></p>
+
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
+
+</div>
+
+</div>
+
+<!--Gio hang End-->

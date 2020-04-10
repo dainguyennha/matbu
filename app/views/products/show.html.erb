@@ -261,9 +261,9 @@
 
 							</ul>
               <% if !@isAddedCard.nil? %>
-                <%= render partial: 'card_products/added_card_btn' %>
+                <%= render partial: 'card_products/added_card_btn', locals: { card_product_id: @isAddedCard.id } %>
               <% else %>
-                <%= render partial: 'card_products/add_card_form' %>
+                <%= render partial: 'card_products/add_card_form', locals: {product: @product } %>
               <% end %>
 
 						</div>
