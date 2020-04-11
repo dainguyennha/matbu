@@ -1,5 +1,7 @@
 class CardProductsController < ApplicationController
   before_action :require_loggin
+  skip_before_action :require_loggin, only: [:show_all]
+  before_action :require_loggin_page, only: [:show_all]
   def index
     respond_to do |format|
         @card_products = current_user.card_products
@@ -42,6 +44,13 @@ class CardProductsController < ApplicationController
       end
     end
   end
+
+  def require_loggin_page
+    if !logged_in?
+     redirect_to :auth_signins_page
+    end
+  end
+
   private 
   def card_product_params
     params[:card_product].permit(:product_id, :count);

@@ -1,3 +1,4 @@
+    <%= render 'layouts/header' %>
    <!--Gio hang-->
 
 <div class="ThongtinDonHang">
@@ -30,24 +31,23 @@
 
 			<div class="infogiohang">
 
-				<span>Giỏ hàng của bạn có <b class="color">5 sản phẩm</b></span>
+        <span>Giỏ hàng của bạn có <b class="color" id="count-product-page-id"><%= @card_products.count %></b><b class="color"> sản phẩm</b></span>
 
 			</div>
 
 			<div class="row">
 
 				<div class="col-lg-9 col-md-12 col-sm-12 col-xs-12 ">
+          <% total_price = 0 %>
           <% @card_products.each do |card_product| %>
-            <%= render partial: 'card_products/product_ish', locals: {card_product: card_product} %>
-          <%end%>
-
-
-
+            <%= render partial: 'card_products/product_ish', locals: { card_product: card_product } %>
+            <% total_price +=  card_product.product.price.to_f  * card_product.count %>
+          <% end %>
 				</div>
 
 				<div class="col-lg-3 col-md-12 col-sm-12 col-xs-12 ">
 
-					<p class="title_giohang"><b>TỔNG TIỀN:</b><b class="color">250,000 đ</b></p>
+          <p class="title_giohang"><b>TỔNG TIỀN:</b><b class="color" id="total-price1-page"><%= total_price %> đ</b></p>
 
 					<div class="row_btn"><a class="btn btn-primary btn_big">THANH TOÁN</a></div>
 
@@ -66,3 +66,4 @@
 </div>
 
 <!--Gio hang End-->
+    <%= render 'layouts/footer' %>

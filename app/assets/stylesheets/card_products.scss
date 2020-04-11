@@ -1,6 +1,14 @@
 // Place all the styles related to the card_products controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.gr_input_number{
+  input{
+    width: 100%;
+    border: 1px solid gray;
+    padding: 4px;
+    font-size: 15px;
+  }
+}
 .lb-count{
   input{
     border: 2px solid gray;

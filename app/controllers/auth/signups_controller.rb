@@ -5,6 +5,10 @@ class Auth::SignupsController < ApplicationController
       format.js
     end
   end
+  def new_page
+    @user = User.new
+      
+  end
   def create
     @user = User.new user_params
       if @user.invalid? 
@@ -13,6 +17,7 @@ class Auth::SignupsController < ApplicationController
           format.js
         end
       elsif @user.save
+        redirect_back_or root_url
       end
       
   end

@@ -1,0 +1,29 @@
+<div class="modal bs-promo-modal-lg show appear-modal" id="dangky" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog modal-account" role="document">
+    <div class="modal-content modal-input">
+    	<button type="button" class="close" data-dismiss="modal" aria-label="Close"><i class="material-icons">&#xE5CD;</i></button>
+    	<span class="title">ĐĂNG KÝ</span>
+        <%= form_for :user, remote: true, url: auth_signups_path() do |f| %>
+    <div class="form_line">
+    <%= f.text_field :name, placeholder: "Họ và tên" %>
+    <div class="name-error error">
+    </div>
+    <%= f.text_field :email, placeholder: "Email" %>
+    <div class="email-error error"></div>
+    <%= f.text_field :phone_number, placeholder: "Số điện thoại" %>
+    <div class="phone-number-error error"></div>
+    <%= f.password_field :password, placeholder: "Mật khẩu" %>
+    <div class="password-error error"></div>
+    <%= f.password_field :password_confirmation, placeholder: "Nhập lại mật khẩu" %>
+    <div class="confirm-password-error error"></div>
+    <%= f.submit "Tạo tài khoản", class: "btn btn-primary btn_big btn-dangnhap" %>
+    <div>
+  <% end %>
+
+   		<br/><br/>
+   		<p class="text-center">Bạn đã có tài khoản?</p>
+   		<p class="text-center"><a class="link close_dk" data-toggle="modal" data-target="#dangnhap" data-dismiss="modal">Đăng nhập</a></p><!--update 31/7-->
+
+    </div>
+  </div>
+</div>

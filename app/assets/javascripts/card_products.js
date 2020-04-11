@@ -19,6 +19,9 @@ function calTotal(ele) {
         }),
         success: function(data) {
             callTotalPrice();
+            $('#input-count-product-page-id').val($(ele).val());
+            $('#input-count-product-id').val($(ele).val());
+            callTotalPricePage();
 
         }
     })
@@ -32,8 +35,21 @@ function callTotalPrice() {
         total += el.data("price") * el.val()
         count = index + 1;
     })
-    $('#total-price1').html(total + "đ");
+    $('#total-price1').html(total + " đ");
     $('#count-product-id').html(count);
+    
+}
+
+function callTotalPricePage() {
+    total = 0;
+    count = 0;
+    $('.input-count-product-page').each(function(index) {
+        el = $(this);
+        total += el.data("price") * el.val()
+        count = index + 1;
+    })
+    $('#total-price1-page').html(total + " đ");
+    $('#count-product-page-id').html(count);
 }
 
 function delCardProduct(cpId) {
@@ -44,8 +60,10 @@ function delCardProduct(cpId) {
         contentType: 'application/json',
         success: function(data) {
             $("#cp_" + cpId).remove();
-            
+            $("#cp-page_" + cpId).remove();
+
             callTotalPrice();
+            callTotalPricePage();
         }
     })
 

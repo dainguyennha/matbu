@@ -1,4 +1,4 @@
-<div class="row row_item">
+<div class="row row_item" id="cp-page_<%= card_product.id %>">
 
 	<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 ">
 
@@ -26,13 +26,11 @@
 
 					<div class="col-lg-4 col-md-4 col-sm-6 col-xs-3 ">
 
-						<div class="gr_input">
+            
+						<div class="gr_input_number">
+              <label>Số lượng</label>
+              <input type="number" name="" id="input-count-product-page-id" data-price=<%= card_product.product.price %> data-card-product=<%= card_product.id %> value=<%= card_product.count %> onclick="calTotal(this);" class="input-count-product-page">
 
-							<span class="count">1</span>
-
-							<span class="add"></span>
-
-							<span class="remove"></span>
 
 						</div>
 

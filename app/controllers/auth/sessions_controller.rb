@@ -14,7 +14,7 @@ class Auth::SessionsController < ApplicationController
       log_in user
       #params[:session][:remember_me] == '1' ? remember(user) : forget(user)
       params[:session][:remember_me] = remember(user)
-      redirect_to request.referrer
+      redirect_back_or root_url
     else
       respond_to do |format|
         format.js
