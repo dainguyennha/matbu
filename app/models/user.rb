@@ -59,6 +59,11 @@ class User < ApplicationRecord
   end
 
 
+  def get_cart_products
+    self.card_products.where paid: false
+  end
+
+
   private
     def downcase_email
       self.email = email.downcase

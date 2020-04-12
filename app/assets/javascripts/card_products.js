@@ -9,7 +9,7 @@ function calTotal(ele) {
     $.ajax({
         url: '/card_products/' + $(ele).data("card-product"),
         type: 'put',
-        dataType: 'script',
+        dataType: 'json',
         contentType: 'application/json',
         data: JSON.stringify({
             resource: {
@@ -18,9 +18,9 @@ function calTotal(ele) {
             _method: 'put'
         }),
         success: function(data) {
+            $('#input-count-product-page_' + $(ele).data("card-product")).val(data.count);
+            $('#input-count-product_' + $(ele).data("card-product")).val(data.count);
             callTotalPrice();
-            $('#input-count-product-page-id').val($(ele).val());
-            $('#input-count-product-id').val($(ele).val());
             callTotalPricePage();
 
         }
@@ -37,12 +37,16 @@ function callTotalPrice() {
     })
     $('#total-price1').html(total + " đ");
     $('#count-product-id').html(count);
-    
+    if (count == 0) {
+        $(".btn-buy").replaceWith("<a class='btn btn-primary btn_big' disabled>thanh toán</a>");
+    }
+
+
 }
 
 function callTotalPricePage() {
     total = 0;
-    count = 0;
+    var count = 0;
     $('.input-count-product-page').each(function(index) {
         el = $(this);
         total += el.data("price") * el.val()
@@ -50,6 +54,9 @@ function callTotalPricePage() {
     })
     $('#total-price1-page').html(total + " đ");
     $('#count-product-page-id').html(count);
+    if (count == 0) {
+        $(".btn-buy-page").replaceWith("<a class='btn btn-primary right' disabled>thanh toán</a>");
+    }
 }
 
 function delCardProduct(cpId) {

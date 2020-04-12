@@ -8,7 +8,7 @@
     <p>Giá: <b><%= card_product.product.price %>đ</b></p>
 		<label class="lb-count">
 			<span>Số Lượng:</span>
-      <input type="number" id="input-count-product-id" class="input-count-product" onchange="calTotal(this);" data-card-product=<%= card_product.id %> data-price=<%= card_product.product.price %> value=<%= card_product.count %>>
+      <input type="number" id="input-count-product_<%= card_product.id %>" class="input-count-product" onchange="calTotal(this);" data-card-product=<%= card_product.id %> data-price=<%= card_product.product.price %> value=<%= card_product.count %>>
 		</label>
 		
 	</div>

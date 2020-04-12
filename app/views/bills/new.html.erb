@@ -1,0 +1,259 @@
+<div class="ThongtinDonHang">
+
+    	<div class="container">
+
+    		<div class="row">
+
+				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
+
+					<ul class="breadcrumb">
+
+						<li>
+
+							<span class="ico_arrow"></span>
+
+							<span>Giỏ hàng</span>
+
+						</li>
+
+						<li  class="active">
+
+							<span class="ico_arrow"></span>
+
+							<span>Thông tin giao hàng</span>
+
+						</li>
+
+					</ul>
+
+					<div class="infogiohang">
+
+						<span>Nhập thông tin giao hàng</span>
+
+					</div>
+
+					<div class="row">
+
+						<div class="col-lg-7 col-md-12 col-sm-12 col-xs-12">	
+
+							<div class="form-group row">
+
+								<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+									
+
+									<input id="fullname" name="fullname" type="text" class="form-control" placeholder="Họ và tên">
+
+									<small id="" class="form-text text-muted">Vui lòng nhập thông tin để nhận hàng thanh toan</small>
+
+								</div>
+
+								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 col_left div_sdt">
+
+
+
+									<input id="phone" name="phone" type="text" class="form-control" placeholder="Số điện thoại">
+
+								</div>
+
+								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 col_right">
+
+
+
+									<input id="email" name="email" type="text" class="form-control" placeholder="Email">
+
+								</div>
+
+							</div>
+
+						
+
+							<div class="form-group row">
+
+								<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+									<input id="" name="" type="text" class="form-control" placeholder="Số nhà + Tên đường">
+
+
+
+								</div>
+
+							</div>
+
+						
+
+							<div class="form-group row">
+
+								<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 col_left">
+
+									<select class="select_city">
+
+										<option>Chọn tỉnh/thành phố</option>
+
+										<option>Hồ Chí Minh</option>
+
+										<option>Hà Nội</option>
+
+									</select>
+
+								</div>
+
+								<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 col_middle">
+
+									<select class="select_quan">
+
+										<option>Chọn quận/huyện</option>
+
+										<option>Quận 1</option>
+
+										<option>Quận 2</option>
+
+										<option>Quận 3</option>
+
+									</select>
+
+								</div>
+
+								<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 col_right">
+
+									<select class="select_phuong">
+
+										<option>Chọn phường/xã</option>
+
+										<option>Phường 12</option>
+
+										<option>Phường 13</option>
+
+									</select>
+
+								</div>
+
+							</div>
+
+							
+
+							<div class="form-group row">
+
+								<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+									<textarea class="form-control" placeholder="Ghi chú" rows="5"></textarea>
+
+								</div>
+
+
+
+							</div>
+
+							
+
+							<div class="form-group row method_payment">
+
+								<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+									<label class="title" for="fullname">Phương thức thanh toán</label>
+
+								</div>
+
+								<div class="card">
+
+									<div class="card-header" id="headingOne">
+
+										<div class="styled-input-single item" data-toggle="collapse" data-target="#collapseOne" aria-controls="collapseOne">
+
+											<input type="radio" name="fieldset-2" id="option-1">
+
+											<label for="option-1"><span>Thanh toán khi nhận hàng</span></label>
+
+										</div>
+
+
+
+									</div>
+
+								  </div>
+
+
+
+							</div>
+
+							<div class="form-group row hidden-lg-down">
+
+								<div class="row_btn"><a class="btn btn-primary btn_big right">HOÀN THÀNH ĐƠN HÀNG</a></div>
+
+							</div>
+
+						</div>
+
+						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 Shows-md">
+
+							<hr/>
+
+						</div>
+
+						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 Shows-md">
+
+							<label class="title" for="fullname">Đơn hàng</label>
+
+						</div>
+
+						<div class="col-lg-5 col-md-12 col-sm-12 col-xs-12 ">
+
+              <% total_price = 0 %>
+              <% current_user.card_products.each do |card_product| %>
+                <% total_price += card_product.product.price * card_product.count %>
+                <%= render 'product', card_product: card_product %>
+              <% end %>
+							<hr class="hidden-sm-down" />
+
+
+
+
+							<div class="row">
+
+								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+
+									<p class="text tit_small title-big">TỔNG TIỀN:</p>
+
+								</div>
+
+								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+
+                  <p class="text text-right all-price"><b class="color"><%= total_price %> VNĐ</b></p>
+
+								</div>
+
+								
+
+							</div>
+
+							<div class="box_contact">
+
+								<span>CHÚNG TÔI SẼ LIÊN HỆ VỚI BẠN ĐỂ GIAO HÀNG TRONG THỜI GIAN SỚM NHẤT</span>
+
+							</div>
+
+							<br>
+
+							<div class="form-group Shows-md">
+
+							
+
+								<div class="row_btn"><a class="btn btn-primary btn_big">HOÀN THÀNH ĐƠN HÀNG</a></div>
+
+							</div>
+
+						</div>
+
+						
+
+					</div>
+
+					
+
+				</div>
+
+			</div>
+
+		</div>
+
+    </div>

@@ -4,13 +4,13 @@ class CardProductsController < ApplicationController
   before_action :require_loggin_page, only: [:show_all]
   def index
     respond_to do |format|
-        @card_products = current_user.card_products
+        @card_products = current_user.get_cart_products
         format.js
     end
   end
 
   def show_all
-      @card_products = current_user.card_products
+      @card_products = current_user.get_cart_products
   end
 
   def create
@@ -33,7 +33,8 @@ class CardProductsController < ApplicationController
 
   def update
     @card_product = CardProduct.find_by id: params[:id]
-    if @card_product.update_attributes edit_card_product_params
+    if @card_product.update_attributes edit_card_product_params @card_product.product
+      render json: {count: @card_product.count}, status: :ok
     end
   end
 
@@ -53,10 +54,26 @@ class CardProductsController < ApplicationController
 
   private 
   def card_product_params
+    stock = Product.find_by(id: params[:card_product][:product_id]).stock
+    if params[:card_product][:count].to_i < 1
+      params[:card_product][:count] = 1
+    elsif params[:card_product][:count].to_i > stock
+      params[:card_product][:count] = stock
+    else
+      params[:card_product][:count] = params[:card_product][:count].to_i
+    end
     params[:card_product].permit(:product_id, :count);
   end
 
-  def edit_card_product_params
+  def edit_card_product_params product
+    stock = product.stock
+    if params[:resource][:count].to_i < 1
+      params[:resource][:count] = 1
+    elsif params[:resource][:count].to_i > stock
+      params[:resource][:count] = stock
+    else
+      params[:resource][:count] = params[:resource][:count].to_i
+    end
     params[:resource].permit(:count)
   end
 end

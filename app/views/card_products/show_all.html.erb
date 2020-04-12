@@ -49,7 +49,13 @@
 
           <p class="title_giohang"><b>TỔNG TIỀN:</b><b class="color" id="total-price1-page"><%= total_price %> đ</b></p>
 
-					<div class="row_btn"><a class="btn btn-primary btn_big">THANH TOÁN</a></div>
+          <div class="row_btn">
+            <% if @card_products.count == 0 %>
+              <a class="btn btn-primary btn_big" disabled>THANH TOÁN</a>
+            <% else %>
+              <a class="btn btn-primary btn_big btn-buy-page">THANH TOÁN</a>
+            <%end%>
+          </div>
 
 					<p><a class="link_buy">Mua thêm sản phẩm khác</a></p>
 

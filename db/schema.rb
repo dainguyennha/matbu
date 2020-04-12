@@ -10,10 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_08_155912) do
+ActiveRecord::Schema.define(version: 2020_04_12_144835) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "bills", force: :cascade do |t|
+    t.string "name"
+    t.string "phone_number"
+    t.string "email"
+    t.string "address"
+    t.string "note"
+    t.integer "total_price"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_bills_on_user_id"
+  end
 
   create_table "card_products", force: :cascade do |t|
     t.bigint "product_id"
@@ -21,6 +34,8 @@ ActiveRecord::Schema.define(version: 2020_04_08_155912) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "paid", default: false
+    t.integer "bill_id"
     t.index ["product_id"], name: "index_card_products_on_product_id"
     t.index ["user_id"], name: "index_card_products_on_user_id"
   end
@@ -50,6 +65,7 @@ ActiveRecord::Schema.define(version: 2020_04_08_155912) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.float "average_rate", default: 3.0
+    t.integer "stock", default: 10
   end
 
   create_table "types", force: :cascade do |t|
@@ -68,6 +84,7 @@ ActiveRecord::Schema.define(version: 2020_04_08_155912) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "bills", "users"
   add_foreign_key "card_products", "products"
   add_foreign_key "card_products", "users"
   add_foreign_key "comments", "products"

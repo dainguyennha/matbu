@@ -17,6 +17,7 @@
 				<p class="info">Màu Sắc: Xám</p>
 
 				<p class="info">Size: S </p>
+        <p class="info">Kho: <%= card_product.product.stock %></p>
 
 			</div>
 
@@ -29,7 +30,7 @@
             
 						<div class="gr_input_number">
               <label>Số lượng</label>
-              <input type="number" name="" id="input-count-product-page-id" data-price=<%= card_product.product.price %> data-card-product=<%= card_product.id %> value=<%= card_product.count %> onclick="calTotal(this);" class="input-count-product-page">
+              <input type="number" name="" id="input-count-product-page_<%= card_product.id %>" data-price=<%= card_product.product.price %> data-card-product=<%= card_product.id %> value=<%= card_product.count %> onclick="calTotal(this);" class="input-count-product-page">
 
 
 						</div>
@@ -44,7 +45,7 @@
 
 					<div class="col-lg-4 col-md-3 col-sm-2 col-xs-3 ">
 
-						<span class="delete">Xoá</span>
+						<span class="delete" onclick="delCardProduct(<%= card_product.id %>);">Xoá</span>
 
 					</div>
 

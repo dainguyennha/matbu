@@ -1,0 +1,33 @@
+<div class="row row_item">
+
+	<div class="col-lg-4 col-md-3 col-sm-3 col-xs-3 ">
+
+		<div class="div_bg"><%= image_tag card_product.product.images[0] %></div>
+
+	</div>
+
+	<div class="col-lg-8 col-md-9 col-sm-9 col-xs-9 ">
+
+    <p class="name"><b><%= card_product.product.name %></b></p>
+
+		<div class="row">
+
+			<div class="col-lg-5 col-md-5 col-sm-12 col-xs-12 ">
+
+				<p class="info">Màu Sắc: Xám</p>
+
+				<p class="info">Size: S </p>
+
+        <p class="info">Số lượng: <%= card_product.count %></p>
+
+        <p class="info">Giá: <%= card_product.product.price %> VNĐ</p>
+
+			</div>
+
+			
+
+		</div>
+
+	</div>
+
+</div>

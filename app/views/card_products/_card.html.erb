@@ -21,7 +21,11 @@
                     <%= link_to "Xem giỏ hàng", ct_product_path(), class:"btn btn-info" %>
                 </div>
                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-                    <a class="btn btn-primary right">thanh toán</a>
+                  <% if card_products.count == 0 %>
+                    <a class="btn btn-primary right" disabled>thanh toán</a>
+                  <% else %>
+                    <a class="btn btn-primary right btn-buy">thanh toán</a>
+                  <% end %>
                 </div>
             </div>
 

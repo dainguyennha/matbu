@@ -11,5 +11,6 @@ Rails.application.routes.draw do
   resources :users, only: [:update, :show]
   resources :products
   resources :comments
+  resources :bills
   resources :card_products
 end
