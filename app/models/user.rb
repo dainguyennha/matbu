@@ -25,6 +25,7 @@ class User < ApplicationRecord
 
   has_many :comments
   has_many :card_products
+  has_many :orders
 
   has_secure_password validations: false
 
@@ -60,7 +61,7 @@ class User < ApplicationRecord
 
 
   def get_cart_products
-    self.card_products.where paid: false
+    self.card_products.where is_order: false
   end
 
 

@@ -10,7 +10,7 @@ class ProductsController < ApplicationController
     @isAddedCard = nil
     @comment = Comment.new
     if logged_in?
-      @isAddedCard = current_user.card_products.find_by(product: @product)
+      @isAddedCard = current_user.card_products.find_by(product: @product, is_order: false)
       @commented = current_user.comments.find_by(product: @product)
     end
     
