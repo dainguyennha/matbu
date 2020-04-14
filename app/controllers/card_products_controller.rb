@@ -14,12 +14,16 @@ class CardProductsController < ApplicationController
   end
 
   def create
-    respond_to do |format|
         @card_product = current_user.card_products.new card_product_params 
         if @card_product.save
-          format.js
+          if @card_product.type_order == "cart"
+            respond_to do |format|
+              format.js
+            end
+          elsif @card_product.type_order == "buy"
+            redirect_to new_order_url(@card_product.id)
+          end
         end
-    end
     
   end
 
@@ -62,7 +66,7 @@ class CardProductsController < ApplicationController
     else
       params[:card_product][:count] = params[:card_product][:count].to_i
     end
-    params[:card_product].permit(:product_id, :count);
+    params[:card_product].permit(:product_id, :count, :type_order);
   end
 
   def edit_card_product_params product

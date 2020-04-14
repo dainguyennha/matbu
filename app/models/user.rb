@@ -61,7 +61,7 @@ class User < ApplicationRecord
 
 
   def get_cart_products
-    self.card_products.where is_order: false
+    self.card_products.where is_order: false, type_order: "cart"
   end
 
 

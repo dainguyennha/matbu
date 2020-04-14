@@ -1,6 +1,7 @@
 function changeCount(ele) {
     count = $(ele).val();
     $('#product-count').val(count);
+    $('#product-count-buy').val(count);
 }
 
 function calTotal(ele) {

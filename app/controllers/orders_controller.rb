@@ -4,13 +4,23 @@ class OrdersController < ApplicationController
   end
   def new
     @order = Order.new
-    @cart_products = current_user.get_cart_products
+    if params[:format].nil?
+      @cart_products = current_user.get_cart_products
+      @is_buy_now = false
+    else
+      @cart_products = CardProduct.where id: params[:format]
+      @is_buy_now = true
+    end
 
   end
 
   def create
     @order = current_user.orders.new order_params
-    @cart_products = current_user.get_cart_products
+    if params[:order][:ct_product].nil?
+      @cart_products = current_user.get_cart_products
+    else
+      @cart_products = CardProduct.where id: params[:order][:ct_product]
+    end
     if @cart_products.count != 0
       if @order.save
         @cart_products.update order_id: @order.id, is_order: true

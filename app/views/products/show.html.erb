@@ -260,7 +260,12 @@
 
 								<li>
 
-									<div class="buy"><a class="btn-primary">Mua NGAY</a></div>
+                    <%= form_for :card_product, url: card_products_path() do |f| %>
+                      <%= f.hidden_field :count, value: 1, id:"product-count-buy" %>
+                      <%= f.hidden_field :product_id, value: @product.id %>
+                      <%= f.hidden_field :type_order, value: "buy" %>
+                      <div class="buy"><%= f.submit "Mua ngay", class: "btn-primary" %> </div>
+                    <%end%>
                   
 
 								</li>
