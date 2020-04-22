@@ -1,2 +1,43 @@
 <%= render 'layouts/header'%>
+i <div class="NewSP">
+
+    	<div class="container">
+
+    		<div class="row">
+
+				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
+
+
+
+					<h3 class="title_big">TOP SẢN PHẨM MỚI NHẤT</h3>
+
+					<div class="row">
+
+						
+            <%= render 'product', product: Product.first %>
+
+
+
+					</div>
+
+					<div class="pos_bg_link_arrow">
+
+						<a class="bg_link_arrow">
+
+							<span>Mời bạn xem thêm <span class="color">sản phẩm hot</span> khác</span>
+
+							<span class="arrow"></span>
+
+						</a>
+
+					</div>
+
+				</div>
+
+			</div>
+
+		</div>
+
+</div>
+
 <%= render 'layouts/footer' %>

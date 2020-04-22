@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_14_124158) do
+ActiveRecord::Schema.define(version: 2020_04_21_084657) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,8 +25,15 @@ ActiveRecord::Schema.define(version: 2020_04_14_124158) do
     t.integer "order_id"
     t.boolean "is_order", default: false
     t.string "type_order", default: "cart"
+    t.string "size"
     t.index ["product_id"], name: "index_card_products_on_product_id"
     t.index ["user_id"], name: "index_card_products_on_user_id"
+  end
+
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "comments", force: :cascade do |t|
@@ -69,6 +76,17 @@ ActiveRecord::Schema.define(version: 2020_04_14_124158) do
     t.datetime "updated_at", null: false
     t.float "average_rate", default: 3.0
     t.integer "stock", default: 10
+    t.bigint "category_id"
+    t.index ["category_id"], name: "index_products_on_category_id"
+  end
+
+  create_table "sizes", force: :cascade do |t|
+    t.string "name"
+    t.integer "stock"
+    t.bigint "product_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["product_id"], name: "index_sizes_on_product_id"
   end
 
   create_table "types", force: :cascade do |t|
@@ -92,4 +110,6 @@ ActiveRecord::Schema.define(version: 2020_04_14_124158) do
   add_foreign_key "comments", "products"
   add_foreign_key "comments", "users"
   add_foreign_key "orders", "users"
+  add_foreign_key "products", "categories"
+  add_foreign_key "sizes", "products"
 end

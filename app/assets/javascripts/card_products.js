@@ -4,6 +4,12 @@ function changeCount(ele) {
     $('#product-count-buy').val(count);
 }
 
+function changeSize(ele) {
+    sizename = $(ele).val();
+    $("#product-size-buy").val(sizename);
+    $("#product-size-cart").val(sizename);
+}
+
 function calTotal(ele) {
 
 

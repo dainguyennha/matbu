@@ -14,10 +14,9 @@
 
 			<div class="col-lg-5 col-md-5 col-sm-12 col-xs-12 ">
 
-				<p class="info">Màu Sắc: Xám</p>
 
-				<p class="info">Size: S </p>
-        <p class="info">Kho: <%= card_product.product.stock %></p>
+        <p class="info">Size: <%= card_product.size %></p>
+        <p class="info">Kho: <%= card_product.product.get_stock card_product.size %></p>
 
 			</div>
 

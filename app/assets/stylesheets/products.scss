@@ -11,3 +11,43 @@
     
   }
 }
+.choose-size-pp {
+  padding: 6px;
+  font-size: 17px;
+  text-transform: uppercase;
+}
+.add-cart-wrapper {
+  height: 100vh;
+    width: 100%;
+    position: fixed;
+    background: rgba(0, 0, 0, 0.2);
+    top: 0;
+    z-index: 10;
+
+    .add-cart-form-crd{
+
+          background: white;
+        width: 30%;
+        margin: 5% auto;
+        font-size: 18px;
+        border-radius: 10px;
+        padding: 47px;
+
+        .it{
+    margin-top: 15px;
+
+    select{
+      padding: 5px;
+    }
+        }
+
+        .it-last{
+              text-align: center;
+        }
+        .btn-gray{
+              background: gray;
+    color: white;
+    padding: 7px;
+        }
+    }
+}

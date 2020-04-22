@@ -27,15 +27,15 @@
 
 					</ul>
 
-					<div class="infogiohang">
+		<!---			<div class="infogiohang">
 
 						<span>Nhập thông tin giao hàng</span>
 
-					</div>
+            </div>
+            --->
           
 
 					<div class="row">
-            <%= form_for :order, url: orders_path(), remote: true, method: 'post' do |f| %>
 
 						<div class="col-lg-7 col-md-12 col-sm-12 col-xs-12">	
 
@@ -45,9 +45,9 @@
 
 									
 
-									<%= f.text_field :name, class:"form-control", placeholder:"Họ và tên", value: current_user.name %>
+                  <label>Họ và tên</label>
+                  <p><%= @order.name %></p>
 
-									<small id="order-name-error" class="form-text text-muted"></small>
 
 								</div>
 
@@ -55,21 +55,17 @@
 
 
 
-									<%= f.number_field :phone, id:"phone", class:"form-control", placeholder:"Số điện thoại", value: current_user.phone_number %>
-                  <small id="order-phone-error" class="form-text text-muted"></small>
+                  <label>Số điện thoại</label>
+                  <p><%= @order.phone %></p>
 
 								</div>
 
 								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 col_right">
 
 
+                  <label>Email</label>
+                  <p><%= @order.email %></p>
 
-                  <%= f.text_field :email, id:"email", class:"form-control", placeholder:"Email", value: current_user.email %>
-                  <small id="order-email-error" class="form-text text-muted"></small>
-
-                  <% if @is_buy_now %>
-                    <%= f.hidden_field :ct_product, value: @cart_products[0].id %>
-                  <%end%>
 								</div>
 
 							</div>
@@ -80,9 +76,8 @@
 
 								<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 
-									<%= f.text_field :address, class:"form-control", placeholder:"Địa chỉ nhận hàng" %>
-                  <small id="order-address-error" class="form-text text-muted"></small>
-
+                  <label>Địa chỉ nhận hàng</label>
+                  <p><%= @order.address %></p>
 
 								</div>
 
@@ -93,8 +88,8 @@
 
 								<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 
-									<%= f.text_area :note, class:"form-control", placeholder:"Ghi chú", rows:"5" %>
-
+                  <label>Ghi chú</label>
+                  <p><%= @order.note %></p>
 								</div>
 
 
@@ -117,9 +112,7 @@
 
 										<div class="styled-input-single item" data-toggle="collapse" data-target="#collapseOne" aria-controls="collapseOne">
 
-											<input type="radio" name="fieldset-2" id="option-1">
-
-											<label for="option-1"><span>Thanh toán khi nhận hàng</span></label>
+                      <h4>Thanh toán khi nhận hàng</h4>
 
 										</div>
 
@@ -133,11 +126,7 @@
 
 							</div>
 
-							<div class="form-group row hidden-lg-down">
-
-                <div class="row_btn"><%= f.submit "Hoàn thành đơn hàng", class:"btn btn-primary btn_big right" %></div>
-
-							</div>
+							
 
 						</div>
          
@@ -157,7 +146,7 @@
 						<div class="col-lg-5 col-md-12 col-sm-12 col-xs-12 ">
 
               <% total_price = 0 %>
-              <% @cart_products.each do |cart_product| %>
+              <% @order.card_products.each do |cart_product| %>
                 <% total_price += cart_product.product.price * cart_product.count %>
                 <%= render 'product', card_product: cart_product %>
               <% end %>
@@ -190,18 +179,9 @@
 
 							</div>
 
-							<br>
 
-							<div class="form-group Shows-md">
-
-							
-
-								<div class="row_btn"><%= f.submit "HOÀN THÀNH ĐƠN HÀNG", class:"btn btn-primary btn_big" %></div>
-
-							</div>
 
 						</div>
-          <%end %>
 
 						
 

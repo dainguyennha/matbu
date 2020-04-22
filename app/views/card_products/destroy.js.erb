@@ -1,1 +1,2 @@
 $("#btn-added-cart_<%= @card_product.id %>").replaceWith("<%= j render 'add_card_form', product: @card_product.product %>");
+$("#added-cart_<%= @card_product.id %>").replaceWith("<%= j render partial: 'products/add_cart_form', locals: { product: @card_product.product}  %>");

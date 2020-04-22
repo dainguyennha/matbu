@@ -1,0 +1,8 @@
+<!-- <%= form_for :card_product, url: card_products_path(), remote: true,html:{ id:"add-card-f_#{product.id}"} do |f| %>
+  <%= f.hidden_field :count, value: 1, id:"product-count" %>
+  <%= f.hidden_field :product_id, value: product.id %>
+  <%= f.hidden_field :size, value: product.sizes[0].name, id:"product-size-cart" %>
+  <%= f.submit "Thêm vào giỏ", class: "btn btn-primary" %>
+<%end%> -->
+
+<%= link_to "Thêm vào giỏ", new_card_product_path(id: product.id), id:"add-card-f_#{product.id}",  class:"btn btn-primary", remote: true %>

@@ -1,2 +1,3 @@
 $("#add-card-f").replaceWith("<%= j render 'added_card_btn', card_product_id: @card_product.id %>");
-
+$("#add-card-f_<%= @card_product.product.id %>").replaceWith("<button class='btn btn-primary btn-over' id='added-cart_<%= @card_product.id %>' disabled=true style='background:gray;'>Đã thêm vào giỏ</button>");
+closeByClass('.add-cart-wrapper');

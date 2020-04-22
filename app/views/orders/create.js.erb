@@ -1,0 +1,3 @@
+<% @order.errors.each do |index, error| %>
+  $("#order-<%= index %>-error").html("<%= error %>");
+<%end%>

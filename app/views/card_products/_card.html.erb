@@ -24,7 +24,7 @@
                   <% if card_products.count == 0 %>
                     <a class="btn btn-primary right" disabled>thanh toán</a>
                   <% else %>
-                    <a class="btn btn-primary right btn-buy">thanh toán</a>
+                    <%= link_to "Thanh toán", new_order_path(), class:"btn btn-primary right btn-buy" %>
                   <% end %>
                 </div>
             </div>

@@ -1,5 +1,6 @@
 class Product < ApplicationRecord
   has_many :comments
+  has_many :sizes
 
   def cal_average_nrate new_rate
     comment_count = self.comments.count + 10
@@ -8,5 +9,10 @@ class Product < ApplicationRecord
   def cal_average_urate updated_rate, old_rate
     comment_count = self.comments.count + 10
     self.average_rate = ((self.average_rate * comment_count) - old_rate + updated_rate)/comment_count 
+  end
+
+
+  def get_stock size
+    self.sizes.find_by(name: size).stock
   end
 end

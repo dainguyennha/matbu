@@ -1,0 +1,20 @@
+<div class="add-cart-wrapper">
+    <div class="add-cart-form-crd">
+        <%= form_for :card_product, url: card_products_path(), remote:true do |f| %>
+            <div class="it">
+                <label for="card_product_size">Chọn size:</label>
+                <%= f.select :size, product.sizes.map { |size| [ size.name, size.name ] } %>
+            </div>
+            <div class="it">
+
+                <label for="add-cart-count-form">Số lượng</label>
+                <%= f.number_field :count, class:"form-control", id:"add-cart-count-form",value:"1" %>
+            </div>
+            <%= f.hidden_field :product_id, value: product.id %>
+            <div class="it it-last">
+                <button onclick="closeByClass('.add-cart-wrapper');" class="btn-gray">Bỏ qua</button>
+                <%= f.submit "Thêm vào giỏ", class:"btn btn-primary" %>
+            </div>
+            <%end%>
+    </div>
+</div>

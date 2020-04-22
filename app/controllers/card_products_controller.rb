@@ -13,6 +13,12 @@ class CardProductsController < ApplicationController
       @card_products = current_user.get_cart_products
   end
 
+  def new
+    @product = Product.find_by id: params[:id]
+    respond_to do |format|
+      format.js
+    end
+  end
   def create
         @card_product = current_user.card_products.new card_product_params 
         if @card_product.save
@@ -37,7 +43,7 @@ class CardProductsController < ApplicationController
 
   def update
     @card_product = CardProduct.find_by id: params[:id]
-    if @card_product.update_attributes edit_card_product_params @card_product.product
+    if @card_product.update_attributes edit_card_product_params @card_product
       render json: {count: @card_product.count}, status: :ok
     end
   end
@@ -50,15 +56,11 @@ class CardProductsController < ApplicationController
     end
   end
 
-  def require_loggin_page
-    if !logged_in?
-     redirect_to :auth_signins_page
-    end
-  end
+  
 
   private 
   def card_product_params
-    stock = Product.find_by(id: params[:card_product][:product_id]).stock
+    stock = Product.find_by(id: params[:card_product][:product_id]).sizes.find_by(name: params[:card_product][:size]).stock
     if params[:card_product][:count].to_i < 1
       params[:card_product][:count] = 1
     elsif params[:card_product][:count].to_i > stock
@@ -66,11 +68,11 @@ class CardProductsController < ApplicationController
     else
       params[:card_product][:count] = params[:card_product][:count].to_i
     end
-    params[:card_product].permit(:product_id, :count, :type_order);
+    params[:card_product].permit(:product_id, :count, :type_order, :size);
   end
 
-  def edit_card_product_params product
-    stock = product.stock
+  def edit_card_product_params cart_product
+    stock = cart_product.product.sizes.find_by(name: cart_product.size).stock
     if params[:resource][:count].to_i < 1
       params[:resource][:count] = 1
     elsif params[:resource][:count].to_i > stock

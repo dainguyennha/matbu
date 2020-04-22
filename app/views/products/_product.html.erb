@@ -1,0 +1,50 @@
+<div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 product_<%= product.id %> ">
+
+	<div class="group_item">
+
+		<div class="item">
+
+			<span class="ribbon new"></span>
+
+      <%= image_tag product.images[0] %>
+
+			<div class="pos">
+
+				<div class="bg_pos">
+
+          <% if logged_in? %>
+            <% isAddedCard = current_user.card_products.find_by(product: product, is_order: false, type_order: "cart") %>
+            <% if isAddedCard.nil? %>
+              <%= render 'add_cart_form', product: product %>
+            <% else %>
+              <%= render 'added_cart_btn', product: product %>
+            <% end %>
+          <% else %>
+            <%= render 'add_cart_form', product: product %>
+          <%end%>
+
+
+				</div>
+
+			</div>
+
+      <%= link_to product_path(product) do %>
+			<div class="div_info">
+
+        <p class="text-center show_info">
+            <span class="name"><%= product.name %></span>
+        </p>
+
+        <p class="text-center show_infoTHÊM VÀO GIỎ"><span class="price"><%= product.price%>đ</span></p>
+
+
+      </div>
+    <%end%>
+
+		</div>
+
+	</div>
+
+</div>
+
+

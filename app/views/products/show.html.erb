@@ -73,11 +73,7 @@
 
     					<ul class="ul_info">
 
-    						<li>
-
-    							<p><span class="text">Mã sản phẩm: VC924082</span></p>
-
-    						</li>
+    					
 
     						<li>
 
@@ -89,19 +85,15 @@
 
     						<li>
 
-    							<p><span class="text">Màu sắc: Xám, trắng, đen</span></p>
-
-    						</li>
-
-    						<li>
-
     							<p><span class="text">Size: S - M - L - XL </span></p>
 
     						</li>
                 <li>
 
-                  <p><span class="text">Kho: <%= @product.stock %> </span></p>
-
+                  <p><span class="text">Kho:  </span></p>
+                  <% @product.sizes.each do |size| %>
+                    <p><span class="text">+ Size <b><%= size.name %></b>: <%= size.stock %> </span></p>
+                  <%end%>
     						</li>
 
     					</ul>
@@ -180,33 +172,7 @@
 
 					</div>
 
-					<div class="row row_line">
-
-						<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-
-							<b class="title_mau">CHỌN MÀU</b>
-
-						</div>
-
-						<div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
-
-							<ul class="color">
-
-								<li><a class="ico" style="background-color: #fff"></a></li>
-
-								<li><a class="ico" style="background-color: #1c1c1c"></a></li>
-
-								<li><a class="ico active" style="background-color: #2375c1"></a></li>
-
-								<li><a class="ico" style="background-color: #23bfc1"></a></li>
-
-
-
-							</ul>
-
-						</div>
-
-					</div>
+		
 
 					<div class="row row_line">
 
@@ -218,21 +184,11 @@
 
 						<div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
 
-							<ul class="size">
-
-								<li><a class="ico">XS</a></li>
-
-								<li><a class="ico">S</a></li>
-
-								<li><a class="ico active">M</a></li>
-
-								<li><a class="ico">L</a></li>
-
-								<li><a class="ico">XL</a></li>
-
-								<li><a class="ico">XXL</a></li>
-
-							</ul>
+<select class="choose-size-pp" onchange="changeSize(this);" onload="changeSize(this);">
+  <% @product.sizes.each do |size| %>
+    <option value="<%= size.name %>"><%= size.name %></option>
+  <% end %>
+</select>
 
 						</div>
 
@@ -260,9 +216,10 @@
 
 								<li>
 
-                    <%= form_for :card_product, url: card_products_path() do |f| %>
+                    <%= form_for :card_product, url: card_products_path(), remote: true do |f| %>
                       <%= f.hidden_field :count, value: 1, id:"product-count-buy" %>
                       <%= f.hidden_field :product_id, value: @product.id %>
+                      <%= f.hidden_field :size, value: @product.sizes[0].name, id:"product-size-buy" %>
                       <%= f.hidden_field :type_order, value: "buy" %>
                       <div class="buy"><%= f.submit "Mua ngay", class: "btn-primary" %> </div>
                     <%end%>

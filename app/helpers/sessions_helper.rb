@@ -1,4 +1,10 @@
 module SessionsHelper
+  def require_loggin_page
+    if !logged_in?
+     redirect_to :auth_signins_page
+    end
+  end
+
   def log_in user
     session[:user_id] = user.id  	
   end

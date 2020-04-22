@@ -1,4 +1,5 @@
 class OrdersController < ApplicationController
+  before_action :require_loggin_page
   def index
     
   end
@@ -25,22 +26,32 @@ class OrdersController < ApplicationController
       if @order.save
         @cart_products.update order_id: @order.id, is_order: true
         redirect_to :orders 
-      else
+      elsif @order.invalid?
+        respond_to do |format|
+          format.js
+        end
       end
     else
       redirect_to :ct_product
     end
-
-
   end
 
   def show
-    @orders = Order.find_by id: params[:id]
+    @order = Order.find_by id: params[:id]
     
   end
 
   private
   def order_params
     params[:order].permit(:name, :phone, :email, :address, :note)
+  end
+
+
+  def require_loggin
+    if !logged_in?
+      respond_to do |format|
+        format.js { render "loggin_form.js.erb"}
+      end
+    end
   end
 end
