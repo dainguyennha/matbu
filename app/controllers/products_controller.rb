@@ -7,6 +7,8 @@ class ProductsController < ApplicationController
 
   def show
     @product = Product.find_by id: params[:id]
+    @same_products = @product.category.products.where("id != ?", @product.id).order(created_at: :desc).limit(4)
+
     @isAddedCard = nil
     @comment = Comment.new
     if logged_in?

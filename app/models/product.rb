@@ -1,6 +1,8 @@
 class Product < ApplicationRecord
-  has_many :comments
-  has_many :sizes
+  has_many :comments, dependent: :destroy
+  has_many :sizes , dependent: :destroy
+  belongs_to :category
+  has_many :card_products, dependent: :destroy
 
   def cal_average_nrate new_rate
     comment_count = self.comments.count + 10

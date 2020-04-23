@@ -270,17 +270,17 @@
 
 					<div class="tab1_info active">
 
-            <p><%= @product.description %>Lorem Ipsum is simply dummy text of the printing and typesetting indLorem Ipsum is simply dummy text of the printing and typesetting indLorem Ipsum is simply dummy text of the printing and typesetting indLorem Ipsum is simply dummy text of the printing and typesetting indLorem Ipsum is simply dummy text of the printing and typesetting indLorem Ipsum is simply dummy text of the printing and typesetting indLorem Ipsum is simply dummy text of the printing and typesetting indLorem Ipsum is simply dummy text of the printing and typesetting indLorem Ipsum is simply dummy text of the printing and typesetting indLorem Ipsum is simply dummy text of the printing and typesetting indLorem Ipsum is simply dummy text of the printing and typesetting indLorem Ipsum is simply dummy text of the printing and tyesetting ind</p>
+            <p style="white-space: pre-line"><%= @product.description %></p>
 
             <img src="<%= @product.images[0] %>" /> 
 
 					</div>
 
-					<div class="tab2_info">
+		<!--			<div class="tab2_info">
 
 						Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the 
 
-					</div>
+    </div> -->
           <hr>
           
           <div class="comments-wrapper">
@@ -310,90 +310,13 @@
 						<hr/>
 
 						<div class="row">
+              <% @same_products.each do |product| %>
+                <%= render 'same_product', product: product %>
+              <%end%>
 
-							<div class="col-lg-12 col-md-12 col-sm-3 col-xs-6">
+							
 
-								<div class="group_item">
-
-									<div class="item">
-
-										<span class="ribbon new"></span>
-
-										<img src="images/demo/item1.png" alt="">
-
-										<div class="pos">
-
-											<div class="bg_pos">
-
-												<span class="btn btn-primary">THÊM VÀO GIỎ</span>
-
-											</div>
-
-										</div>
-
-										<div class="div_info">
-
-											<p class="text-center show_info"><span class="name">CHÂN VÁY CV04835</span></p>
-
-											<p class="text-center show_infoTHÊM VÀO GIỎ"><span class="price">1,950,000đ</span></p>
-
-											<p class="text-center btn_info">
-
-												<a class="btn btn-default">Xem</a>
-
-												<a class="btn btn-default">Mua ngay</a>
-
-											</p>
-
-										</div>
-
-									</div>
-
-								</div>
-
-							</div>
-
-							<div class="col-lg-12 col-md-12 col-sm-3 col-xs-6">
-
-								<div class="group_item">
-
-									<div class="item">
-
-										<span class="ribbon new"></span>
-
-										<img src="images/demo/item3.png" alt="">
-
-										<div class="pos">
-
-											<div class="bg_pos">
-
-												<span class="btn btn-primary">THÊM VÀO GIỎ</span>
-
-											</div>
-
-										</div>
-
-										<div class="div_info">
-
-											<p class="text-center show_info"><span class="name">CHÂN VÁY CV04835</span></p>
-
-											<p class="text-center show_infoTHÊM VÀO GIỎ"><span class="price">1,950,000đ</span></p>
-
-											<p class="text-center btn_info">
-
-												<a class="btn btn-default">Xem</a>
-
-												<a class="btn btn-default">Mua ngay</a>
-
-											</p>
-
-										</div>
-
-									</div>
-
-								</div>
-
-							</div>
+							
 
 						</div>
 
@@ -409,198 +332,6 @@
 
     <!--San pham moi End-->
 
-     <!--San pham da xem-->
 
-    <div class="ViewSP">
-
-    	<div class="container">
-
-    		<div class="row">
-
-				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
-
-					
-
-					<h3 class="title_big">SẢN PHẨM BẠN ĐÃ XEM</h3>
-
-					<div class="row">
-
-						<div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 ">
-
-							<div class="group_item">
-
-								<div class="item">
-
-									<span class="ribbon new"></span>
-
-									<img src="images/demo/item1.png" alt=""/>
-
-									<div class="pos">
-
-										<div class="bg_pos">
-
-											<span class="btn btn-primary">THÊM VÀO GIỎ</span>
-
-										</div>
-
-									</div>
-
-									<div class="div_info">
-
-										<p class="text-center show_info"><span class="name">CHÂN VÁY CV04835</span></p>
-
-										<p class="text-center show_infoTHÊM VÀO GIỎ"><span class="price">1,950,000đ</span></p>
-
-										<p class="text-center btn_info">
-
-											<a class="btn btn-default">Xem</a>
-
-											<a class="btn btn-default">Mua ngay</a>
-
-										</p>
-
-									</div>
-
-								</div>
-
-							</div>
-
-						</div>
-
-						<div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 ">
-
-							<div class="group_item">
-
-								<div class="item">
-
-
-
-									<img src="images/demo/item2.png" alt=""/>
-
-									<div class="pos">
-
-										<div class="bg_pos">
-
-											<span class="btn btn-primary">THÊM VÀO GIỎ</span>
-
-										</div>
-
-									</div>
-
-									<div class="div_info">
-
-										<p class="text-center show_info"><span class="name">CHÂN VÁY CV04835</span></p>
-
-										<p class="text-center show_infoTHÊM VÀO GIỎ"><span class="price">1,950,000đ</span></p>
-
-										<p class="text-center btn_info">
-
-											<a class="btn btn-default">Xem</a>
-
-											<a class="btn btn-default">Mua ngay</a>
-
-										</p>
-
-									</div>
-
-								</div>
-
-							</div>
-
-						</div>
-
-						<div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 ">
-
-							<div class="group_item">
-
-								<div class="item">
-
-
-
-									<img src="images/demo/item3.png" alt=""/>
-
-									<div class="pos">
-
-										<div class="bg_pos">
-
-											<span class="btn btn-primary">THÊM VÀO GIỎ</span>
-
-										</div>
-
-									</div>
-
-									<div class="div_info">
-
-										<p class="text-center show_info"><span class="name">CHÂN VÁY CV04835</span></p>
-
-										<p class="text-center show_infoTHÊM VÀO GIỎ"><span class="price">1,950,000đ</span></p>
-
-										<p class="text-center btn_info">
-
-											<a class="btn btn-default">Xem</a>
-
-											<a class="btn btn-default">Mua ngay</a>
-
-										</p>
-
-									</div>
-
-								</div>
-
-							</div>
-
-						</div>
-
-						<div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 ">
-
-							<div class="group_item">
-
-								<div class="item">
-
-									<span class="ribbon new"></span>
-
-									<img src="images/demo/item4.png" alt=""/>
-
-									<div class="pos">
-
-										<div class="bg_pos">
-
-											<span class="btn btn-primary">THÊM VÀO GIỎ</span>
-
-										</div>
-
-									</div>
-
-									<div class="div_info">
-
-										<p class="text-center show_info"><span class="name">CHÂN VÁY CV04835</span></p>
-
-										<p class="text-center show_infoTHÊM VÀO GIỎ"><span class="price">1,950,000đ</span></p>
-
-										<p class="text-center btn_info">
-
-											<a class="btn btn-default">Xem</a>
-
-											<a class="btn btn-default">Mua ngay</a>
-
-										</p>
-
-									</div>
-
-								</div>
-
-							</div>
-
-						</div>
-
-					</div>
-
-				</div>
-
-			</div>
-
-		</div>
-
-    </div>
     
     <%= render 'layouts/footer' %>
