@@ -6,7 +6,7 @@ function changePass(checkbox) {
     }
 
 }
-$(document).ready(function() {
+$(document).on('turbolinks:load', function() {
 
     if ($('.div_listbrand').length) {
         $('.div_listbrand').mCustomScrollbar();
@@ -98,7 +98,7 @@ $(document).ready(function() {
     if ($('.select_phuong').length) {
         $(".select_phuong").select2({
             placeholder: "-Chọn phường-"
-        });
+        }); 
     }
 
     var scroll = $(window).scrollTop();

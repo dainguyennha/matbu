@@ -1,8 +1,7 @@
 class ProductsController < ApplicationController
 # before_action :logged_in_user
   def index
-
-    
+    @hot_products = Product.order(created_at: :desc).page(params[:page]).per(24)
   end
 
   def show
@@ -39,6 +38,12 @@ class ProductsController < ApplicationController
 
 
     
+  end
+  def search
+    @products = Product.search_products(params[:search][:name])
+      .order(created_at: :desc)
+      .page(params[:page])
+      .per(24)
   end
   private
   def product_params

@@ -1,0 +1,41 @@
+<%= render 'layouts/header' %>
+  <div class="NewSP">
+
+    	<div class="container">
+
+    		<div class="row">
+
+				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
+
+
+
+					<h3 class="title_big">KẾT QUẢ TÌM KIẾM</h3>
+
+					<div class="row" id="results-search-product">
+
+            <% @products.each do |product| %>
+              <%= render 'product', product: product %>
+            <%end%>
+
+
+
+					</div>
+        <!--    <div id="paginator">
+          <%= paginate @products, remote: true %>
+            </div> -->
+
+					<div class="pos_bg_link_arrow">
+
+            <%= link_to_next_page(@products, "Xem thêm", :remote => true, class: "bg_link_arrow") %>
+
+
+  </div> 
+
+				</div>
+
+			</div>
+
+		</div>
+
+  </div>
+<%= render 'layouts/footer' %>

@@ -4,6 +4,10 @@ class Product < ApplicationRecord
   belongs_to :category
   has_many :card_products, dependent: :destroy
 
+  scope :search_products, -> (name) do
+    where("name LIKE ?", "%#{name.strip}%")
+  end
+
   def cal_average_nrate new_rate
     comment_count = self.comments.count + 10
     self.average_rate = ((self.average_rate * comment_count) + new_rate)/(comment_count + 1)

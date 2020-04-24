@@ -1,0 +1,2 @@
+$('#hot_products').append("<%= j render @hot_products %>");
+$('.hot-products').html("<%= j link_to_next_page(@hot_products, "Xem thêm", :remote => true, class: "bg_link_arrow") %>");

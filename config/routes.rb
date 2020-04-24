@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     get '/signins_page', to: 'sessions#new_page'
   end
   get '/cart_products', to: 'card_products#show_all', as: 'ct_product'
+  get '/products/search', to: 'products#search', as: 'search_products'
   resources :users, only: [:update, :show]
   resources :products
   resources :comments

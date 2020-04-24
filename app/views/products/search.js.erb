@@ -1,0 +1,2 @@
+$('#results-search-product').append("<%= j render @products %>");
+$('.pos_bg_link_arrow').html("<%= j link_to_next_page(@products, "Xem thêm", :remote => true, class: "bg_link_arrow") %>");

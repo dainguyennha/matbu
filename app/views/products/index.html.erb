@@ -1,5 +1,5 @@
 <%= render 'layouts/header'%>
-i <div class="NewSP">
+ <div class="NewSP">
 
     	<div class="container">
 
@@ -11,31 +11,19 @@ i <div class="NewSP">
 
 					<h3 class="title_big">TOP SẢN PHẨM MỚI NHẤT</h3>
 
-					<div class="row">
-
-						
-            <%= render 'product', product: Product.first %>
-
-
-
+					<div class="row" id="hot_products">
+            <%= render @hot_products %>
 					</div>
 
-					<div class="pos_bg_link_arrow">
-
-						<a class="bg_link_arrow">
-
-							<span>Mời bạn xem thêm <span class="color">sản phẩm hot</span> khác</span>
-
-							<span class="arrow"></span>
-
-						</a>
+					<div class="pos_bg_link_arrow hot-products">
+            <%= link_to_next_page(@hot_products, "Xem thêm", :remote => true, class: "bg_link_arrow") %>
 
 					</div>
 
 				</div>
 
 			</div>
-
+      
 		</div>
 
 </div>
