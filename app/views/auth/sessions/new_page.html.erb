@@ -13,7 +13,9 @@
         </div>
 		  <% end %>
    		<p class="text-center">Bạn chưa có tài khoản?</p>
-   		<p class="text-center"><a class="link" data-toggle="modal" data-target="#dangky" data-dismiss="modal">Đăng ký ngay</a></p><!--update 31/7-->
+      <p class="text-center">
+      <%= link_to "Đăng ký ngay", auth_signups_page_path(), class: "link"%>
+      </p>
     </div>
   </div>
 </div>

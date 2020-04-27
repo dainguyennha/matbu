@@ -1,3 +1,6 @@
+function submitFilter(){
+  $('#submit-filter-btn').click();
+}
 function closeByClass(classname){
   $(classname).remove();
 }

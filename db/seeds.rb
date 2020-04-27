@@ -8,11 +8,16 @@
 require 'csv'
 file = File.open('./db/products.csv')
 csv_data = CSV.parse file, headers: true
+brands = ["AMELIA", "An chi", "Bonbino", "CHERRY TREE", "CIZA", "DANY SHOP", "DIDO FASHION", "CIRINO",
+"EBAO", "GAGA", "Hoàngg My", "Phan Nguyen", "THE ONE FASHION", "MIMIShop", "Viet Thy"] 
+brands.each do |brand|
+  Brand.create name: brand
+end
 csv_data.each_with_index do |line, index|
   category = Category.find_or_create_by name: line["cat_name"]
   images = line["images"][2..-3].tr("'","").split(',').map{ |s| "https://cf.shopee.vn/file/"+s.strip() }
   product = Product.create name: line["name"], price: line["price"].to_i / 100000, description: line["description"],
-    images: images, category: category
+    images: images, category: category, brand_id: 1+rand(15)
   product.sizes.create name: "S", stock: 100
   product.sizes.create name: "M", stock: 300
   product.sizes.create name: "L", stock: 400

@@ -1,6 +1,7 @@
 module SessionsHelper
   def require_loggin_page
     if !logged_in?
+      store_location
      redirect_to :auth_signins_page
     end
   end
@@ -54,5 +55,10 @@ module SessionsHelper
 
   def store_location
     session[:forwarding_url] = request.original_url if request.get?
+
+  end
+
+  def store_location_post_method
+    session[:forwarding_url] = request.referer
   end
 end

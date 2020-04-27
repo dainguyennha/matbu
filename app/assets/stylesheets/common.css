@@ -1,8 +1,9 @@
 .respone-1 {
-  text-align: right;
-  color: green;
-  font-style: italic;
+    text-align: right;
+    color: green;
+    font-style: italic;
 }
+
 .error {
     color: red;
     font-style: italic;
@@ -1291,6 +1292,7 @@ a[x-apple-data-detectors] {
     padding-right: 28px;
     border-bottom: 2px solid #f9fafb;
     transition: border 0.3s;
+    height: 87px;
 }
 
 .navbar-nav>li>a.logo {

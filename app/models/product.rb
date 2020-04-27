@@ -3,6 +3,7 @@ class Product < ApplicationRecord
   has_many :sizes , dependent: :destroy
   belongs_to :category
   has_many :card_products, dependent: :destroy
+  belongs_to :brand
 
   scope :search_products, -> (name) do
     where("name LIKE ?", "%#{name.strip}%")

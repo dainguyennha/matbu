@@ -1,0 +1,14 @@
+<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+    <span class="new_title">SẢN PHẨM MỚI HÔM NAY</span>
+    <div class="bg_sp_new">
+      <% new_clth_product = Category.find_by(name: "#{name}").products.last %>
+            <%= link_to image_tag(new_clth_product.images[0]), product_path(new_clth_product) %>
+                <%= link_to product_path(new_clth_product), class:"bg_text" do %>
+                    <p class="text text-center">
+                        <%= new_clth_product.name %>
+                    </p>
+                    <p class="price text-center">
+                        <%= new_clth_product.price %>đ</p>
+                    <%end%>
+    </div>
+</div>

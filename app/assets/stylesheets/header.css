@@ -145,8 +145,8 @@
 }
 .ico_tracuu {
   background-repeat: no-repeat;
-  background-image: url("tracuu.png");
-  background-image: -webkit-image-set(url("tracuu.png") 1x, url("tracuu@2x.png") 2x, url("tracuu@3x.png") 3x);
+  /* background-image: url("tracuu.png"); */
+  /* background-image: -webkit-image-set(url("tracuu.png") 1x, url("tracuu@2x.png") 2x, url("tracuu@3x.png") 3x); */
   width: 32px;
   height: 32px;
   display: inline-block;
@@ -886,8 +886,8 @@
 }
 .Header_hotline .icon_email {
   background-repeat: no-repeat;
-  background-image: url("email.png");
-  background-image: -webkit-image-set(url("email.png") 1x, url("email@2x.png") 2x, url("email@3x.png") 3x);
+  /* background-image: url("email.png"); */
+  /* background-image: -webkit-image-set(url("email.png") 1x, url("email@2x.png") 2x, url("email@3x.png") 3x); */
   width: 18px;
   height: 18px;
   display: inline-block;

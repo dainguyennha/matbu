@@ -38,7 +38,6 @@
                             <li class="accountlogin ico_avatar hidden">
                                 <span class="text">Yuna</span>
                                 <span>
-										<img src="images/demo/yuna.png" alt="" /> 
 									</span>
                                 <span class="icon_down"></span>
                                 <div class="div_login_signup">
@@ -135,46 +134,32 @@
                 <div class="col-lg-10 col-md-12 col-sm-12">
                     <div class="collapse navbar-collapse" id="navbar">
                         <ul class="nav navbar-nav">
-                            <li class="cate active">
+                            <li class="cate ">
                                 <a href="#">
-									<span class="ico_ao"></span>
-									<span class="text_cate">Áo</span>
+									<span class="text_cate">Áo & Quần</span>
 								</a>
                                 <div class="cate_child">
                                     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
                                         <h2>Áo</h2>
                                         <hr/>
                                         <ul>
-                                            <li><a>Áo</a></li>
-                                            <li><a>Áo khoác & Áo vest</a></li>
+                                            <li><%= link_to "Áo", category_products_path(name: "Áo") %></li>
+                                            <li><%= link_to "Áo khoác & Áo vest", category_products_path(name: "Áo khoác & Áo vest") %></li>
+                                            <li><%= link_to "Đồ đôi", category_products_path(name: "Đồ đôi") %></li>
                                         </ul>
                                     </div>
                                     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
-                                        <h2>Phụ kiện</h2>
+                                        <h2>Quần</h2>
                                         <hr/>
                                         <ul>
-                                            <li><a>Phụ kiện may mặc</a></li>
+                                            <li><%= link_to "Quần", category_products_path(name: "Quần") %></li>
                                         </ul>
                                     </div>
-                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                                        <span class="new_title">SẢN PHẨM MỚI HÔM NAY</span>
-                                        <div class="bg_sp_new">
-                                            <% new_clth_product = Category.find_by(name: "Áo").products.last %>
-                                                <%= link_to image_tag(new_clth_product.images[0]), product_path(new_clth_product) %>
-                                                    <%= link_to product_path(new_clth_product), class:"bg_text" do %>
-                                                        <p class="text text-center">
-                                                            <%= new_clth_product.name %>
-                                                        </p>
-                                                        <p class="price text-center">
-                                                            <%= new_clth_product.price %>đ</p>
-                                                        <%end%>
-                                        </div>
-                                    </div>
-                                </div>
+                                    <%= render partial: 'layouts/new_product', locals: {name: "Áo"} %>
+                                 </div>
                             </li>
                             <li class="cate">
                                 <a href="#">
-									<span class="ico_vay"></span>
 									<span class="text_cate">Váy </span>
 								</a>
                                 <div class="cate_child">
@@ -182,96 +167,88 @@
                                         <h2>Váy</h2>
                                         <hr/>
                                         <ul>
-                                            <li><a>Chân váy</a></li>
-                                            <li><a>Đầm</a></li>
-                                            <li><a>THời trang bầu và sau sinh</a></li>
-                                            <li><a>Áo khoác</a></li>
+                                            <li><%= link_to "Chân váy", category_products_path(name: "Chân váy") %></li>
+                                            <li><%= link_to "Đầm", category_products_path(name: "Đầm") %></li>
                                         </ul>
                                     </div>
                                     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
-                                        <h2>Phụ kiện</h2>
+                                        <h2>Thời trang Bầu</h2>
                                         <hr/>
                                         <ul>
-                                            <li><a>Dây nịt</a></li>
-                                            <li><a>Nón</a></li>
-                                            <li><a>Set Bộ - Set Kết Hợp</a></li>
+                                            <li><%= link_to "Thời trang bầu và sau sinh ", category_products_path(name: "Thời trang bầu và sau sinh ") %></li>
                                         </ul>
                                     </div>
-                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                                        <span class="new_title">SẢN PHẨM MỚI HÔM NAY</span>
-                                        <div class="bg_sp_new">
-                                            <a><img alt="" src="images/demo/img_menu.png" /> </a>
-                                            <a class="bg_text">
-                                                <p class="text text-center">Bird of paradise medium top bag
-                                                    TXT131 - Shades of love</p>
-                                                <p class="price text-center">750,000đ</p>
-                                            </a>
-                                        </div>
-                                    </div>
+                                    <%= render partial: 'layouts/new_product',locals:{ name: "Chân váy"} %>
+                                    
                                 </div>
                             </li>
+                            
+                            
                             <li class="cate">
                                 <a href="#">
-									<span class="ico_dam"></span>
-									<span class="text_cate">Đầm</span>
-								</a>
-                            </li>
-                            <li class="cate">
-                                <a href="#">
-									<span class="ico_tuixach"></span>
-									<span class="text_cate">Bóp</span>
-								</a>
-                            </li>
-                            <li class="cate">
-                                <a href="#">
-									<span class="ico_giay"></span>
-									<span class="text_cate">Giày</span>
+									<span class="text_cate">Set trang phục</span>
 								</a>
                                 <div class="cate_child">
                                     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
-                                        <h2>Giày</h2>
+                                        <h2>Trang phục</h2>
                                         <hr/>
                                         <ul>
-                                            <li><a>Áo thun</a></li>
-                                            <li><a>Áo sơmi</a></li>
-                                            <li><a>Áo len</a></li>
-                                            <li><a>Áo khoác</a></li>
+                                            <li><%= link_to "Set trang phục & Jumpsuit", category_products_path(name: "Set trang phục & Jumpsuit") %></li>
+                                            <li><%= link_to "Trang phục đông", category_products_path(name: "Trang Phục Đông") %></li>
+                                            <li><%= link_to "Thời trang trung niên", category_products_path(name: "Thời trang trung niên") %></li>
                                         </ul>
                                     </div>
                                     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
                                         <h2>Phụ kiện</h2>
                                         <hr/>
                                         <ul>
-                                            <li><a>Dây nịt</a></li>
-                                            <li><a>Nón</a></li>
-                                            <li><a>Set Bộ - Set Kết Hợp</a></li>
+                                          <li><%= link_to "Phụ kiện may mặc", category_products_path(name: "Phụ kiện may mặc") %></li>
                                         </ul>
                                     </div>
-                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                                        <span class="new_title">SẢN PHẨM MỚI HÔM NAY</span>
-                                        <div class="bg_sp_new">
-                                            <a><img alt="" src="images/demo/img_menu.png" /> </a>
-                                            <a class="bg_text">
-                                                <p class="text text-center">Bird of paradise medium top bag
-                                                    TXT131 - Shades of love</p>
-                                                <p class="price text-center">750,000đ</p>
-                                            </a>
-                                        </div>
-                                    </div>
+                                    <%= render partial: 'layouts/new_product', locals: { name: "Trang Phục Đông"} %> 
                                 </div>
                             </li>
                             <li class="cate">
                                 <a href="#">
-									<span class="ico_km"></span>
-									<span class="text_cate">Khuyến mãi</span>
+									<span class="text_cate">Đồ lót & Ngủ</span>
 								</a>
+                                <div class="cate_child">
+                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
+                                        <h2>Đồ lót</h2>
+                                        <hr/>
+                                        <ul>
+                                          <li><%= link_to "Đồ lót, Đồ ngủ & Đồ mặc nhà", category_products_path(name: "Đồ lót, Đồ ngủ & Đồ mặc nhà") %></li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <%= render partial: 'layouts/new_product', locals: { name: "Đồ lót, Đồ ngủ & Đồ mặc nhà"} %>
+                                </div>
                             </li>
+
                             <li class="cate">
                                 <a href="#">
-									<span class="ico_tintuc"></span>
-									<span class="text_cate">Tin tức thời trang</span>
+									<span class="text_cate">Thể thao</span>
 								</a>
+                                <div class="cate_child">
+                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
+                                        <h2>Bơi</h2>
+                                        <hr/>
+                                        <ul>
+                                          <li><%= link_to "Đồ bơi", category_products_path(name: "Đồ bơi") %></li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
+                                        <h2>GYM</h2>
+                                        <hr/>
+                                        <ul>
+                                          <li><%= link_to "Trang phục thể thao", category_products_path(name: "Trang phục thể thao") %></li>
+                                        </ul>
+                                    </div>
+                                    <%= render partial: 'layouts/new_product', locals: { name: "Trang phục thể thao"} %>
+                                </div>
                             </li>
+                            
+                            
                         </ul>
                     </div>
                 </div>

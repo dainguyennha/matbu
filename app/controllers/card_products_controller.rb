@@ -1,12 +1,10 @@
 class CardProductsController < ApplicationController
   before_action :require_loggin
+  before_action :set_cart_product, only: [:destroy, :update]
   skip_before_action :require_loggin, only: [:show_all]
   before_action :require_loggin_page, only: [:show_all]
   def index
-    respond_to do |format|
         @card_products = current_user.get_cart_products
-        format.js
-    end
   end
 
   def show_all
@@ -14,18 +12,12 @@ class CardProductsController < ApplicationController
   end
 
   def new
-    @product = Product.find_by id: params[:id]
-    respond_to do |format|
-      format.js
-    end
+    @product = Product.find_by id: params[:id] rescue not_found
   end
   def create
         @card_product = current_user.card_products.new card_product_params 
         if @card_product.save
           if @card_product.type_order == "cart"
-            respond_to do |format|
-              format.js
-            end
           elsif @card_product.type_order == "buy"
             redirect_to new_order_url(@card_product.id)
           end
@@ -34,22 +26,19 @@ class CardProductsController < ApplicationController
   end
 
   def destroy
-    @card_product = CardProduct.find_by id: params[:id]
-    @card_product.destroy
-    respond_to do |format|
-      format.js
-    end
+
+    @card_product.destroy if !@card_product.nil?
   end
 
   def update
-    @card_product = CardProduct.find_by id: params[:id]
-    if @card_product.update_attributes edit_card_product_params @card_product
+    if (!@card_product.nil?) && (@card_product.update_attributes edit_card_product_params @card_product)
       render json: {count: @card_product.count}, status: :ok
     end
   end
 
   def require_loggin
     if !logged_in?
+      store_location_post_method
       respond_to do |format|
         format.js { render "loggin_form.js.erb"}
       end
@@ -81,5 +70,9 @@ class CardProductsController < ApplicationController
       params[:resource][:count] = params[:resource][:count].to_i
     end
     params[:resource].permit(:count)
+  end
+
+  def set_cart_product
+    @card_product = CardProduct.find_by id: params[:id] rescue not_found
   end
 end

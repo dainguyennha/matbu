@@ -1,0 +1,2 @@
+$('#hot_products').html("<%= j render @products %>");
+$('.hot_products').html("<%= j link_to_next_page(@products, "Xem thêm", url: filter_products_path(), :remote => true, :param_name => 'filter_page', class: "bg_link_arrow") %>");

@@ -59,8 +59,8 @@
 .footer .group_link a.link:after {
     content: "";
     background-repeat: no-repeat;
-    background-image: url("arrow_f.png");
-    background-image: -webkit-image-set(url("arrow_f.png") 1x, url("arrow_f@2x.png") 2x, url("arrow_f@3x.png") 3x);
+    /* background-image: url("arrow_f.png"); */
+    /* background-image: -webkit-image-set(url("arrow_f.png") 1x, url("arrow_f@2x.png") 2x, url("arrow_f@3x.png") 3x); */
     background-position: center center;
     width: 10px;
     height: 10px;
@@ -329,7 +329,6 @@
 }
 
 .footer_icon .pay1 {
-    background: url("visa.png") no-repeat;
 }
 
 .footer_icon .pay2 {

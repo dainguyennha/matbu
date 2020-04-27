@@ -10,10 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_21_084657) do
+ActiveRecord::Schema.define(version: 2020_04_27_042814) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "brands", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "card_products", force: :cascade do |t|
     t.bigint "product_id"
@@ -77,6 +83,8 @@ ActiveRecord::Schema.define(version: 2020_04_21_084657) do
     t.float "average_rate", default: 3.0
     t.integer "stock", default: 10
     t.bigint "category_id"
+    t.bigint "brand_id"
+    t.index ["brand_id"], name: "index_products_on_brand_id"
     t.index ["category_id"], name: "index_products_on_category_id"
   end
 
@@ -110,6 +118,7 @@ ActiveRecord::Schema.define(version: 2020_04_21_084657) do
   add_foreign_key "comments", "products"
   add_foreign_key "comments", "users"
   add_foreign_key "orders", "users"
+  add_foreign_key "products", "brands"
   add_foreign_key "products", "categories"
   add_foreign_key "sizes", "products"
 end

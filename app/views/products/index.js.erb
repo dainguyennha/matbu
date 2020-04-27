@@ -1,2 +1,10 @@
-$('#hot_products').append("<%= j render @hot_products %>");
+<% if @filter %>
+    <% if @page %>
+    $('#hot_products').append("<%= j render @hot_products %>");
+  <%else%>
+    $('#hot_products').html("<%= j render @hot_products %>");
+  <%end%>
+<%else%>
+    $('#hot_products').append("<%= j render @hot_products %>");
+  <%end%>
 $('.hot-products').html("<%= j link_to_next_page(@hot_products, "Xem thêm", :remote => true, class: "bg_link_arrow") %>");

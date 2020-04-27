@@ -1,0 +1,30 @@
+<%= render 'layouts/header' %>
+ <div class="NewSP">
+
+    	<div class="container">
+
+    		<div class="row">
+
+				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
+
+
+
+          <h3 class="title_big"><%= @category_name %></h3>
+
+					<div class="row" id="category-products">
+            <%= render @products %>
+					</div>
+
+					<div class="pos_bg_link_arrow hot-products">
+            <%= link_to_next_page(@products, "Xem thêm", :remote => true, class: "bg_link_arrow") %>
+
+					</div>
+
+				</div>
+
+			</div>
+      
+		</div>
+
+  </div> 
+<%= render 'layouts/footer' %>
