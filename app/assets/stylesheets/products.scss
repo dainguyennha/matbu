@@ -1,6 +1,32 @@
 // Place all the styles related to the products controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.prop {
+  margin: 10px 0;
+
+  label{
+    font-size: 20px;
+  }
+
+}
+.size-wrap{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  div{
+    display: grid;
+    grid-template-columns: auto auto;
+  }
+  label{
+    font-size: 20px;
+    text-align: right;
+    line-height: 45px;
+    margin-right: 7px;
+  }
+}
+.cat-brand{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
 .add-card{
   margin-top: 37px;
 

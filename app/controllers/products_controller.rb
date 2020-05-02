@@ -32,23 +32,39 @@ class ProductsController < ApplicationController
 
   def new
     @product = Product.new
+    @product.sizes.new
   end
 
   def create
     @product = Product.new product_params
     uploaded_io_s = params[:product][:images]
-    uploaded_io_s.each  do |uploaded_io|
-
-      sys_file_name = "#{Time.now.to_i}-#{current_user.id}"
-      File.open(Rails.root.join('public', 'assets', 'images', 'uploads', "#{sys_file_name}#{uploaded_io.original_filename}"), 'wb') do |file|
-        file.write(uploaded_io.read)
-      end
-      @product.images.push( "/assets/images/uploads/#{sys_file_name}#{uploaded_io.original_filename}")
+    if uploaded_io_s
+      @product.upload_images uploaded_io_s, current_user
     end
+    
     if @product.save
       redirect_to @product
     else
+      byebug
     end
+  end
+
+  def edit
+    @product = Product.find_by id: params[:id]
+  end
+
+  def update
+    @product = Product.find_by id: params[:id]
+    @product.update_attributes product_params
+    uploaded_io_s = params[:product][:images]
+    if uploaded_io_s
+      @product.upload_images uploaded_io_s, current_user
+      @product.save
+    end
+
+
+
+    
   end
 
   def search
@@ -66,7 +82,7 @@ class ProductsController < ApplicationController
   end
 
   def category
-    @category = Category.find_by(name: params[:name])
+    @category = Category.find_by(id: params[:id])
     if @category
       @category_name = @category.name
       @products = @category.products
@@ -86,7 +102,7 @@ class ProductsController < ApplicationController
   end
 
   def product_params
-    params[:product].permit(:name, :description, :price)
+    params[:product].permit(:name, :description, :price, :category_id, :brand_id, sizes_attributes: [:name, :stock, :_destroy, :id])
   end
 
   def filter_params

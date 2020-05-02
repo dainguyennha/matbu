@@ -136,117 +136,17 @@
                         <ul class="nav navbar-nav">
                             <li class="cate ">
                                 <a href="#">
-									<span class="text_cate">Áo & Quần</span>
+									<span class="text_cate">Phân loại</span>
 								</a>
                                 <div class="cate_child">
-                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
-                                        <h2>Áo</h2>
-                                        <hr/>
-                                        <ul>
-                                            <li><%= link_to "Áo", category_products_path(name: "Áo") %></li>
-                                            <li><%= link_to "Áo khoác & Áo vest", category_products_path(name: "Áo khoác & Áo vest") %></li>
-                                            <li><%= link_to "Đồ đôi", category_products_path(name: "Đồ đôi") %></li>
-                                        </ul>
-                                    </div>
-                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
-                                        <h2>Quần</h2>
-                                        <hr/>
-                                        <ul>
-                                            <li><%= link_to "Quần", category_products_path(name: "Quần") %></li>
-                                        </ul>
-                                    </div>
-                                    <%= render partial: 'layouts/new_product', locals: {name: "Áo"} %>
+                                  <% Category.all.each do |category| %>
+                                  <div class="link-wrap"><%= link_to category.name, category_products_path(id: category.id) %></div>
+                                <%end%>
+
+                                    
                                  </div>
                             </li>
-                            <li class="cate">
-                                <a href="#">
-									<span class="text_cate">Váy </span>
-								</a>
-                                <div class="cate_child">
-                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
-                                        <h2>Váy</h2>
-                                        <hr/>
-                                        <ul>
-                                            <li><%= link_to "Chân váy", category_products_path(name: "Chân váy") %></li>
-                                            <li><%= link_to "Đầm", category_products_path(name: "Đầm") %></li>
-                                        </ul>
-                                    </div>
-                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
-                                        <h2>Thời trang Bầu</h2>
-                                        <hr/>
-                                        <ul>
-                                            <li><%= link_to "Thời trang bầu và sau sinh ", category_products_path(name: "Thời trang bầu và sau sinh ") %></li>
-                                        </ul>
-                                    </div>
-                                    <%= render partial: 'layouts/new_product',locals:{ name: "Chân váy"} %>
-                                    
-                                </div>
-                            </li>
                             
-                            
-                            <li class="cate">
-                                <a href="#">
-									<span class="text_cate">Set trang phục</span>
-								</a>
-                                <div class="cate_child">
-                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
-                                        <h2>Trang phục</h2>
-                                        <hr/>
-                                        <ul>
-                                            <li><%= link_to "Set trang phục & Jumpsuit", category_products_path(name: "Set trang phục & Jumpsuit") %></li>
-                                            <li><%= link_to "Trang phục đông", category_products_path(name: "Trang Phục Đông") %></li>
-                                            <li><%= link_to "Thời trang trung niên", category_products_path(name: "Thời trang trung niên") %></li>
-                                        </ul>
-                                    </div>
-                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
-                                        <h2>Phụ kiện</h2>
-                                        <hr/>
-                                        <ul>
-                                          <li><%= link_to "Phụ kiện may mặc", category_products_path(name: "Phụ kiện may mặc") %></li>
-                                        </ul>
-                                    </div>
-                                    <%= render partial: 'layouts/new_product', locals: { name: "Trang Phục Đông"} %> 
-                                </div>
-                            </li>
-                            <li class="cate">
-                                <a href="#">
-									<span class="text_cate">Đồ lót & Ngủ</span>
-								</a>
-                                <div class="cate_child">
-                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
-                                        <h2>Đồ lót</h2>
-                                        <hr/>
-                                        <ul>
-                                          <li><%= link_to "Đồ lót, Đồ ngủ & Đồ mặc nhà", category_products_path(name: "Đồ lót, Đồ ngủ & Đồ mặc nhà") %></li>
-                                        </ul>
-                                    </div>
-                                    
-                                    <%= render partial: 'layouts/new_product', locals: { name: "Đồ lót, Đồ ngủ & Đồ mặc nhà"} %>
-                                </div>
-                            </li>
-
-                            <li class="cate">
-                                <a href="#">
-									<span class="text_cate">Thể thao</span>
-								</a>
-                                <div class="cate_child">
-                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
-                                        <h2>Bơi</h2>
-                                        <hr/>
-                                        <ul>
-                                          <li><%= link_to "Đồ bơi", category_products_path(name: "Đồ bơi") %></li>
-                                        </ul>
-                                    </div>
-                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
-                                        <h2>GYM</h2>
-                                        <hr/>
-                                        <ul>
-                                          <li><%= link_to "Trang phục thể thao", category_products_path(name: "Trang phục thể thao") %></li>
-                                        </ul>
-                                    </div>
-                                    <%= render partial: 'layouts/new_product', locals: { name: "Trang phục thể thao"} %>
-                                </div>
-                            </li>
                             
                             
                         </ul>

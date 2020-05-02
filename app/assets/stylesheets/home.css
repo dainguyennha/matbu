@@ -68,10 +68,12 @@
     right: 0;
     display: block;
 }
-
-.NewSP {
+.dp-grid-28 {
     display: grid;
     grid-template-columns: 20% 80%;
+}
+.NewSP {
+
     margin-top: 48px;
     padding-top: 0px;
     position: relative;
@@ -85,8 +87,9 @@
     text-align: center;
     margin-bottom: 10px;
 }
-.bg-cl-eee>label{
-  font-size: 17px;
+
+.bg-cl-eee>label {
+    font-size: 17px;
 }
 
 .filter-row>.title>h3 {

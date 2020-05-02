@@ -1,0 +1,11 @@
+<div class="size-wrap nested-fields">
+  <div>
+<%= f.label "Kích cỡ" %>
+<%= f.text_field :name, class: 'form-control' %>
+  </div>
+  <div>
+<%= f.label "Số lượng" %>
+<%= f.number_field :stock, class: 'form-control' %>
+  </div>
+   <%= link_to_remove_association "xóa size", f %>
+</div>

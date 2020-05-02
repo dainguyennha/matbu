@@ -5,10 +5,24 @@ class Product < ApplicationRecord
   has_many :card_products, dependent: :destroy
   belongs_to :brand
 
+  accepts_nested_attributes_for :sizes, allow_destroy: true,
+    reject_if: :all_blank
+
   scope :search_products, -> (name) do
     where("name LIKE ?", "%#{name.strip}%")
   end
 
+  def upload_images uploaded_io_s, user
+    uploaded_io_s.each  do |uploaded_io|
+
+      sys_file_name = "#{Time.now.to_i}-#{user.id}"
+      File.open(Rails.root.join('public', 'assets', 'images', 'uploads', "#{sys_file_name}#{uploaded_io.original_filename}"), 'wb') do |file|
+        file.write(uploaded_io.read)
+      end
+      self.images.push( "/assets/images/uploads/#{sys_file_name}#{uploaded_io.original_filename}")
+    end
+    
+  end
   def cal_average_nrate new_rate
     comment_count = self.comments.count + 10
     self.average_rate = ((self.average_rate * comment_count) + new_rate)/(comment_count + 1)
