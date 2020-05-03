@@ -1,6 +1,7 @@
 class Order < ApplicationRecord
   belongs_to :user
   has_many :card_products
+  belongs_to :status
 
   validates :name, :presence => { message: "Tên không được để trống"}
   VALID_PHONE_REGEX = /\b(0)+[2-9]+([0-9]{8})\b/
@@ -12,6 +13,11 @@ class Order < ApplicationRecord
   validates :email, allow_blank: true, length: { maximum: 250 },
     format: { with: VALID_EMAIL_REGEX, message: "Email không hợp lệ!" }
   validates :address, :presence => { message: "Địa chỉ không được để trống"}
+
+  scope :get_orders_default, -> do
+    where(status_id: [1, 2])
+  end
+
 
 
 
@@ -28,5 +34,7 @@ class Order < ApplicationRecord
   def created_at_in_zone_time
     created_at.in_time_zone(+7).strftime("%H:%M:%S ngày %d/%m/%Y")
   end
+
+
 
 end

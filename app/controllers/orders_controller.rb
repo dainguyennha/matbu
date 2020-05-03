@@ -17,6 +17,7 @@ class OrdersController < ApplicationController
 
   def create
     @order = current_user.orders.new order_params
+    @order.status = Status.first
     if params[:order][:ct_product].nil?
       @cart_products = current_user.get_cart_products
     else
@@ -41,9 +42,29 @@ class OrdersController < ApplicationController
     
   end
 
+  def index_sys
+    @orders = Order.get_orders_default
+  end
+
+  def show_sys
+    @order = Order.find_by id: params[:id]
+  end
+
+  def update_status_sys
+    @order = Order.find_by id: params[:id]
+    @order.status_id = params[:order][:status].to_i
+    @order.save
+
+    
+  end
+
   private
   def order_params
     params[:order].permit(:name, :phone, :email, :address, :note)
+  end
+
+  def order_status_params
+    params[:order].permit(:status)
   end
 
 

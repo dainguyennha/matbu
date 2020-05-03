@@ -8,6 +8,10 @@
 require 'csv'
 file = File.open('./db/products.csv')
 csv_data = CSV.parse file, headers: true
+statuses = ["Đang xử lý", "Đang giao", "Đã giao"]
+statuses.each do |status|
+  Status.create name: status
+end
 brands = ["AMELIA", "An chi", "Bonbino", "CHERRY TREE", "CIZA", "DANY SHOP", "DIDO FASHION", "CIRINO",
 "EBAO", "GAGA", "Hoàngg My", "Phan Nguyen", "THE ONE FASHION", "MIMIShop", "Viet Thy"] 
 brands.each do |brand|

@@ -1,0 +1,63 @@
+<%= render 'layouts/header' %>
+<div class="ThongtinDonHang">
+
+	<div class="container">
+
+		<div class="row">
+
+		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
+
+			
+
+
+
+			<p class="title_danhsach">Danh sách</p>
+
+      <p class="info_danhsach">Có <b class="color"><%= @orders.count %></b> đơn hàng</p>
+
+			<table class="table_danhsach">
+
+				<tr>
+
+					<th>Thời gian mua hàng</th>
+
+					<th>Mã đơn hàng</th>
+
+					<th>Tổng cộng</th>
+          <th>Số điện thoại</th>
+
+					<th>Tình trạng đơn hàng</th>
+
+					<th>Chi tiết</th>
+
+				</tr>
+
+        <% @orders.each do |order| %>
+          <tr>
+
+            <td class="text-center"><%= order.created_at_in_zone_time %></td>
+
+            <td class="text-center"><%= order.id %></td>
+
+            <td class="text-right"><%= order.tl_price %> đ</td>
+            <td class="text-right"><%= order.phone %></td>
+
+            <td class="text-center"><%= order.status.name %></td>
+
+					  <td class="text-center"><%= link_to "Xem", sys_order_path(order), class:"link" %></td>
+
+				  </tr>
+
+        <%end%>
+        
+
+			</table>
+
+		</div>
+
+	</div>
+
+</div>
+
+</div>
+<%= render 'layouts/footer' %>

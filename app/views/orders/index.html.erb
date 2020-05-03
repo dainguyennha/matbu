@@ -40,7 +40,7 @@
 
                 <td class="text-right"><%= order.tl_price %> đ</td>
 
-							  <td class="text-center">Đang giao</td>
+                <td class="text-center"><%= order.status.name %></td>
 
 							  <td class="text-center"><%= link_to "Xem", order_path(order), class:"link" %></td>
 
