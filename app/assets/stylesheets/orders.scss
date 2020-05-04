@@ -4,3 +4,25 @@
 #order-status-submit-btn{
   display: none;
 }
+
+.status-radio{
+  opacity: 0;
+}
+.status-label{
+  border: 1px solid black;
+  padding: 10px;
+}
+.active-label{
+  background: #eb3d32;
+  color: white;
+  border-color: #eb3d32;
+}
+.infor-label{
+      font-size: 20px;
+    font-weight: bold;
+    margin-top: 10px;
+
+}
+.dp-none{
+  display: none;
+}

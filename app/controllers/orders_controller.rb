@@ -26,6 +26,17 @@ class OrdersController < ApplicationController
     if @cart_products.count != 0
       if @order.save
         @cart_products.update order_id: @order.id, is_order: true
+        total_price = 0
+        @cart_products.each do |ct_product|
+          ct_product.name = ct_product.product.name
+          ct_product.price = ct_product.product.price
+          ct_product.image = ct_product.product.images[0]
+
+          ct_product.save
+          total_price += ct_product.price * ct_product.count
+        end
+
+        @order.update total_price: total_price
         redirect_to :orders 
       elsif @order.invalid?
         respond_to do |format|
@@ -53,8 +64,23 @@ class OrdersController < ApplicationController
   def update_status_sys
     @order = Order.find_by id: params[:id]
     @order.status_id = params[:order][:status].to_i
+    case @order.status_id
+    when 3
+      @order.card_products.update paid: true
+    when 2
+      cal_stock @order
+      
+    end
     @order.save
 
+    
+  end
+  def cal_stock order
+    order.card_products.each do |ct_product|
+      size = ct_product.product.sizes.find_by(name: ct_product.size)
+      size.stock -= ct_product.count
+      size.save
+    end
     
   end
 

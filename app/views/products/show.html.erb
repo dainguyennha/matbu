@@ -286,7 +286,7 @@
             <h2>Đánh giá</h2>
             <% if logged_in? %>
               <% if @commented.nil? %>
-                <%= render partial: 'comments/form', locals: {product: @product, star: 0} %>
+                <%= render partial: 'comments/form', locals: {product: @product, star: 0} if @isBought %>
               <% else %>
                 <%= render partial: 'comments/your_comment', locals: {comment: @commented} %>
               <%end%>

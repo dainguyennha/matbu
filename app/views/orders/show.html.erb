@@ -45,7 +45,7 @@
 
 									
 
-                  <label>Họ và tên</label>
+                  <label class="infor-label">Họ và tên</label>
                   <p><%= @order.name %></p>
 
 
@@ -55,7 +55,7 @@
 
 
 
-                  <label>Số điện thoại</label>
+                  <label class="infor-label">Số điện thoại</label>
                   <p><%= @order.phone %></p>
 
 								</div>
@@ -63,7 +63,7 @@
 								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 col_right">
 
 
-                  <label>Email</label>
+                  <label class="infor-label">Email</label>
                   <p><%= @order.email %></p>
 
 								</div>
@@ -76,7 +76,7 @@
 
 								<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 
-                  <label>Địa chỉ nhận hàng</label>
+                  <label class="infor-label">Địa chỉ nhận hàng</label>
                   <p><%= @order.address %></p>
 
 								</div>
@@ -88,7 +88,7 @@
 
 								<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 
-                  <label>Ghi chú</label>
+                  <label class="infor-label">Ghi chú</label>
                   <p><%= @order.note %></p>
 								</div>
 
@@ -145,10 +145,8 @@
 
 						<div class="col-lg-5 col-md-12 col-sm-12 col-xs-12 ">
 
-              <% total_price = 0 %>
               <% @order.card_products.each do |cart_product| %>
-                <% total_price += cart_product.product.price * cart_product.count %>
-                <%= render 'product', card_product: cart_product %>
+                <%= render 'product', card_product: cart_product, image: cart_product.image, cart_product_or_product: cart_product %>
               <% end %>
 							<hr class="hidden-sm-down" />
 
@@ -165,7 +163,7 @@
 
 								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
 
-                  <p class="text text-right all-price"><b class="color"><%= total_price %> VNĐ</b></p>
+                  <p class="text text-right all-price"><b class="color"><%= @order.total_price %> VNĐ</b></p>
 
 								</div>
 

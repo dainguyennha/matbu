@@ -2,25 +2,24 @@
 
 	<div class="col-lg-4 col-md-3 col-sm-3 col-xs-3 ">
 
-		<div class="div_bg"><%= image_tag card_product.product.images[0] %></div>
+		<div class="div_bg"><%= image_tag image %></div>
 
 	</div>
 
 	<div class="col-lg-8 col-md-9 col-sm-9 col-xs-9 ">
 
-    <p class="name"><b><%= card_product.product.name %></b></p>
+    <p class="name"><b><%= cart_product_or_product.name %></b></p>
 
 		<div class="row">
 
 			<div class="col-lg-5 col-md-5 col-sm-12 col-xs-12 ">
 
-				<p class="info">Màu Sắc: Xám</p>
 
         <p class="info">Size: <%= card_product.size %> </p>
 
         <p class="info">Số lượng: <%= card_product.count %></p>
 
-        <p class="info">Giá: <%= card_product.product.price %> VNĐ</p>
+        <p class="info">Giá: <%= cart_product_or_product.price %> VNĐ</p>
 
 			</div>
 

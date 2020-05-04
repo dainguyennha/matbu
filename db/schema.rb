@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_03_063922) do
+ActiveRecord::Schema.define(version: 2020_05_04_013700) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,6 +32,9 @@ ActiveRecord::Schema.define(version: 2020_05_03_063922) do
     t.boolean "is_order", default: false
     t.string "type_order", default: "cart"
     t.string "size"
+    t.string "name"
+    t.integer "price"
+    t.string "image"
     t.index ["product_id"], name: "index_card_products_on_product_id"
     t.index ["user_id"], name: "index_card_products_on_user_id"
   end

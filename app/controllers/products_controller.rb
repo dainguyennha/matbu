@@ -20,11 +20,17 @@ class ProductsController < ApplicationController
 
   def show
     if !@product.nil?
+      
       @same_products = @product.category.products.where("id != ?", @product.id).order(created_at: :desc).limit(4)
       @isAddedCard = nil
       @comment = Comment.new
       if logged_in?
         @isAddedCard = current_user.card_products.find_by(product: @product, is_order: false, type_order: "cart")
+        ct_product = current_user.card_products.where(product: @product, paid: true)
+        @isBought = false
+        if ct_product.count > 0
+          @isBought = true
+        end
         @commented = current_user.comments.find_by(product: @product)
       end
     end

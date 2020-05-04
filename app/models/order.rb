@@ -18,19 +18,6 @@ class Order < ApplicationRecord
     where(status_id: [1, 2])
   end
 
-
-
-
-  def tl_price
-    tl_price = 0
-    self.card_products.each do |cart_product|
-
-      tl_price += cart_product.count * cart_product.product.price
-
-    end
-    return tl_price
-  end
-
   def created_at_in_zone_time
     created_at.in_time_zone(+7).strftime("%H:%M:%S ngày %d/%m/%Y")
   end
