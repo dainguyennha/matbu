@@ -5,12 +5,34 @@
   display: none;
 }
 
+.total_table{
+  position: sticky;
+  bottom: 0;
+}
+
 .status-radio{
   opacity: 0;
 }
 .status-label{
   border: 1px solid black;
   padding: 10px;
+}
+.tool-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+
+  div {
+    text-align: right;
+  }
+}
+.search-products-wrapper{
+  display: grid;
+  grid-template-columns: auto auto;
+  padding-bottom: 12px;
+
+  input{
+    font-size: 18px;
+  }
 }
 .active-label{
   background: #eb3d32;

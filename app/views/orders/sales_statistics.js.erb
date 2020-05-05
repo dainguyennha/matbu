@@ -1,0 +1,2 @@
+$(".table_danhsach_f").html("<%= j render 'product_list', products: @products %>");
+$("#pagination").html("<%= j paginate @products, remote: true %>");

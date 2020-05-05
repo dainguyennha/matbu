@@ -1,0 +1,9 @@
+$("#status_"+<%= @product.id %>).html("<%= @product.status %>");
+temp = "";
+if(<%= @product.status == "Ngừng kinh doanh" %>){
+  temp = "Tiếp tục kinh doanh";
+}else{
+  temp = "Ngừng kinh doanh";
+}
+
+$("#status-btn_"+<%= @product.id %>).html(temp);

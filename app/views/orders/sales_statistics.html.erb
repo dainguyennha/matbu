@@ -1,0 +1,60 @@
+<%= render 'layouts/header' %>
+<div class="ThongtinDonHang">
+
+	<div class="container">
+
+		<div class="row">
+
+		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
+
+			
+
+
+
+			<p class="title_danhsach">Danh sách</p>
+      <div class="tool-wrapper">
+      <div class="search-table">
+        <%= form_for :search,  url: sys_sales_statistics_path(), method: 'get', remote: true do |f|%>
+          <div class="search-products-wrapper">
+          <%= f.text_field :name, placeholder: "Nhập vào tên để tìm kiếm...", class: "form-control" %>
+          <%= f.submit "Tìm kiếm", class: "btn btn-success" %>
+          </div>
+        <%end%>
+
+      </div>
+      <div></div>
+      <div></div>
+      <div><%= link_to "Thêm sản phẩm", new_product_path(), class: "btn btn-success" %></div>
+      </div>
+      <div class="table-wrapper">
+
+
+        <div class="table">
+          <%= render 'product_list', products: @products %>
+
+          <div id="pagination">
+      <%= paginate @products, remote: true %>
+          </div>
+        </div>
+        <div class="table total_table">
+      <table class="table_danhsach">
+        <tr>
+          <th>Tổng</th>
+          <th>Đã bán: <%= @total_sold %></th>
+          <th>Tổng doanh thu: <%= @total_doanh_thu %> đ</th>
+        </tr>
+        
+
+      </table>
+        </div>
+      </div>
+      
+
+		</div>
+
+	</div>
+
+</div>
+
+</div>
+<%= render 'layouts/footer' %>

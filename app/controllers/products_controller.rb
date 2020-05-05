@@ -65,12 +65,22 @@ class ProductsController < ApplicationController
     uploaded_io_s = params[:product][:images]
     if uploaded_io_s
       @product.upload_images uploaded_io_s, current_user
-      @product.save
+      
     end
+    if @product.save
+        redirect_to @product
+    else
+    end
+  end
 
-
-
-    
+  def destroy
+    @product = Product.find_by id: params[:id]
+    if @product.status == "Đang kinh doanh"
+      @product.status = "Ngừng kinh doanh"
+    else
+      @product.status = "Đang kinh doanh"
+    end
+    @product.save
   end
 
   def search

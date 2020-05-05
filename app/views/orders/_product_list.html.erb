@@ -1,0 +1,60 @@
+			<table class="table_danhsach table_danhsach_f">
+
+				<tr>
+
+					<th>Nhà cung cấp</th>
+
+					<th>Loại sản phẩm</th>
+
+
+          <th>Tên sản phẩm</th>
+
+					<th>Đã bán</th>
+
+					<th>Kho</th>
+
+          <th>Doanh Thu</th>
+
+          <th>Trạng thái</th>
+
+          <th>Công cụ</th>
+
+				</tr>
+
+      
+          <% products.each do |product| %>
+  <tr>
+
+    <% # total_sold += product.sold %>
+    <% # total_doanh_thu += product.sold * product.price %>
+
+    <td class="text-center"><%= product.brand.name %></td>
+
+    <td class="text-center"><%= link_to product.category.name, category_products_path(id: product.category.id) %></td>
+
+
+    <td class="text-center"><%= link_to product.name, product_path(product) %></td>
+
+    <td class="text-center"><%= product.sold %></td>
+
+    <td class="text-center">
+      <% product.sizes.each do |size| %>
+        <li>Size: <%= size.name %> còn <%= size.stock %></li>
+      <%end%>
+    </td>
+    <td class="text-center"><%= (product.sold * product.price) %>đ</td>
+
+    <td class="text-center" id="status_<%= product.id  %>"><%= product.status %></td>
+
+    <td>
+      <%= link_to "Chỉnh sửa", edit_product_path(product), class: "btn btn-success" %>
+      <%= link_to product.status == "Đang kinh doanh" ? "Ngừng kinh doanh" : "Tiếp tục kinh doanh", product_path(product), method: 'delete', remote: true, id:"status-btn_#{product.id}", class: "btn btn-danger" %>
+    </td>
+
+  </tr>
+
+<%end%>
+
+
+      </table>
+

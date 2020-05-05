@@ -53,6 +53,7 @@ class OrdersController < ApplicationController
     
   end
 
+
   def index_sys
     @orders = Order.get_orders_default
   end
@@ -77,9 +78,32 @@ class OrdersController < ApplicationController
   end
   def cal_stock order
     order.card_products.each do |ct_product|
-      size = ct_product.product.sizes.find_by(name: ct_product.size)
+      product = ct_product.product
+      size = product.sizes.find_by(name: ct_product.size)
       size.stock -= ct_product.count
+
+      product.sold += ct_product.count
+
+      product.save
+
       size.save
+    end
+    
+  end
+
+  def sales_statistics
+    if params[:search]
+      @products = Product.search_products(params[:search][:name]).order(sold: :desc).page params[:page]
+    else
+      @products = Product.order(sold: :desc).page params[:page]
+      
+
+    end
+    @total_sold = 0
+    @total_doanh_thu = 0
+    Product.where("sold > 0").each do |product|
+      @total_sold += product.sold
+      @total_doanh_thu += product.sold * product.price
     end
     
   end
