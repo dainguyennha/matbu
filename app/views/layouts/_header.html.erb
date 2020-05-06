@@ -146,19 +146,22 @@
                                     
                                  </div>
                             </li>
+                            <% if logged_in? %>
+                            <% if current_user.admin %>
                             <li class="cate ">
                                 <a href="#">
 									<span class="text_cate">Công cụ dành cho admin</span>
 								</a>
                                 <div class="cate_child">
-                                  <div class="link-wrap"><%= link_to "Thêm sản phẩm", new_product_path() %></div>
+                                  <div class="link-wrap"><%= link_to "Doanh số bán hàng", sys_sales_statistics_path() %></div>
                                   <div class="link-wrap"><%= link_to "Xử lý đơn hàng", sys_orders_path() %></div>
                                   
 
 
                                  </div>
                             </li>
-                            
+                          <%end%>
+                        <%end%>
                             
                             
                         </ul>

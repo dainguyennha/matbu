@@ -9,7 +9,7 @@
       </div>
       <div class="prop">
         <%= f.label "Mô tả" %>
-        <%= f.text_area :description, class: "form-control" %>
+        <%= f.text_area :description, class: "form-control height-200" %>
       </div>
       <div class="prop">
       <%= f.fields_for :sizes do |size| %>
@@ -24,7 +24,7 @@
       <div class="prop cat-brand">
         <div class="cb">
           <%= f.label "Thương hiệu" %> 
-          <%= f.select(:brand_id, Brand.all.map { |brand| [ brand.name, brand.id ] }, { :class => 'choose-size-pp'}) %>
+          <%= f.select(:brand_id, Brand.all.map { |brand| [ brand.name, brand.id ] },  :class => 'choose-size-pp') %>
           
         </div>
         <div class="cb">

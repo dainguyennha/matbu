@@ -13,7 +13,7 @@
 
 					<p class="title_danhsach">Danh sách</p>
 
-          <p class="info_danhsach">Có <b class="color"><%= current_user.orders.count %></b> đơn hàng</p>
+          <p class="info_danhsach">Có <b class="color"><%= @orders.count %></b> đơn hàng</p>
 
 					<table class="table_danhsach">
 
@@ -31,7 +31,7 @@
 
 						</tr>
 
-            <% current_user.orders.each do |order| %>
+            <% @orders.each do |order| %>
               <tr>
 
                 <td class="text-center"><%= order.created_at_in_zone_time %></td>

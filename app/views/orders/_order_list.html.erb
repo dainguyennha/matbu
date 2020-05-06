@@ -1,0 +1,18 @@
+<% orders.each do |order| %>
+  <tr class="prd">
+
+    <td class="text-center"><%= order.created_at_in_zone_time %></td>
+
+    <td class="text-center"><%= order.id %></td>
+
+    <td class="text-right"><%= order.total_price %> đ</td>
+    <td class="text-right"><%= order.phone %></td>
+
+    <td class="text-center"><%= order.status.name %></td>
+
+	  <td class="text-center"><%= link_to "Xem", sys_order_path(order), class:"link" %></td>
+
+  </tr>
+
+<%end%>
+ 

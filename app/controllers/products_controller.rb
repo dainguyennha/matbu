@@ -1,5 +1,7 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: [:show]
+  before_action :require_loggin_page, only: [:edit, :new, :update, :destroy]
+  before_action :is_admin, only: [:edit, :new, :update, :destroy]
 
   def index
     if params[:product_filter]
@@ -9,12 +11,13 @@ class ProductsController < ApplicationController
       brand_param = params[:product_filter][:brand].count == 1 ? Brand.all : params[:product_filter][:brand]
       @hot_products = Product.where(category: category_param,
                                     brand: brand_param)
+                            .get_selling_products
                             .order(created_at: :desc)
                             .page(params[:page])
                             .per(24)
     else 
       @filter = false
-      @hot_products = Product.order(created_at: :desc).page(params[:page]).per(24)
+      @hot_products = Product.get_selling_products.order(created_at: :desc).page(params[:page]).per(24)
     end
   end
 
@@ -85,6 +88,7 @@ class ProductsController < ApplicationController
 
   def search
     @products = Product.search_products(params[:search][:name])
+      .get_selling_products
       .order(created_at: :desc)
       .page(params[:page])
       .per(24)
@@ -93,6 +97,7 @@ class ProductsController < ApplicationController
   def filter
     @products = Product.where(category: params[:product_filter][:category],
                               brand: params[:product_filter][:brand])
+      .get_selling_products
       .order(created_at: :desc)
       .page(params[:filter_page])
   end
@@ -102,6 +107,7 @@ class ProductsController < ApplicationController
     if @category
       @category_name = @category.name
       @products = @category.products
+        .get_selling_products
         .order(created_at: :desc)
         .page(params[:page])
         .per(24)
@@ -112,8 +118,13 @@ class ProductsController < ApplicationController
   end
 
   private
+  def is_admin
+    if !current_user.admin
+      redirect_to root_url
+    end
+  end
   def set_product
-    @product = Product.find_by id: params[:id]
+    @product = Product.find_by id: params[:id], status: "Đang kinh doanh"
     not_found if @product.nil?
   end
 

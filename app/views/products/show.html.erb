@@ -5,9 +5,13 @@
 
     	<div class="container">
 
+        <% if logged_in? %>
+          <% if current_user.admin %>
         <div class="row del-edit-btn-wrap">
           <%= link_to "Chỉnh sửa", edit_product_path(), class: "btn btn-success" %>
         </div>
+      <%end%>
+    <%end%>
     		<div class="row">
 
     			<div class="col-lg-6 col-md-6 col-sm-12">
@@ -80,7 +84,7 @@
 
     						<li>
 
-    							<p><span class="text">Chất liệu: cotton </span></p>
+                  <p><span class="text">Nhãn hiệu: <%= @product.brand.name %></span></p>
 
     						</li>
 
@@ -275,6 +279,15 @@
             <p style="white-space: pre-line"><%= @product.description %></p>
 
             <img src="<%= @product.images[0] %>" /> 
+
+					</div>
+
+					<div class="tab2_info">
+
+            <p style="white-space: pre-line">
+            Miễn phí giao hàng toàn quốc (Sản phẩm trên 300,000đ)
+Thanh toán tiện lợi (nhiều hình thức thanh toán)
+Đổi trả dễ dàng Đổi trả 90 ngày cho giày và 30 ngày cho túi</p>
 
 					</div>
 

@@ -5,17 +5,25 @@
 
 		<div class="row">
 
+    <%= form_for :search,  url: sys_orders_path(), method: 'get', remote: true do |f|%>
 		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
 
-			
-
-
-
 			<p class="title_danhsach">Danh sách</p>
+      <div class="tool-wrapper">
+      <div class="search-table">
+          <div class="search-products-wrapper">
+          <%= f.text_field :id, placeholder: "Nhập vào id đơn hàng...", class: "form-control" %>
+          <%= f.submit "Tìm kiếm", class: "btn btn-success", id:"find_and_order_btn" %>
+          </div>
 
-      <p class="info_danhsach">Có <b class="color"><%= @orders.count %></b> đơn hàng</p>
+      </div>
+      <div></div>
+      <div></div>
+      <div><%= f.check_box :show_all, onchange: "orderChange();" %><%= f.label "Hiển thị toàn bộ đơn hàng", for:"search_show_all" %></div>
+      </div>
 
-			<table class="table_danhsach">
+
+			<table class="table_danhsach table_danhsach_f">
 
 				<tr>
 
@@ -26,34 +34,24 @@
 					<th>Tổng cộng</th>
           <th>Số điện thoại</th>
 
-					<th>Tình trạng đơn hàng</th>
+          <th class="cur-poiter"><%= f.check_box :status, onchange: "orderChange();", class: "dp-none" %> <%= f.label "Tình trạng đơn hàng", for: "search_status" %></th>
+
+
 
 					<th>Chi tiết</th>
 
 				</tr>
 
-        <% @orders.each do |order| %>
-          <tr>
-
-            <td class="text-center"><%= order.created_at_in_zone_time %></td>
-
-            <td class="text-center"><%= order.id %></td>
-
-            <td class="text-right"><%= order.total_price %> đ</td>
-            <td class="text-right"><%= order.phone %></td>
-
-            <td class="text-center"><%= order.status.name %></td>
-
-					  <td class="text-center"><%= link_to "Xem", sys_order_path(order), class:"link" %></td>
-
-				  </tr>
-
-        <%end%>
+        <%= render 'order_list', orders: @orders %>
         
 
 			</table>
+      <div id="pagination">
+      <%= paginate @orders, remote: true %>
+      </div>
 
 		</div>
+  <%end%>
 
 	</div>
 

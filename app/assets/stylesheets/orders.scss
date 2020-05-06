@@ -4,6 +4,12 @@
 #order-status-submit-btn{
   display: none;
 }
+.cur-poiter{
+  cursor: pointer;
+  label{
+    cursor: pointer;
+  }
+}
 
 .total_table{
   position: sticky;

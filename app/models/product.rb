@@ -12,6 +12,10 @@ class Product < ApplicationRecord
     where("name LIKE ?", "%#{name.strip}%")
   end
 
+  scope :get_selling_products, -> do
+    where(status: "Đang kinh doanh")
+  end
+
   def upload_images uploaded_io_s, user
     uploaded_io_s.each  do |uploaded_io|
 

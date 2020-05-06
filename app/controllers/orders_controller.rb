@@ -1,6 +1,8 @@
 class OrdersController < ApplicationController
   before_action :require_loggin_page
+  before_action :is_admin, only: [:show_sys, :update_status_sys, :index_sys, :sales_statistics]
   def index
+    @orders = current_user.orders.order(created_at: :desc)
     
   end
   def new
@@ -53,9 +55,32 @@ class OrdersController < ApplicationController
     
   end
 
+  def is_admin
+    if !current_user.admin
+      redirect_to root_url
+    end
+  end
 
   def index_sys
-    @orders = Order.get_orders_default
+    if params[:search]
+      o_status = params[:search][:status] == "0" ? "desc" : "asc"
+      if params[:search][:show_all] == "1"
+        if params[:search][:id] != ""
+          @orders = Order.search_orders(params[:search][:id]).page params[:page]
+        else
+          @orders = Order.all.order(status_id: o_status).page params[:page]
+        end
+        
+      else
+        if params[:search][:id] != ""
+          @orders = Order.get_orders_default.search_orders(params[:search][:id]).page params[:page]
+        else
+          @orders = Order.get_orders_default.order(status_id: o_status).page params[:page]
+        end
+      end
+    else
+      @orders = Order.get_orders_default.page params[:page]
+    end
   end
 
   def show_sys
@@ -93,7 +118,17 @@ class OrdersController < ApplicationController
 
   def sales_statistics
     if params[:search]
-      @products = Product.search_products(params[:search][:name]).order(sold: :desc).page params[:page]
+      o_sold = params[:search][:sold] == "0" ? "desc" : "asc"
+      o_status = params[:search][:status] == "0" ? "desc" : "asc" 
+      if o_sold == "asc" && o_status == "desc"
+        @products = Product.search_products(params[:search][:name]).order(sold: o_sold).page params[:page]
+      elsif o_sold == "desc" && o_status == "asc"
+        @products = Product.search_products(params[:search][:name]).order(status: o_status).page params[:page]
+      elsif o_sold == "asc" && o_status == "asc"
+        @products = Product.search_products(params[:search][:name]).page params[:page]
+      else 
+        @products = Product.search_products(params[:search][:name]).order(sold: o_sold).page params[:page]
+      end
     else
       @products = Product.order(sold: :desc).page params[:page]
       

@@ -18,6 +18,10 @@ class Order < ApplicationRecord
     where(status_id: [1, 2])
   end
 
+  scope :search_orders, -> (id) do
+    where(id: id)
+  end
+
   def created_at_in_zone_time
     created_at.in_time_zone(+7).strftime("%H:%M:%S ngày %d/%m/%Y")
   end

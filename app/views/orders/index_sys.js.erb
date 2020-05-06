@@ -1,0 +1,3 @@
+$(".prd").remove();
+$(".table_danhsach_f").append("<%= j render 'order_list', orders: @orders %>");
+$("#pagination").html("<%= j paginate @orders, remote: true %>");

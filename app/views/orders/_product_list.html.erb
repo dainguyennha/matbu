@@ -1,29 +1,7 @@
-			<table class="table_danhsach table_danhsach_f">
-
-				<tr>
-
-					<th>Nhà cung cấp</th>
-
-					<th>Loại sản phẩm</th>
-
-
-          <th>Tên sản phẩm</th>
-
-					<th>Đã bán</th>
-
-					<th>Kho</th>
-
-          <th>Doanh Thu</th>
-
-          <th>Trạng thái</th>
-
-          <th>Công cụ</th>
-
-				</tr>
 
       
           <% products.each do |product| %>
-  <tr>
+  <tr class="prd">
 
     <% # total_sold += product.sold %>
     <% # total_doanh_thu += product.sold * product.price %>
@@ -55,6 +33,4 @@
 
 <%end%>
 
-
-      </table>
 
