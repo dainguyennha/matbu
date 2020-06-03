@@ -124,7 +124,7 @@ class ProductsController < ApplicationController
     end
   end
   def set_product
-    @product = Product.find_by id: params[:id], status: "Đang kinh doanh"
+    @product = Product.find_by id: params[:id]
     not_found if @product.nil?
   end
 

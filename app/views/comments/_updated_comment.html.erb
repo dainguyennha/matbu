@@ -1,6 +1,6 @@
 <div class="comment" id="cmt_<%= comment.id %>">
   <h4><%= comment.user.name %></h4> <span><%= render partial: 'comments/rating', locals:{star: comment.rate} %></span>
   <p><%= comment.content %></p>
-  <p class="gray-color"><%= comment.created_at %></p>
+  <p class="gray-color"><%= comment.created_at_in_zone_time %></p>
   <hr>
 </div>

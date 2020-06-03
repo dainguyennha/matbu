@@ -76,6 +76,10 @@
 
 						</p>
 
+            <% if @product.status == "Ngừng kinh doanh" %>
+              <h3 class="ngung-kinh-doanh">Ngừng kinh doanh</h3>
+            <%end%>
+
     					<h4 class="thongtin">THÔNG TIN</h4>
 
     					<ul class="ul_info">
@@ -220,6 +224,7 @@
 
 								<li><span class="yeuthich active"></span></li>
 
+                <% if @product.status == "Đang kinh doanh" %>
 								<li>
 
                     <%= form_for :card_product, url: card_products_path(), remote: true do |f| %>
@@ -231,7 +236,7 @@
                     <%end%>
                   
 
-								</li>
+                </li>
 
 							</ul>
               <% if !@isAddedCard.nil? %>
@@ -239,6 +244,7 @@
               <% else %>
                 <%= render partial: 'card_products/add_card_form', locals: {product: @product } %>
               <% end %>
+              <%end%>
 
 						</div>
 

@@ -89,14 +89,28 @@ class OrdersController < ApplicationController
 
   def update_status_sys
     @order = Order.find_by id: params[:id]
-    @order.status_id = params[:order][:status].to_i
-    case @order.status_id
+    
+    case params[:order] [:status].to_i
+    when 4
+      case @order.status_id
+      when 2
+        @order.status_id = params[:order][:status].to_i
+        recal_stock @order
+      when 1
+        @order.status_id = params[:order][:status].to_i
+      end
+
+
     when 3
+      @order.status_id = params[:order][:status].to_i
       @order.card_products.update paid: true
     when 2
+      @order.status_id = params[:order][:status].to_i
       cal_stock @order
-      
+    when 1
+      @order.status_id = params[:order][:status].to_i
     end
+    
     @order.save
 
     
@@ -108,6 +122,21 @@ class OrdersController < ApplicationController
       size.stock -= ct_product.count
 
       product.sold += ct_product.count
+
+      product.save
+
+      size.save
+    end
+    
+  end
+
+  def recal_stock order
+    order.card_products.each do |ct_product|
+      product = ct_product.product
+      size = product.sizes.find_by(name: ct_product.size)
+      size.stock += ct_product.count
+
+      product.sold -= ct_product.count
 
       product.save
 

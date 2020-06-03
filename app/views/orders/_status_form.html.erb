@@ -1,0 +1,21 @@
+<%= form_for order, url: sys_update_status_order_path(), method: 'put', remote: true do |f| %>
+  <%= f.collection_radio_buttons(:status, Status.all, :id, :name, { checked: order.status.id }) do |b| %>
+    <span>
+      <%=b.radio_button(onchange: "updateStatusOrder('order_status_#{b.value}');", class: "status-radio #{b.value < order.status.id ? 'dp-none' : ''}")%> <%= b.label(class: "status-label #{b.value == order.status.id ? 'active-label' : ''} #{
+                                                                                                                                                                       case order.status.id
+      when 1
+        b.value == 3 ? 'dp-none' : ''
+      when 2
+        b.value == 1 ? 'dp-none' : ''
+      when 3
+        (b.value == 1 or b.value == 2 or b.value == 4) ? 'dp-none' : ''
+      when 4
+        b.value < 4 ? 'dp-none' : ''
+      end
+                                                                                                                                                                       } ") %>
+
+    </span>
+  <%end%>
+  <%= f.submit id: "order-status-submit-btn"  %>
+
+<%end%>

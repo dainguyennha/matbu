@@ -97,15 +97,8 @@
 
 						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
               <label>Trạng thái đơn hàng</label>
-              <%= form_for @order, url: sys_update_status_order_path(), method: 'put', remote: true do |f| %>
-                <%= f.collection_radio_buttons(:status, Status.all, :id, :name, { checked: @order.status.id }) do |b| %>
-                  <span>
-                    <%=b.radio_button(onchange: "updateStatusOrder('order_status_#{b.value}');", class: "status-radio #{b.value < @order.status.id ? 'dp-none' : ''}")%> <%= b.label(class: "status-label #{b.value == @order.status.id ? 'active-label' : ''} #{b.value < @order.status.id ? 'dp-none' : ''} ") %>
-                  </span>
-                <%end%>
-                <%= f.submit id: "order-status-submit-btn"  %>
+              <%= render 'status_form', order: @order %>
 
-              <%end%>
 						</div>
 					</div>
 
