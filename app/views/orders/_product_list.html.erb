@@ -16,7 +16,7 @@
 
     <td class="text-center"><%= link_to product.name, product_path(product) %></td>
 
-    <td class="text-center"><%= product.sold %></td>
+    <td class="text-center"><%= time ? product.solds_in_time : product.sold %></td>
 
     <td class="text-center">
       <% product.sizes.each do |size| %>

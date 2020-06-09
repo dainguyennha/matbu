@@ -1,0 +1,5 @@
+$(".prd").remove();
+$(".table_danhsach_f").append("<%= j render 'product_list', products: @products, time: true %>");
+$("#sold-lb").html("<%= @total_sold %>");
+$("#money-lb").html("<%= @total_doanh_thu %>");
+$("#pagination").html("");

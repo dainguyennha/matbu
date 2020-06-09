@@ -172,6 +172,30 @@ class OrdersController < ApplicationController
     
   end
 
+  def statistics_by_date_or_month
+    @products = []
+    @total_sold = 0
+    @total_doanh_thu = 0
+
+    firstTime = Time.at(params[:date_month][:begin_second].to_i)
+    lastTime = Time.at(params[:date_month][:end_second].to_i)
+    card_products = CardProduct.statistics_by_dm firstTime, lastTime
+    products_id = card_products.pluck(:product_id).uniq
+    products_id.each do |product_id|
+      product = Product.find_by(id: product_id)
+      count = 0
+      carts_of_a_product = product.card_products.statistics_by_dm firstTime, lastTime
+      carts_of_a_product.each do |cart_of_a_product|
+        count += cart_of_a_product.count
+      end
+      @total_sold += count
+      @total_doanh_thu += count * product.price
+      product.solds_in_time = count
+
+      @products.push product
+    end
+  end
+
   private
   def order_params
     params[:order].permit(:name, :phone, :email, :address, :note)

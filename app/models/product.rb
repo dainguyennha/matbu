@@ -4,6 +4,7 @@ class Product < ApplicationRecord
   belongs_to :category
   has_many :card_products, dependent: :destroy
   belongs_to :brand
+  attr_accessor :solds_in_time
 
   accepts_nested_attributes_for :sizes, allow_destroy: true,
     reject_if: :all_blank

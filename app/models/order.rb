@@ -22,9 +22,16 @@ class Order < ApplicationRecord
     where(id: id)
   end
 
+  scope :statistics_by_dm, -> (firstTime, lastTime) do
+    where("updated_at >= ? AND updated_at < ?", firstTime, lastTime).where status_id: 3
+  end
+
   def created_at_in_zone_time
     created_at.in_time_zone(+7).strftime("%H:%M:%S ngày %d/%m/%Y")
   end
+
+
+
 
 
 

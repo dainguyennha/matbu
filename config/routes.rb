@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   get '/order/sys/:id', to: 'orders#show_sys', as: 'sys_order'
   put '/order/sys/:id', to: 'orders#update_status_sys', as: 'sys_update_status_order'
   get '/sys/sales_statistics', to: 'orders#sales_statistics', as: 'sys_sales_statistics'
+  post '/sys/statistics_by_date_or_month', to: 'orders#statistics_by_date_or_month', as: 'statistics_by_date_or_month'
 
   resources :users, only: [:update, :show]
   resources :products

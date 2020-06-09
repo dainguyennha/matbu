@@ -21,8 +21,10 @@
           </div>
 
       </div>
-      <div></div>
-      <div></div>
+      <div>Thống kê theo tháng <input type="month" id="month-input" class="dm-input" onchange="monthChange(this);"></div>
+      <div>Thống kê theo ngày <input type="date" id="date-input" class="dm-input" onchange="dateChange(this);"></div>
+
+      
       <div><%= link_to "Thêm sản phẩm", new_product_path(), class: "btn btn-success" %></div>
       </div>
       <div class="table-wrapper">
@@ -54,7 +56,7 @@
           <th>Công cụ</th>
 
 				</tr>
-          <%= render 'product_list', products: @products %>
+          <%= render 'product_list', products: @products, time: false %>
           </table>
 
 
@@ -63,8 +65,8 @@
       <table class="table_danhsach">
         <tr>
           <th>Tổng</th>
-          <th>Đã bán: <%= @total_sold %></th>
-          <th>Tổng doanh thu: <%= @total_doanh_thu %> đ</th>
+          <th>Đã bán: <b id="sold-lb"><%= @total_sold %></b></th>
+          <th>Tổng doanh thu: <b id="money-lb"><%= @total_doanh_thu %></b> đ</th>
         </tr>
         
 
@@ -83,4 +85,9 @@
 </div>
 
 </div>
+<%= form_for :date_month, url:statistics_by_date_or_month_path(), method: "post", remote: true, html: {class: "hidden"} do |f| %>
+        <%= f.number_field :begin_second, id: "begin-time" %>
+        <%= f.number_field :end_second, id: "end-time" %>
+        <%= f.submit id: "date_month_submit" %>
+      <%end%>
 <%= render 'layouts/footer' %>
