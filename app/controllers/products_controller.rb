@@ -23,6 +23,14 @@ class ProductsController < ApplicationController
 
   def show
     if !@product.nil?
+      @begin_sizes = @product.sizes.to_a
+      @begin_sizes.each do |size|
+        if size.stock == 0
+          @begin_sizes -= [size]
+        end
+      end
+
+
       
       @same_products = @product.category.products.where("id != ?", @product.id).order(created_at: :desc).limit(4)
       @isAddedCard = nil
@@ -54,7 +62,6 @@ class ProductsController < ApplicationController
     if @product.save
       redirect_to @product
     else
-      byebug
     end
   end
 

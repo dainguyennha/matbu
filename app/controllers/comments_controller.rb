@@ -2,11 +2,17 @@ class CommentsController < ApplicationController
 
   def create
     @comment = current_user.comments.new comment_params
-    if bought?
-      @product = @comment.product
-      @product.cal_average_nrate params[:comment][:rate].to_f
-      @product.save
-      @comment.save
+    if @comment.valid?
+      if bought?
+        @product = @comment.product
+        @product.cal_average_nrate params[:comment][:rate].to_f
+        @product.save
+        @comment.save
+      end
+    else
+      respond_to do |format|
+        format.js { render "require_rate.js.erb"}
+      end
     end
 
     

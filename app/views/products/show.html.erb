@@ -195,7 +195,7 @@
 						<div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
 
 <select class="choose-size-pp" onchange="changeSize(this);" onload="changeSize(this);">
-  <% @product.sizes.each do |size| %>
+  <% @begin_sizes.each do |size| %>
     <option value="<%= size.name %>"><%= size.name %></option>
   <% end %>
 </select>
@@ -230,7 +230,7 @@
                     <%= form_for :card_product, url: card_products_path(), remote: true do |f| %>
                       <%= f.hidden_field :count, value: 1, id:"product-count-buy" %>
                       <%= f.hidden_field :product_id, value: @product.id %>
-                      <%= f.hidden_field :size, value: @product.sizes[0].name, id:"product-size-buy" %>
+                      <%= f.hidden_field :size, value: @begin_sizes[0].name, id:"product-size-buy" %>
                       <%= f.hidden_field :type_order, value: "buy" %>
                       <div class="buy"><%= f.submit "Mua ngay", class: "btn-primary" %> </div>
                     <%end%>
@@ -242,7 +242,7 @@
               <% if !@isAddedCard.nil? %>
                 <%= render partial: 'card_products/added_card_btn', locals: { card_product_id: @isAddedCard.id } %>
               <% else %>
-                <%= render partial: 'card_products/add_card_form', locals: {product: @product } %>
+                <%= render partial: 'card_products/add_card_form', locals: {product: @product, sizes: @begin_sizes } %>
               <% end %>
               <%end%>
 

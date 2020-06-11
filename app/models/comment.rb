@@ -1,4 +1,6 @@
 class Comment < ApplicationRecord
+  validates :rate, presence: { message: "Chọn để xếp hạng sản phẩm!"}
+
   belongs_to :user
   belongs_to :product
 

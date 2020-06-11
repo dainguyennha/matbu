@@ -8,7 +8,7 @@
     <td class="text-right"><%= order.total_price %> đ</td>
     <td class="text-right"><%= order.phone %></td>
 
-    <td class="text-center"><%= order.status.name %></td>
+    <td class="text-center"><%= order.status.name %> <p class="error"><%= "Sản phẩm trong kho không đủ" if !order.isEnough?  %></p></td>
 
 	  <td class="text-center"><%= link_to "Xem", sys_order_path(order), class:"link" %></td>
 

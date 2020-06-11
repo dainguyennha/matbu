@@ -3,6 +3,7 @@
     <h4>Chọn đánh giá của bạn </h4>
 
     <%= render partial: 'comments/new_rate', locals: { star: star } %>
+    <div id="rate_error" class="error"></div>
   </div>
   <%= form_for @comment,  remote: true do |f|   %>
     <%= f.hidden_field :rate, id:'i-star' %>
