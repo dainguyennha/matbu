@@ -1,9 +1,13 @@
 class UsersController < ApplicationController
+  before_action :require_loggin_page
   def show
+    if current_user.id != params[:id].to_i
+      redirect_to current_user
+    end
   end
 
   def update
-    @user = User.find_by id: params[:id]
+    @user = current_user
     respond_to do |format|
     if params[:user] [:is_change_password] == "0"
       @user.assign_attributes user_info_params

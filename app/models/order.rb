@@ -30,9 +30,17 @@ class Order < ApplicationRecord
     created_at.in_time_zone(+7).strftime("%H:%M:%S ngày %d/%m/%Y")
   end
 
+  def isEnough?
+    if status.id == 3 or status.id == 4
+      return true
+    else
+      cart_products = self.card_products
+      cart_products.each do |card_product|
+        stock = card_product.product.sizes.find_by(name: card_product.size).stock
+        return false if card_product.count > stock
+      end
+      return true
 
-
-
-
-
+    end
+  end
 end

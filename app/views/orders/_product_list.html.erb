@@ -23,7 +23,7 @@
         <li>Size: <%= size.name %> còn <%= size.stock %></li>
       <%end%>
     </td>
-    <td class="text-center"><%= (product.sold * product.price) %>đ</td>
+    <td class="text-center"><%= time ? (product.solds_in_time * product.price) : (product.sold * product.price) %>đ</td>
 
     <td class="text-center" id="status_<%= product.id  %>"><%= product.status %></td>
 

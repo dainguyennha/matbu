@@ -13,6 +13,12 @@ class CardProductsController < ApplicationController
 
   def new
     @product = Product.find_by id: params[:id] rescue not_found
+    @begin_sizes = @product.sizes.to_a
+    @begin_sizes.each do |size|
+      if size.stock == 0
+        @begin_sizes -= [size]
+      end
+    end
   end
   def create
         @card_product = current_user.card_products.new card_product_params 
@@ -28,6 +34,12 @@ class CardProductsController < ApplicationController
   def destroy
 
     @card_product.destroy if !@card_product.nil?
+    @begin_sizes = @card_product.product.sizes.to_a
+    @begin_sizes.each do |size|
+      if size.stock == 0
+        @begin_sizes -= [size]
+      end
+    end
   end
 
   def update

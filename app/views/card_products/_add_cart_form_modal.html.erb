@@ -3,7 +3,7 @@
         <%= form_for :card_product, url: card_products_path(), remote:true do |f| %>
             <div class="it">
                 <label for="card_product_size">Chọn size:</label>
-                <%= f.select :size, product.sizes.map { |size| [ size.name, size.name ] } %>
+                <%= f.select :size, sizes.map { |size| [ size.name, size.name ] } %>
             </div>
             <div class="it">
 
