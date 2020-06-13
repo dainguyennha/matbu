@@ -10,7 +10,7 @@ class Product < ApplicationRecord
     reject_if: :all_blank
 
   scope :search_products, -> (name) do
-    where("name LIKE ?", "%#{name.strip}%")
+    where("lower(name) LIKE ?", "%#{name.downcase.strip}%")
   end
 
   scope :get_selling_products, -> do
